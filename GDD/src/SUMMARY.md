@@ -1,3 +1,16 @@
 # Summary
 
-- [Introduction](./intro.md)
+1. [🔷 Introduction 🔷](intro.md)
+    - [❖ High Concept ❖](high-concept.md)
+    - [❖ Core Gameplay Loop ❖](core-gameplay-loop.md)
+    - [❖ Core Design Pillars ❖](core-design-pillars.md)
+2. [🔷 Mechanics 🔷](mech.md)
+3. [🔷 Aesthetics 🔷](aesthetics.md)
+    - [❖ Art Direction ❖](art-direction.md)
+    - [❖ Audio Design ❖](audio-design.md)
+    - [❖ UX/UI ❖](ux-ui.md)
+4. [🔷 Production 🔷](prod.md)
+    - [❖ Platforms ❖](plat.md)
+    - [❖ Monetization ❖](money.md)
+    - [❖ Marketing ❖](market.md)
+5. [🔷 Icebox 🔷](icebox/md)
