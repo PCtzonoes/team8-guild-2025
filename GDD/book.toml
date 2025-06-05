@@ -1,0 +1,6 @@
+[book]
+authors = ["Pedro"]
+language = "en"
+multilingual = false
+src = "src"
+title = "GDD team 8"
