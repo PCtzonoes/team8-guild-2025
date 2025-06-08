@@ -14,7 +14,22 @@ A single 'round' will play as such:
 	1) Dealer deals 5 random cards to the player, and 1 face up card for the 'trump suit'.
 	2) Player bets between 0 and the number of cards in hand.
 	3) dealer plays 3 cards, 2 face up 1 face down
-	4) player plays 1 card, then the dealer flips the last card, revealing the whole hand
+	4) player plays 1 card, then the dealer flips the last card, revealing the whole hand.
 	5) Highest value card determines who wins the trick, tie goes to the dealer.
 	6) Dealer keeps playing 3 cards until player has no cards left, and the round is over.
-	7) if player has won a number of tricks other than the bet, they lose.
+	7) If player has won a number of tricks other than the bet, they lose.
+
+Between rounds, the deck must be shuffled.
+
+## Item Cards
+
+Before the start of every round of a battle, the player must choose up to 3 of their available 'item cards' that will be drawn into their hand on the very left. If the player already has 'item cards' in their hand, they may only select as many item cards as they need to make the total 3. If they have none available, or the player has 3 items cards in hand the start of the round, this step is skipped and the dealer proceeds with the dealing cards. 
+
+When an item card is played, it's 'effect' is activated. This effect cannot be cancelled, even if the effect requires additional player input - i.e. selecting another card to be transformed or destroyed. An item can only be played before the player has played a regular playing card, which signifies the end of the current 'trick'. When an item's effect has concluded, it is made unavailable to be selected at the start of the next round, if it there is a next round.
+
+**Item Effects**
+- The Reaper: Destroy one of the dealer's cards
+- Ascension: Transform a card in hand or one of the opponents cards into a 'Wizard'
+- Damnation: Transform a card in hand or one of the dealer's cards into a 'Jester'
+- **ADDITIONAL ITEMS TO BE DESIGNED**
+
