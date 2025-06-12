@@ -10,6 +10,8 @@ public class DeckManager : MonoBehaviour
 
     private void Start()
     {
+        _totalDeck = FindObjectsOfType<Card>();
+
         ShuffleCards();
     }
 
