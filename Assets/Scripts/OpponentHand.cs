@@ -10,52 +10,53 @@ public class OpponentHand : MonoBehaviour
 
     [SerializeField] private int numberOfHiddenCards = 1;
     
-    public Card[] handOfCards;
+    public List<Card> handOfCards;
     
-    public void RenderCards(Card[] cards)
+    public void RenderCards(List<Card> cards)
     {
         handOfCards = cards;
-        float cardWidth = handOfCards.First().transform.localScale.x;
-        float initialTransform = (handOfCards.Length * cardWidth + (handOfCards.Length - 1) * GAP_BETWEEN_CARDS)/2;
         
-        for (int i = 0; i < handOfCards.Length; i++)
-        {
-            Card card = handOfCards[i];
-            card.transform.SetParent(transform);
-            card.transform.localPosition = new Vector3(initialTransform - (cardWidth + GAP_BETWEEN_CARDS) * i, 0, 0);
-        }
-
-        Card[] hiddenCards = GetInitialHiddenCards();
+        List<Card> hiddenCards = GetInitialHiddenCards();
 
         foreach (Card card in hiddenCards)
         {
             card.transform.rotation = Quaternion.Euler(-90, 0, 0);
         }
-            
+        
+        float cardWidth = handOfCards.First().transform.localScale.x;
+        float initialTransform = (handOfCards.Count * cardWidth + (handOfCards.Count - 1) * GAP_BETWEEN_CARDS)/2;
+        
+        for (int i = 0; i < handOfCards.Count; i++)
+        {
+            Card card = handOfCards[i];
+            card.transform.SetParent(transform);
+            // card.transform.localPosition = new Vector3(initialTransform - (cardWidth + GAP_BETWEEN_CARDS) * i, 0, 0);
+            card.AnimOnMove(new Vector3(initialTransform - (cardWidth + GAP_BETWEEN_CARDS) * i, 0, 0), .25f * i);
+        }
     }
 
     public void RevealCard()
     {
         foreach (Card card in GetInitialHiddenCards())
         {
-            card.transform.rotation = Quaternion.Euler(90, 0, 0);
+            card.AnimOnRotate(Quaternion.Euler(90, 0, 0), 0f);
         }
     }
 
-    public Card[] GetOpponentWildCards(string wildCardSuite)
+    public List<Card> GetWildCards(string wildCardSuite)
     {
         return handOfCards
             .Where(card => card.cardSuit == wildCardSuite)
-            .ToArray();
+            .ToList();
     }
 
-    public Card[] GetInitialShownCards()
+    public List<Card> GetInitialShownCards()
     {
-        return handOfCards.Skip(numberOfHiddenCards).ToArray();
+        return handOfCards.Skip(numberOfHiddenCards).ToList();
     }
 
-    public Card[] GetInitialHiddenCards()
+    public List<Card> GetInitialHiddenCards()
     {
-        return handOfCards.Take(numberOfHiddenCards).ToArray();
+        return handOfCards.Take(numberOfHiddenCards).ToList();
     }
 }

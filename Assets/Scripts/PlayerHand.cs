@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using DefaultNamespace.Events;
 using UnityEngine;
 
 public class PlayerHand : MonoBehaviour
@@ -10,6 +11,13 @@ public class PlayerHand : MonoBehaviour
     [SerializeField] private float cardSpacingX = 1f;
     [SerializeField] private float cardSpacingZ = .01f;
 
+    public void DrawCards(List<Card> cards)
+    {
+        cards.ForEach(card => card.isInHand = true);
+        cardsInHand.AddRange(cards);
+        ArrangeHand();
+    }
+    
     public void ArrangeHand()
     {
         int count = cardsInHand.Count;
@@ -31,7 +39,7 @@ public class PlayerHand : MonoBehaviour
 
             // change position based on order
             Vector3 newPos = new Vector3(startX + i * spacingX, 0f, startZ + i * - cardSpacingZ);
-            thisCard.AnimOnArrangeHand(newPos, transform.rotation, .15f*i);
+            thisCard.AnimOnMoveAndRotate(newPos, transform.rotation, .15f*i);
 
             // rotate based on position
             //thisCard.transform.rotation = transform.rotation;
@@ -52,8 +60,9 @@ public class PlayerHand : MonoBehaviour
 
     public void PlaySelectedCard(Card card)
     {
+        GameEvents.PlayedCard(card);
         cardsInHand.Remove(card);
-        card.AnimPlayToTable();
+        // card.AnimPlayToTable();
         ArrangeHand();
     }
 }

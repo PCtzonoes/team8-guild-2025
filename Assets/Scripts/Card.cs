@@ -117,17 +117,30 @@ public class Card : MonoBehaviour
     {
         transform.DOLocalMoveY(_hoverDistance, _hoverTime);
     }
+    
     public void AnimHoverDown()
     {
         transform.DOLocalMoveY(0, _hoverTime);
     }
+    
     public void AnimPlayToTable()
     {
         transform.DOMove(_playerCardPlacementPoint, _playerCardPlacementTime);
     }
-    public void AnimOnArrangeHand(Vector3 newPosition,Quaternion newRotation, float delay)
+    
+    public void AnimOnMoveAndRotate(Vector3 newPosition,Quaternion newRotation, float delay)
     {
         transform.DOLocalMove(newPosition, _onArrangeHandTime).SetDelay(delay).SetEase(Ease.InOutCubic);
-        transform.DOLocalRotateQuaternion(newRotation, _onArrangeHandTime);
+        transform.DOLocalRotateQuaternion(newRotation, _onArrangeHandTime).SetDelay(delay).SetEase(Ease.InOutCubic);
+    }
+    
+    public void AnimOnRotate(Quaternion newRotation, float delay)
+    {
+        transform.DOLocalRotateQuaternion(newRotation, _onArrangeHandTime).SetDelay(delay).SetEase(Ease.InOutCubic);
+    }
+    
+    public void AnimOnMove(Vector3 newPosition, float delay)
+    {
+        transform.DOLocalMove(newPosition, _onArrangeHandTime).SetDelay(delay).SetEase(Ease.InOutCubic);
     }
 }

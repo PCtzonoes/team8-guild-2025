@@ -8,29 +8,32 @@ public class DeckManager : MonoBehaviour
     [SerializeField] private List<Card> _currentDeck;
     [SerializeField] private PlayerHand _playerHand;
 
-    private void Start()
+    // private void Start()
+    // {
+    //     _totalDeck = FindObjectsOfType<Card>();
+    //
+    //     ShuffleCards();
+    // }
+
+    // Manual Debugs
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.S))
+    //     {
+    //         ShuffleCards();
+    //     }
+    //
+    //     if (Input.GetKeyDown(KeyCode.D))
+    //     {
+    //         DrawPlayerHand(5);
+    //     }
+    // }
+
+    public void ShuffleCards()
     {
         _totalDeck = FindObjectsOfType<Card>();
 
-        ShuffleCards();
-    }
-
-    // Manual Debugs
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            ShuffleCards();
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            DrawPlayerHand(5);
-        }
-    }
-
-    private void ShuffleCards()
-    {
+        Debug.Log("Shuffling cards...");
         // copy the template deck
         for (int i = 0; i < _totalDeck.Length; i++)
         {
@@ -87,11 +90,12 @@ public class DeckManager : MonoBehaviour
         Debug.Log("Drew Player Cards");
     }
 
-    public List<Card> DrawCards(int numberOfCards)
+    public List<Card> DrawCardsFromDeck(int numberOfCards)
     {
-        List<Card> firstFive = _currentDeck.Take(5).ToList();
-        _currentDeck.RemoveRange(0, firstFive.Count);
-        return firstFive;
+        List<Card> cards = _currentDeck.Take(numberOfCards).ToList();
+        _currentDeck.RemoveRange(0, numberOfCards);
+        SpaceCards();
+        return cards;
     }
 
 }

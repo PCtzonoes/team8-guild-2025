@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
+using DefaultNamespace.Events;
 using UnityEngine;
 using UnityEngine.Windows.WebCam;
 
@@ -11,60 +12,44 @@ public class TrickManager : MonoBehaviour
     [SerializeField] private PlayerHand playerHand;
     [SerializeField] private OpponentHand opponentHand;
     [SerializeField] private Card playedCard;
-    [SerializeField] private string wildCardSuite;
+
+    private string wildCardSuit;
     
-    
-    [SerializeField] private Card[] tempOpponentCardInput;
-    [SerializeField] private Card tempPlayedCard;
-    
-    // Start is called before the first frame update
-    private void Update()
+    public void InitializeTrick(
+        List<Card> oppoenentCards,
+        string drawnWildCardSuit)
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            OnTrickStart(tempOpponentCardInput);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            OnPlayCard(tempPlayedCard);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            TrickEnd();
-        }
+        wildCardSuit = drawnWildCardSuit;
+        opponentHand.RenderCards(oppoenentCards);
     }
 
-    void OnTrickStart(Card[] opponentCards)
+    public void StartTrick(List<Card> oppoenentCards)
     {
-        opponentHand.RenderCards(opponentCards);
+        
     }
-
-    void OnPlayCard(Card card)
+    
+    void OnPlayedCard(Card card)
     {
         // TODO: Remove card from PlayerHand
-        
+        card.isInHand = false;
         playedCard = card;
         playedCard.transform.SetParent(transform);
-        playedCard.transform.localPosition = new Vector3(-0.0f,0.1f,-6.5f);
-        playedCard.transform.localRotation = Quaternion.Euler(90, 0, 0);
+        // playedCard.transform.localPosition = new Vector3(-0.0f,0.1f,-6.5f);
+        // playedCard.transform.localRotation = Quaternion.Euler(90, 0, 0);
         
-        opponentHand.RevealCard();
+        playedCard.AnimOnMoveAndRotate(
+            new Vector3(0.0f,0.2f,-6.5f),
+            Quaternion.Euler(90, 0, 0),0f);
+        
+        Debug.Log("Player played card.");
+        
+        TrickEnd();
     }
 
     void TrickEnd()
     {
-        playedCard.cardSuit = wildCardSuite;
-        if (DidPlayerWinTrick())
-        {
-            Debug.Log("YOU WIN!");
-        }
-        else
-        {
-            Debug.Log("YOU LOSE!");
-        }
-        
+        opponentHand.RevealCard();
+        GameEvents.EndTrick(DidPlayerWinTrick());
     }
 
     private bool DidPlayerWinTrick()
@@ -84,18 +69,28 @@ public class TrickManager : MonoBehaviour
             return false;
         }
 
-        Card[] opponentWildCards = opponentHand.GetOpponentWildCards(wildCardSuite);
+        List<Card> opponentWildCards = opponentHand.GetWildCards(wildCardSuit);
         
-        if (playedCard.cardSuit == wildCardSuite)
+        if (playedCard.cardSuit == wildCardSuit)
         {
             return !opponentWildCards.Any(card => card.cardRank >= playedCard.cardRank);
         }
 
-        if (opponentWildCards.Length > 0)
+        if (opponentWildCards.Count > 0)
         {
             return false;
         }
         
         return !opponentHand.handOfCards.Any(card => card.cardRank >= playedCard.cardRank);
+    }
+    
+    private void OnEnable()
+    {
+        GameEvents.OnPlayedCard += OnPlayedCard;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnPlayedCard -= OnPlayedCard;
     }
 }
