@@ -130,6 +130,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: clubs
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -179,17 +187,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
---- !u!114 &35980577 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 35980576}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &35980578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
@@ -308,6 +305,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: diamonds
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -357,17 +362,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
---- !u!114 &259241710 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 259241709}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &259241711 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
@@ -398,13 +392,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412828157}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12855181, y: -0, z: -0, w: 0.99170285}
+  m_LocalRotation: {x: 0.06409692, y: 0, z: 0, w: 0.9979437}
   m_LocalPosition: {x: 0, y: 0.48, z: -5.965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1050917358}
-  m_LocalEulerAnglesHint: {x: 14.772, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.35, y: 0, z: 0}
 --- !u!114 &412828159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,6 +456,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: diamonds
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -511,17 +513,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
---- !u!114 &634764147 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 634764146}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &634764148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
@@ -581,17 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfa3e2ce70679d47aa939ed41170b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _totalDeck:
-  - {fileID: 1643070954}
-  - {fileID: 1606023932}
-  - {fileID: 259241710}
-  - {fileID: 634764147}
-  - {fileID: 2047643746}
-  - {fileID: 1231241024}
-  - {fileID: 35980577}
-  - {fileID: 1452352241}
-  - {fileID: 1988672137}
-  - {fileID: 1436993384}
+  _totalDeck: []
   _currentDeck: []
   _playerHand: {fileID: 412828159}
 --- !u!1 &767521557
@@ -770,6 +751,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 99
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: wizard
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -924,6 +913,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: hearts
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -973,33 +970,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
---- !u!114 &1231241024 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 1231241023}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1231241025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
   m_PrefabInstance: {fileID: 1231241023}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1436993384 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 1093203701}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1452352240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1008,6 +983,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: spades
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1057,17 +1040,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
---- !u!114 &1452352241 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 1452352240}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1452352242 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
@@ -1081,6 +1053,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: hearts
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1130,17 +1110,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
---- !u!114 &1606023932 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 1606023931}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1606023933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
@@ -1151,17 +1120,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
   m_PrefabInstance: {fileID: 985595517796977829}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1643070954 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 985595517796977829}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1742602764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,6 +1358,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: spades
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1449,17 +1415,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
---- !u!114 &1988672137 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 1988672136}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1988672138 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
@@ -1473,6 +1428,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: clubs
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1522,17 +1485,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
---- !u!114 &2047643746 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
-  m_PrefabInstance: {fileID: 2047643745}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b4a447ff20f6d4f9675a9b9c2c2e40, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2047643747 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
@@ -1546,6 +1498,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 727556235}
     m_Modifications:
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardRank
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 528055260770603046, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
+      propertyPath: cardSuit
+      value: spades
+      objectReference: {fileID: 0}
     - target: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
