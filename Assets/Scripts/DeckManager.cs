@@ -85,4 +85,11 @@ public class DeckManager : MonoBehaviour
         Debug.Log("Drew Player Cards");
     }
 
+    public List<Card> DrawCards(int numberOfCards)
+    {
+        List<Card> firstFive = _currentDeck.Take(5).ToList();
+        _currentDeck.RemoveRange(0, firstFive.Count);
+        return firstFive;
+    }
+
 }
