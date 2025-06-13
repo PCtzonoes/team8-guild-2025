@@ -18,7 +18,12 @@ public class GameManager : MonoBehaviour
     private int _targetTrickWins;
     private int _tricksWon = 0;
     
-    private void Start()
+    //private void Start()
+    //{
+    //    StartCoroutine(StartGameRoutine());
+    //}
+
+    public void StartRound()
     {
         StartCoroutine(StartGameRoutine());
     }
@@ -26,10 +31,17 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartGameRoutine()
     {
         deckManager.ShuffleCards();
-        
         Debug.Log("Shuffled the deck.");
+
+        yield return new WaitForSeconds(1);       
         
         SetWildCard();
+        while (_wildCardSuit != "hearts" && _wildCardSuit != "clubs" && _wildCardSuit != "diamonds" && _wildCardSuit != "spades")
+        {
+            Debug.Log(_wildCardSuit);
+            yield return new WaitForSeconds(1.0f);
+            SetWildCard();
+        }
         
         yield return new WaitForSeconds(1.0f);
         Debug.Log("Wild card set.");
@@ -39,13 +51,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         Debug.Log("Player hand drawn.");
 
-        PlaceBet();
-        
-        Debug.Log("Player placed bet");
+        //PlaceBet();
 
-        trickManager.InitializeTrick(
-            deckManager.DrawCardsFromDeck(3),
-            _wildCardSuit);
+        //Debug.Log("Player placed bet");
+
+        //trickManager.InitializeTrick(
+        //    deckManager.DrawCardsFromDeck(3),
+        //    _wildCardSuit);
+
+        GameEvents.StartBetting();
     }
 
     private void OnTrickEnd(bool isPlayerWinner)
@@ -83,20 +97,28 @@ public class GameManager : MonoBehaviour
         playerHand.DrawCards(drawnCards);
     }
 
-    private void PlaceBet()
+    private void PlaceBet(int bet)
     {
         //TODO handle bet placing
-        _targetTrickWins = 3;
-        GameEvents.MadeBet(_targetTrickWins);
+        _targetTrickWins = bet;
+        //GameEvents.MadeBet(_targetTrickWins);
+
+        Debug.Log("Player placed bet");
+
+        trickManager.InitializeTrick(
+            deckManager.DrawCardsFromDeck(3),
+            _wildCardSuit);
     }
-    
+
     private void OnEnable()
     {
         GameEvents.OnTrickEnd += OnTrickEnd;
+        GameEvents.OnBetMade += PlaceBet;
     }
 
     private void OnDisable()
     {
         GameEvents.OnTrickEnd -= OnTrickEnd;
+        GameEvents.OnBetMade -= PlaceBet;
     }
 }

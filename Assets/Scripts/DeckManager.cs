@@ -8,13 +8,6 @@ public class DeckManager : MonoBehaviour
     [SerializeField] private List<Card> _currentDeck;
     [SerializeField] private PlayerHand _playerHand;
 
-    // private void Start()
-    // {
-    //     _totalDeck = FindObjectsOfType<Card>();
-    //
-    //     ShuffleCards();
-    // }
-
     // Manual Debugs
     // private void Update()
     // {
@@ -29,11 +22,58 @@ public class DeckManager : MonoBehaviour
     //     }
     // }
 
+    private void Start()
+    {
+        ApplySuitsAndRanks();
+    }
+
+    private void ApplySuitsAndRanks()
+    {
+        Card[] cards = FindObjectsOfType<Card>();
+
+        string[] suits = {"clubs", "diamonds", "spades", "hearts", "jester", "wizard"};
+
+        for(int i = 0;  i < cards.Length ; i++)
+        {
+            Card card = cards[i];
+
+            switch (i) 
+            {
+                case < 13:
+                    card.cardSuit = suits[0];
+                    card.cardRank = i+2;
+                    break;
+                case <26:
+                    card.cardSuit = suits[1];
+                    card.cardRank = i-11;
+                    break;
+                case < 39:
+                    card.cardSuit = suits[2];
+                    card.cardRank = i - 24;
+                    break;
+                case < 52:
+                    card.cardSuit = suits[3];
+                    card.cardRank = i - 37;
+                    break;
+                case < 56:
+                    card.cardSuit = suits[4];
+                    card.cardRank = 0;
+                    break;
+                case < 60:
+                    card.cardSuit = suits[5];
+                    card.cardRank = 99;
+                    break;
+            }
+            card.RenderCard();
+            
+        }
+    }
+
     public void ShuffleCards()
     {
         _totalDeck = FindObjectsOfType<Card>();
+        
 
-        Debug.Log("Shuffling cards...");
         // copy the template deck
         for (int i = 0; i < _totalDeck.Length; i++)
         {
@@ -50,9 +90,8 @@ public class DeckManager : MonoBehaviour
             _currentDeck[newIndex] = _currentDeck[i];
             _currentDeck[i] = oldCard;
         }
-        SpaceCards();
 
-        Debug.Log("shuffled the deck");
+        SpaceCards();
     }
 
     // space the cards out by their width.

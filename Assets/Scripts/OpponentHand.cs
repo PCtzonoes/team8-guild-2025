@@ -16,11 +16,12 @@ public class OpponentHand : MonoBehaviour
     {
         handOfCards = cards;
         
-        List<Card> hiddenCards = GetInitialHiddenCards();
+        List<Card> shownCards = GetInitialShownCards();
 
-        foreach (Card card in hiddenCards)
+        foreach (Card card in shownCards)
         {
-            card.transform.rotation = Quaternion.Euler(-90, 0, 0);
+            Debug.Log(card);
+            card.transform.rotation = Quaternion.Euler(90, 0, 0);
         }
         
         float cardWidth = handOfCards.First().transform.localScale.x;

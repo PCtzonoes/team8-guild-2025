@@ -32,7 +32,6 @@ public class Card : MonoBehaviour
 
         _meshRenderer = GetComponent<MeshRenderer>();
         _material = _meshRenderer.material;
-        RenderCard();
     }
 
     // hovering over the card when it's in hand.
@@ -53,6 +52,7 @@ public class Card : MonoBehaviour
             {
                 _playerHand.PlaySelectedCard(this);
             }
+            _material.mainTexture.Equals(_hoverTexture.texture);
             _playerHand.CheckSelectedCard();
             isSelected = !isSelected;
         }
@@ -70,7 +70,7 @@ public class Card : MonoBehaviour
     /// <summary>
     /// Rendering the face up side of the cards
     /// </summary>
-    private void RenderCard()
+    public void RenderCard()
     {
         Sprite[] sprites = new Sprite[_atlas.spriteCount];
         _atlas.GetSprites(sprites);
