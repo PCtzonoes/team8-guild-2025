@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace.Events;
 using UnityEngine;
+using System;
 
 public class PlayerHand : MonoBehaviour
 {
@@ -62,7 +63,28 @@ public class PlayerHand : MonoBehaviour
     {
         GameEvents.PlayedCard(card);
         cardsInHand.Remove(card);
+        card.isInteractible = false;
         // card.AnimPlayToTable();
         ArrangeHand();
     }
+
+    private void EnableCardInteraction(int bet)
+    {
+        foreach (Card card in cardsInHand)
+        {
+            card.isInteractible = true;
+        }
+    }
+
+    private void OnEnable()
+    {
+        GameEvents.OnBetMade += EnableCardInteraction;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnBetMade -= EnableCardInteraction;
+    }
+
+
 }

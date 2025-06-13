@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.U2D;
+using DefaultNamespace.Events;
 
 public class Card : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Card : MonoBehaviour
     public string cardSuit;
     public bool isAvailable;
     public bool isSelected = false;
+    public bool isInteractible = false;
     public bool isInHand = false;
     private PlayerHand _playerHand;
 
@@ -37,7 +39,7 @@ public class Card : MonoBehaviour
     // hovering over the card when it's in hand.
     private void OnMouseEnter()
     {
-        if (isInHand)
+        if (isInHand && isInteractible)
         {
             _material.mainTexture = _hoverTexture.texture;
             AnimHoverUp();
@@ -46,7 +48,7 @@ public class Card : MonoBehaviour
 
     private void OnMouseOver()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && isInteractible)
         {
             if(isSelected == true)
             {
@@ -60,11 +62,15 @@ public class Card : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (isInHand && isSelected == false)
+        if (isInteractible)
         {
-            _material.mainTexture = _defaultTexture.texture;
-            AnimHoverDown();
+            if (isInHand && isSelected == false)
+            {
+                _material.mainTexture = _defaultTexture.texture;
+                AnimHoverDown();
+            }
         }
+
     }
 
     /// <summary>
@@ -143,4 +149,5 @@ public class Card : MonoBehaviour
     {
         transform.DOLocalMove(newPosition, _onArrangeHandTime).SetDelay(delay).SetEase(Ease.InOutCubic);
     }
+
 }
