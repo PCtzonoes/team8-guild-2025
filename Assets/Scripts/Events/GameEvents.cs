@@ -14,6 +14,12 @@ namespace DefaultNamespace.Events
 
         public static event Action OnStartBetting;
 
+        public static event Action<int> OnTrickWon;
+
+        public static event Action<string> OnGameLost;
+
+        public static event Action<string> OnGameWon;
+
         public static void SetWildCardSuit(string wildCardSuit) => OnWildCardSetSuit?.Invoke(wildCardSuit);
         
         public static void MadeBet(int targetTricksWins) => OnBetMade?.Invoke(targetTricksWins);
@@ -23,5 +29,10 @@ namespace DefaultNamespace.Events
         public static void EndTrick(bool isPlayerWinner) => OnTrickEnd?.Invoke(isPlayerWinner);
 
         public static void StartBetting() => OnStartBetting?.Invoke();
+
+        public static void TrickWon(int tricksWon) => OnTrickWon?.Invoke(tricksWon);
+
+        public static void GameLost(string msg) => OnGameLost?.Invoke(msg);
+        public static void GameWon(string msg) => OnGameWon?.Invoke(msg);
     }
 }

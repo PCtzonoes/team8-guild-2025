@@ -14,6 +14,8 @@ public class TrickManager : MonoBehaviour
     [SerializeField] private Card playedCard;
 
     private string wildCardSuit;
+
+    private readonly Vector3 _graveyard = new Vector3(10f, 10f, 10f);
     
     public void InitializeTrick(
         List<Card> oppoenentCards,
@@ -25,7 +27,7 @@ public class TrickManager : MonoBehaviour
 
     public void StartTrick(List<Card> oppoenentCards)
     {
-        
+        StartCoroutine(StartTrickWithDelay(oppoenentCards));
     }
     
     void OnPlayedCard(Card card)
@@ -41,7 +43,7 @@ public class TrickManager : MonoBehaviour
             new Vector3(0.0f,0.2f,-6.5f),
             Quaternion.Euler(90, 0, 0),0f);
         
-        Debug.Log("Player played card.");
+        //Debug.Log("Player played card.");
         
         TrickEnd();
     }
@@ -54,10 +56,10 @@ public class TrickManager : MonoBehaviour
 
     private bool DidPlayerWinTrick()
     {
-        if (playedCard.cardSuit == "jester")
-        {
-            return opponentHand.GetInitialShownCards().Any(card => card.cardSuit != "jester");
-        }
+        //if (playedCard.cardSuit == "jester")
+        //{
+        //    return opponentHand.GetInitialShownCards().Any(card => card.cardSuit != "jester");
+        //}
         
         if (playedCard.cardSuit == "wizard")
         {
@@ -92,5 +94,20 @@ public class TrickManager : MonoBehaviour
     private void OnDisable()
     {
         GameEvents.OnPlayedCard -= OnPlayedCard;
+    }
+
+    private IEnumerator StartTrickWithDelay(List<Card> oppoenentCards)
+    {
+        yield return new WaitForSeconds(2);
+        foreach (var card in opponentHand.handOfCards)
+        {
+            card.transform.position = _graveyard;
+        }
+
+        playedCard.gameObject.SetActive(false);
+
+        opponentHand.handOfCards.Clear();
+
+        opponentHand.RenderCards(oppoenentCards);
     }
 }

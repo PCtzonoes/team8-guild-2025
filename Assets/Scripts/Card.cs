@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.U2D;
 using DefaultNamespace.Events;
+using Unity.Mathematics;
 
 public class Card : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class Card : MonoBehaviour
     [SerializeField] private float _playerCardPlacementTime;
     [SerializeField] private float _onArrangeHandTime;
 
-    private void Start()
+    private void Awake()
     {
         // declare the hand
         _playerHand = FindObjectOfType<PlayerHand>();
@@ -54,7 +55,8 @@ public class Card : MonoBehaviour
             {
                 _playerHand.PlaySelectedCard(this);
             }
-            _material.mainTexture.Equals(_hoverTexture.texture);
+            _material.mainTexture = _hoverTexture.texture;
+
             _playerHand.CheckSelectedCard();
             isSelected = !isSelected;
         }
@@ -133,7 +135,7 @@ public class Card : MonoBehaviour
     {
         transform.DOMove(_playerCardPlacementPoint, _playerCardPlacementTime);
     }
-    
+
     public void AnimOnMoveAndRotate(Vector3 newPosition,Quaternion newRotation, float delay)
     {
         transform.DOLocalMove(newPosition, _onArrangeHandTime).SetDelay(delay).SetEase(Ease.InOutCubic);

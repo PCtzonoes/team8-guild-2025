@@ -31,25 +31,25 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartGameRoutine()
     {
         deckManager.ShuffleCards();
-        Debug.Log("Shuffled the deck.");
+        //Debug.Log("Shuffled the deck.");
 
         yield return new WaitForSeconds(1);       
         
         SetWildCard();
         while (_wildCardSuit != "hearts" && _wildCardSuit != "clubs" && _wildCardSuit != "diamonds" && _wildCardSuit != "spades")
         {
-            Debug.Log(_wildCardSuit);
+            //Debug.Log(_wildCardSuit);
             yield return new WaitForSeconds(1.0f);
             SetWildCard();
         }
         
         yield return new WaitForSeconds(1.0f);
-        Debug.Log("Wild card set.");
+        //Debug.Log("Wild card set.");
 
         DrawPlayerHand();
         
         yield return new WaitForSeconds(1.0f);
-        Debug.Log("Player hand drawn.");
+        //Debug.Log("Player hand drawn.");
 
         //PlaceBet();
 
@@ -67,14 +67,32 @@ public class GameManager : MonoBehaviour
         if (isPlayerWinner)
         {
             _tricksWon++;
+            GameEvents.TrickWon(_tricksWon);
 
             if (_tricksWon > _targetTrickWins)
             {
+                GameEvents.GameLost("You went over your bet, and LOST!!");
                 Debug.Log("YOU LOSE!");
             }
+
+            
         }
-        
-        // TODO: Handle playing more tricks
+
+        // check once player hand is empty
+        if (playerHand.cardsInHand.Count <= 0)
+        {
+            //Debug.LogWarning("check passed");
+            if(_tricksWon != _targetTrickWins)
+            {
+                GameEvents.GameLost("You didn't achieve your bet, and LOST!!");
+            }
+            else
+            {
+                GameEvents.GameWon("You got exactly what you bet. Congratulations!!");
+            }
+        }
+
+        trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
     }
 
     private void SetWildCard()

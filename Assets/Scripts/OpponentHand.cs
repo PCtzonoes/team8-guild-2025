@@ -20,7 +20,7 @@ public class OpponentHand : MonoBehaviour
 
         foreach (Card card in shownCards)
         {
-            Debug.Log(card);
+            //Debug.Log(card);
             card.transform.rotation = Quaternion.Euler(90, 0, 0);
         }
         

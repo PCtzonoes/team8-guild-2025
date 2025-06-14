@@ -61,8 +61,8 @@ public class PlayerHand : MonoBehaviour
 
     public void PlaySelectedCard(Card card)
     {
-        GameEvents.PlayedCard(card);
         cardsInHand.Remove(card);
+        GameEvents.PlayedCard(card);
         card.isInteractible = false;
         // card.AnimPlayToTable();
         ArrangeHand();
