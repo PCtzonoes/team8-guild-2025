@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/USS/NPCDialgoue.uss?fileID=7433441132597879392&amp;guid=48ea4e95f3601a244ae890844a71d9b8&amp;type=3#NPCDialgoue" />
+    <Style src="project://database/Assets/Scripts/UI/USS/Root.uss?fileID=7433441132597879392&amp;guid=0ce7fb4a5fc45fa49b6ff2af4835a195&amp;type=3#Root" />
+    <ui:VisualElement name="root" class="root-inactive root" style="flex-grow: 1;">
+        <ui:VisualElement name="background" class="background" style="flex-grow: 1;">
+            <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="line" class="line" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

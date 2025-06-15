@@ -8,20 +8,6 @@ public class DeckManager : MonoBehaviour
     [SerializeField] private List<Card> _currentDeck;
     [SerializeField] private PlayerHand _playerHand;
 
-    // Manual Debugs
-    // private void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.S))
-    //     {
-    //         ShuffleCards();
-    //     }
-    //
-    //     if (Input.GetKeyDown(KeyCode.D))
-    //     {
-    //         DrawPlayerHand(5);
-    //     }
-    // }
-
     private void Start()
     {
         ApplySuitsAndRanks();

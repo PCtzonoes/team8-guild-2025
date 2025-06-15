@@ -8,7 +8,7 @@ public class TempMainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        gameManager.StartRound();
+        //gameManager.StartRound();
         gameObject.SetActive(false);
     }
 

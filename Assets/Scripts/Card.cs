@@ -83,7 +83,6 @@ public class Card : MonoBehaviour
         Sprite[] sprites = new Sprite[_atlas.spriteCount];
         _atlas.GetSprites(sprites);
 
-        Debug.Log("Render Called");
         // choose the corresponding card sprites
         foreach (Sprite check in sprites)
         {
