@@ -16,6 +16,8 @@ public class TrickManager : MonoBehaviour
     private string wildCardSuit;
 
     private readonly Vector3 _graveyard = new Vector3(10f, 10f, 10f);
+
+    public static int currentTrick = 1;
     
     public void InitializeTrick(
         List<Card> oppoenentCards,
@@ -27,6 +29,7 @@ public class TrickManager : MonoBehaviour
 
     public void StartTrick(List<Card> oppoenentCards)
     {
+        currentTrick++;
         StartCoroutine(StartTrickWithDelay(oppoenentCards));
     }
     
@@ -55,12 +58,7 @@ public class TrickManager : MonoBehaviour
     }
 
     private bool DidPlayerWinTrick()
-    {
-        //if (playedCard.cardSuit == "jester")
-        //{
-        //    return opponentHand.GetInitialShownCards().Any(card => card.cardSuit != "jester");
-        //}
-        
+    {   
         if (playedCard.cardSuit == "wizard")
         {
             return opponentHand.GetInitialShownCards().All(card => card.cardSuit != "wizard");

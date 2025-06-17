@@ -25,11 +25,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            DialogueEvents.TriggeredDialogue();
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             if (_dialogueActive == false) return;
@@ -62,12 +57,12 @@ public class DialogueManager : MonoBehaviour
             if (_currentLine >= _dialogue.dialogueLines.Length)
             {
                 EndDialogue();
+                Debug.Log(_currentLine + "is current");
                 return;
             }
             string line = _dialogue.dialogueLines[_currentLine].line;
             _dialogueMenu.ToggleActivate(true);
             StartCoroutine(ScrollText(line));
-
         }
     }
 
@@ -123,19 +118,5 @@ public class DialogueManager : MonoBehaviour
         _dialogue.OnDialogueEnd.Invoke();
         _dialogue = null;
         _dialogueActive = false;
-    }
-
-    /// <summary>
-    /// Event Subscriptions
-    /// </summary>
-
-    private void OnEnable()
-    {
-        DialogueEvents.OnContinueDialogue += DisplayCurrentLine;
-    }
-
-    private void OnDisable()
-    {
-        DialogueEvents.OnContinueDialogue -= DisplayCurrentLine;
     }
 }
