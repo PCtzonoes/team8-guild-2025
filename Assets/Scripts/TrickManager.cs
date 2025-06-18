@@ -74,6 +74,12 @@ public class TrickManager : MonoBehaviour
             cardTransformerInPlay.TransformCard(card);
             opponentHand.SetCardInteraction(false);
             cardTransformerInPlay = null;
+
+            if (playerHand.cardsInHand.Count <= 0)
+            {
+                TrickEnd();
+            }
+            
             return;
         }
         
@@ -86,7 +92,7 @@ public class TrickManager : MonoBehaviour
         playedCard.AnimOnMoveAndRotate(
             new Vector3(0.0f,0.2f,-6.5f),
             Quaternion.Euler(90, 0, 0),0f);
-        
+        playerHand.ArrangeHand();
         //Debug.Log("Player played card.");
         
         TrickEnd();

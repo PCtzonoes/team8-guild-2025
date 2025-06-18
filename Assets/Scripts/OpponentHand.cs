@@ -87,7 +87,7 @@ public class OpponentHand : MonoBehaviour
     {
         foreach (Card card in cardsInHand)
         {
-            card.isInteractible = true;
+            card.isInteractible = interactable;
         }
     }
     
