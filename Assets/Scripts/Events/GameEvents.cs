@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace.Powers;
 
 namespace DefaultNamespace.Events
 {
@@ -8,6 +9,8 @@ namespace DefaultNamespace.Events
 
         public static event Action<int> OnBetMade;
 
+        public static event Action<Card> OnSelectCard;
+        
         public static event Action<Card> OnPlayedCard;
 
         public static event Action<bool> OnTrickEnd;
@@ -19,10 +22,14 @@ namespace DefaultNamespace.Events
         public static event Action<string> OnGameLost;
 
         public static event Action<string> OnGameWon;
-
+        
+        public static event Action<IPower> OnUsePower;
+        
         public static void SetWildCardSuit(string wildCardSuit) => OnWildCardSetSuit?.Invoke(wildCardSuit);
         
         public static void MadeBet(int targetTricksWins) => OnBetMade?.Invoke(targetTricksWins);
+        
+        public static void SelectCard(Card card) => OnSelectCard?.Invoke(card);
         
         public static void PlayedCard(Card card) => OnPlayedCard?.Invoke(card);
         
@@ -33,6 +40,9 @@ namespace DefaultNamespace.Events
         public static void TrickWon(int tricksWon) => OnTrickWon?.Invoke(tricksWon);
 
         public static void GameLost(string msg) => OnGameLost?.Invoke(msg);
+        
         public static void GameWon(string msg) => OnGameWon?.Invoke(msg);
+        
+        public static void UsePower(IPower power) => OnUsePower?.Invoke(power);
     }
 }
