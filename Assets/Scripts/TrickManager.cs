@@ -20,6 +20,8 @@ public class TrickManager : MonoBehaviour
     [CanBeNull] private ICardTransformer cardTransformerInPlay = null;
 
     public readonly Vector3 _graveyard = new Vector3(10f, 10f, 10f);
+
+    public static int currentTrick = 1;
     
     public void InitializeTrick(
         List<Card> oppoenentCards,
@@ -31,6 +33,7 @@ public class TrickManager : MonoBehaviour
 
     public void StartTrick(List<Card> oppoenentCards)
     {
+        currentTrick++;
         StartCoroutine(StartTrickWithDelay(oppoenentCards));
     }
 
@@ -92,7 +95,7 @@ public class TrickManager : MonoBehaviour
         playedCard.AnimOnMoveAndRotate(
             new Vector3(0.0f,0.2f,-6.5f),
             Quaternion.Euler(90, 0, 0),0f);
-        playerHand.ArrangeHand();
+        playerHand.RemoveCard(card);
         //Debug.Log("Player played card.");
         
         TrickEnd();
@@ -105,12 +108,7 @@ public class TrickManager : MonoBehaviour
     }
 
     private bool DidPlayerWinTrick()
-    {
-        //if (playedCard.cardSuit == "jester")
-        //{
-        //    return opponentHand.GetInitialShownCards().Any(card => card.cardSuit != "jester");
-        //}
-        
+    {   
         if (playedCard.cardSuit == "wizard")
         {
             return opponentHand.GetInitialShownCards().All(card => card.cardSuit != "wizard");

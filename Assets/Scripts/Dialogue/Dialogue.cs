@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class Dialogue
 {
     public string name;
+    public bool isBark;
+    public int chance = 100;
     //public EventReference normalSFX;
     [SerializeField] public UnityEvent OnDialogueEnd;
     public DialogueLine[] dialogueLines;

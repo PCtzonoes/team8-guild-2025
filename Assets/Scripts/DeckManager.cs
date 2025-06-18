@@ -57,8 +57,9 @@ public class DeckManager : MonoBehaviour
 
     public void ShuffleCards()
     {
+        Debug.Log("SHUFFLING");
         _totalDeck = FindObjectsOfType<Card>();
-        
+        _currentDeck.Clear();
 
         // copy the template deck
         for (int i = 0; i < _totalDeck.Length; i++)
