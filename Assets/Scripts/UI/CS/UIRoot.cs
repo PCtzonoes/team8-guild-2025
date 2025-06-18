@@ -7,6 +7,8 @@ public class UIRoot : MonoBehaviour
 
     protected VisualElement _root;
 
+    public bool active = false;
+
     protected void Start()
     {
         _uiDoc = GetComponent<UIDocument>();
@@ -18,10 +20,12 @@ public class UIRoot : MonoBehaviour
         if (isActive == true)
         {
             _root.RemoveFromClassList("root-inactive");
+            active = true;
         }
         else
         {
             _root.AddToClassList("root-inactive");
+            active = false;
         }
     }
 }

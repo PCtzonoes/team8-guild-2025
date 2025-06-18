@@ -21,7 +21,7 @@ public class TrickManager : MonoBehaviour
 
     public readonly Vector3 _graveyard = new Vector3(10f, 10f, 10f);
 
-    public static int currentTrick = 1;
+    public static int currentTrick = 0;
     
     public void InitializeTrick(
         List<Card> oppoenentCards,

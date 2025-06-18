@@ -63,8 +63,6 @@ public class GameManager : MonoBehaviour
                 GameEvents.GameLost();
                 Debug.Log("YOU LOSE!");
             }
-
-
         }
 
         // check once player hand is empty
@@ -74,14 +72,36 @@ public class GameManager : MonoBehaviour
             if (_tricksWon != _targetTrickWins)
             {
                 GameEvents.GameLost();
+                return;
             }
             else
             {
                 GameEvents.GameWon();
+                return;
             }
         }
+        else
+        {
+            trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
+        }
 
-        trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
+        //trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
+    }
+
+    // called by the last bark in the trick
+    public void CheckRoundOverState()
+    {
+        //Debug.LogWarning("check passed");
+        if (_tricksWon != _targetTrickWins)
+        {
+            DialogueEvents.LoseDialogue();
+        }
+        else
+        {
+            DialogueEvents.WinDialogue();
+        }
+
+        //EndGame();
     }
 
     public void SetTrumpCard()
@@ -109,8 +129,6 @@ public class GameManager : MonoBehaviour
         //TODO handle bet placing
         _targetTrickWins = bet;
         //GameEvents.MadeBet(_targetTrickWins);
-
-        Debug.Log("Player placed bet");
 
         trickManager.InitializeTrick(
             deckManager.DrawCardsFromDeck(3),

@@ -12,10 +12,8 @@ public class DialogueManager : MonoBehaviour
     private DialogueMenu _dialogueMenu;
 
     private int _currentLine = -1;
-    
-
-    private bool _scrolling = false;
-    private bool _dialogueActive = false;
+   
+    //private bool _dialogueActive = false;
 
     private void Start()
     {
@@ -27,8 +25,12 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (_dialogueActive == false) return;
-            DisplayCurrentLine(_scrolling);
+            Debug.Log(_dialogue);
+            Debug.Log(_dialogueMenu.scrolling);
+            Debug.Log(_dialogueMenu.active);
+            //if (_dialogueActive == false) { Debug.LogWarning(_dialogueActive); return; }
+            if (_dialogueMenu.active == false) return;
+            DisplayCurrentLine(_dialogueMenu.scrolling); 
         }
     }
 
@@ -36,7 +38,7 @@ public class DialogueManager : MonoBehaviour
     {
         // load all data from dialogue
         _dialogue = dialogue;
-        _dialogueActive = true;
+        //_dialogueActive = true;
 
         // display the first line with the data loaded
         DisplayCurrentLine(false);
@@ -48,7 +50,7 @@ public class DialogueManager : MonoBehaviour
         if (scrolling == true)
         {
             StopAllCoroutines();
-            _scrolling = false;
+            _dialogueMenu.scrolling = false;
             _dialogueMenu.UpdateLine(_dialogue.dialogueLines[_currentLine].line);
         }
         else
@@ -57,7 +59,7 @@ public class DialogueManager : MonoBehaviour
             if (_currentLine >= _dialogue.dialogueLines.Length)
             {
                 EndDialogue();
-                Debug.Log(_currentLine + "is current");
+                //Debug.Log(_currentLine + "is current");
                 return;
             }
             string line = _dialogue.dialogueLines[_currentLine].line;
@@ -68,7 +70,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator ScrollText(string line)
     {
-        _scrolling = true;
+        _dialogueMenu.scrolling = true;
         _dialogue.dialogueLines[_currentLine].OnLineStart.Invoke();
 
         try
@@ -105,8 +107,14 @@ public class DialogueManager : MonoBehaviour
         }
         finally
         {
-            _scrolling = false;
+            _dialogueMenu.scrolling = false;
         }
+    }
+
+    public void WinDialogue()
+    {
+        DialogueEvents.WinDialogue();
+        DialogueEvents.LoseDialogue();
     }
 
     // turn off the UI
@@ -117,6 +125,5 @@ public class DialogueManager : MonoBehaviour
         _dialogueMenu.ToggleActivate(false);
         _dialogue.OnDialogueEnd.Invoke();
         _dialogue = null;
-        _dialogueActive = false;
     }
 }

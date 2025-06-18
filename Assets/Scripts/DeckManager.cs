@@ -57,7 +57,7 @@ public class DeckManager : MonoBehaviour
 
     public void ShuffleCards()
     {
-        Debug.Log("SHUFFLING");
+        //Debug.Log("SHUFFLING");
         _totalDeck = FindObjectsOfType<Card>();
         _currentDeck.Clear();
 
