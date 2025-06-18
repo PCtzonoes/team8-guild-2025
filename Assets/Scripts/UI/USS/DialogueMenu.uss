@@ -1,0 +1,13 @@
+.background {
+    background-color: rgb(255, 255, 255);
+    margin-top: 50px;
+    margin-right: 95px;
+    margin-left: 95px;
+    margin-bottom: 923px;
+    justify-content: center;
+}
+
+.line {
+    -unity-text-align: middle-center;
+    font-size: 45px;
+}
