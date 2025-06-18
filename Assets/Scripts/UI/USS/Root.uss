@@ -1,8 +1,0 @@
-.root {
-}
-
-.root-inactive {
-    opacity: 1;
-    display: flex;
-    visibility: hidden;
-}
