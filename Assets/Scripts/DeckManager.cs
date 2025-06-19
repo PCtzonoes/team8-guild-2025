@@ -17,7 +17,7 @@ public class DeckManager : MonoBehaviour
     {
         Card[] cards = FindObjectsOfType<Card>();
 
-        string[] suits = {"clubs", "diamonds", "spades", "hearts", "jester", "wizard"};
+        string[] suits = {"clubs", "diamonds", "spades", "hearts", "imp", "devil"};
 
         for(int i = 0;  i < cards.Length ; i++)
         {

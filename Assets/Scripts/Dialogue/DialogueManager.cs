@@ -9,6 +9,8 @@ public class DialogueManager : MonoBehaviour
 {
     private Dialogue _dialogue;
 
+    private GameManager _gameManager;
+
     private DialogueMenu _dialogueMenu;
 
     private int _currentLine = -1;
@@ -19,15 +21,16 @@ public class DialogueManager : MonoBehaviour
     {
         // declare the dialogue UI
         _dialogueMenu = FindObjectOfType<DialogueMenu>();
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log(_dialogue);
-            Debug.Log(_dialogueMenu.scrolling);
-            Debug.Log(_dialogueMenu.active);
+            //Debug.Log(_dialogue);
+            //Debug.Log(_dialogueMenu.scrolling);
+            //Debug.Log(_dialogueMenu.active);
             //if (_dialogueActive == false) { Debug.LogWarning(_dialogueActive); return; }
             if (_dialogueMenu.active == false) return;
             DisplayCurrentLine(_dialogueMenu.scrolling); 
@@ -111,12 +114,6 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void WinDialogue()
-    {
-        DialogueEvents.WinDialogue();
-        DialogueEvents.LoseDialogue();
-    }
-
     // turn off the UI
     private void EndDialogue()
     {
@@ -124,6 +121,11 @@ public class DialogueManager : MonoBehaviour
         _currentLine = -1;
         _dialogueMenu.ToggleActivate(false);
         _dialogue.OnDialogueEnd.Invoke();
-        _dialogue = null;
+        if (_dialogue.isFinal == false)
+        {
+            _gameManager.CheckRoundOverState();
+        }
+        //_gameManager.CheckRoundOverState();
+        //_dialogue = null;
     }
 }

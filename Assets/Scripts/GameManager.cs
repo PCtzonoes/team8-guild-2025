@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public string wildCardSuit;
     private int _targetTrickWins;
-    private int _tricksWon = 0;
+    public int tricksWon = 0;
 
     //private void Start()
     //{
@@ -55,10 +55,10 @@ public class GameManager : MonoBehaviour
     {
         if (isPlayerWinner)
         {
-            _tricksWon++;
-            GameEvents.TrickWon(_tricksWon);
+            tricksWon++;
+            GameEvents.TrickWon(tricksWon);
 
-            if (_tricksWon > _targetTrickWins)
+            if (tricksWon > _targetTrickWins)
             {
                 GameEvents.GameLost();
                 Debug.Log("YOU LOSE!");
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         if (playerHand.cardsInHand.Count <= 0)
         {
             //Debug.LogWarning("check passed");
-            if (_tricksWon != _targetTrickWins)
+            if (tricksWon != _targetTrickWins)
             {
                 GameEvents.GameLost();
                 return;
@@ -88,11 +88,14 @@ public class GameManager : MonoBehaviour
         //trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
     }
 
-    // called by the last bark in the trick
     public void CheckRoundOverState()
     {
-        //Debug.LogWarning("check passed");
-        if (_tricksWon != _targetTrickWins)
+        if (playerHand.cardsInHand.Count > 0 || TrickManager.currentTrick <= 0)
+        {
+            return;
+        }
+            
+        if (tricksWon != _targetTrickWins)
         {
             DialogueEvents.LoseDialogue();
         }
@@ -100,8 +103,6 @@ public class GameManager : MonoBehaviour
         {
             DialogueEvents.WinDialogue();
         }
-
-        //EndGame();
     }
 
     public void SetTrumpCard()
@@ -138,7 +139,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         _targetTrickWins = 0;
-        _tricksWon = 0;
+        tricksWon = 0;
         playerHand.cardsInHand.Clear();
         wildCardSuit = "";
     }

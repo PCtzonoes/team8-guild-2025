@@ -14,6 +14,7 @@ public class TrickManager : MonoBehaviour
     [SerializeField] private PlayerHand playerHand;
     [SerializeField] private OpponentHand opponentHand;
     [SerializeField] private Card playedCard;
+    //[SerializeField] private GameManager gameManager;
 
     private string wildCardSuit;
 
@@ -33,6 +34,10 @@ public class TrickManager : MonoBehaviour
 
     public void StartTrick(List<Card> oppoenentCards)
     {
+        //if (gameManager.CheckRoundOverState())
+        //{
+        //    return;
+        //}
         currentTrick++;
         StartCoroutine(StartTrickWithDelay(oppoenentCards));
     }
@@ -109,12 +114,12 @@ public class TrickManager : MonoBehaviour
 
     private bool DidPlayerWinTrick()
     {   
-        if (playedCard.cardSuit == "wizard")
+        if (playedCard.cardSuit == "devil")
         {
-            return opponentHand.GetInitialShownCards().All(card => card.cardSuit != "wizard");
+            return opponentHand.GetInitialShownCards().All(card => card.cardSuit != "devil");
         }
         
-        if (opponentHand.cardsInHand.Any(card => card.cardSuit == "wizard"))
+        if (opponentHand.cardsInHand.Any(card => card.cardSuit == "devil"))
         {
             return false;
         }

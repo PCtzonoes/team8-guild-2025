@@ -1987,7 +1987,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0_jester_1
+      name: 0_imp_1
       rect:
         serializedVersion: 2
         x: 794
@@ -2260,7 +2260,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 0_jester_2
+      name: 0_imp_2
       rect:
         serializedVersion: 2
         x: 795
@@ -2281,7 +2281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 99_wizard_1
+      name: 99_devil_1
       rect:
         serializedVersion: 2
         x: 3
@@ -2302,7 +2302,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 99_wizard_2
+      name: 99_devil_2
       rect:
         serializedVersion: 2
         x: 69
@@ -2543,8 +2543,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      0_jester_1: -983952408
-      0_jester_2: -217348261
+      0_imp_1: -983952408
+      0_imp_2: -217348261
       10_clubs_1: -1180730872
       10_clubs_2: -548347186
       10_diamonds_1: -1524796978
@@ -2641,8 +2641,8 @@ TextureImporter:
       8_hearts_2: 987601922
       8_spades_1: 580557622
       8_spades_2: -347535501
-      99_wizard_1: -199201475
-      99_wizard_2: 1271711800
+      99_devil_1: -199201475
+      99_devil_2: 1271711800
       9_clubs_1: 429555820
       9_clubs_2: -1537594265
       9_diamonds_1: 317566463

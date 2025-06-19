@@ -40,5 +40,6 @@ public class Defaulter : MonoBehaviour
 
         dialogueTrigger.currentBark = 1;
         TrickManager.currentTrick = 0;
+        gameManager.EndGame();
     }
 }
