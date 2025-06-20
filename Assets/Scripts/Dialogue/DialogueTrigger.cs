@@ -1,9 +1,7 @@
 using DefaultNamespace.Events;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class DialogueTrigger : MonoBehaviour
 {
@@ -81,7 +79,6 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (dialogue.isBark == true)
             {
-                //Debug.Log(dialogue.isBark == true);
                 if (dialogue.name.Contains(currentBark.ToString()))
                 {
                     barks.Add(dialogue);
@@ -92,19 +89,11 @@ public class DialogueTrigger : MonoBehaviour
         // if there isn't a bark for this trick, don't call it
         for(int i = 0; i < barks.Count; i++)
         {
-            //Debug.Log(barks[i].name);
-            //Debug.Log(TrickManager.currentTrick);
 
             if (barks[i].name.Contains(TrickManager.currentTrick.ToString()))
             {
                 break;
             }
-
-            //if(i == barks.Count)
-            //{
-            //    Debug.Log("No Barks");
-            //    return;
-            //}
         }
 
         // separate winning and losing barks

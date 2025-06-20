@@ -48,15 +48,17 @@ public class Card : MonoBehaviour
             if(isSelected)
             {
                 GameEvents.PlayedCard(this);
-                isInteractible = false;
+                //isInteractible = false;
+                isSelected = false;
             }
             else
             {
                 GameEvents.SelectCard(this);
                 _material.mainTexture = _hoverTexture.texture;
                 AnimHoverUp();
+                isSelected = true;
             }
-            isSelected = !isSelected;
+            //isSelected = !isSelected;
         }
     }
 

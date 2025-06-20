@@ -82,6 +82,8 @@ public class TrickManager : MonoBehaviour
             cardTransformerInPlay.TransformCard(card);
             opponentHand.SetCardInteraction(false);
             cardTransformerInPlay = null;
+            card.Deselect();
+            card.isSelected = false;
 
             if (playerHand.cardsInHand.Count <= 0)
             {
@@ -103,6 +105,8 @@ public class TrickManager : MonoBehaviour
         playerHand.RemoveCard(card);
         //Debug.Log("Player played card.");
         
+        card.isInteractible = false;
+
         TrickEnd();
     }
 
