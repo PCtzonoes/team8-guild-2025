@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Vector3 WildCardPosition = new Vector3(-0f, 1f, -7f);
-    private readonly Quaternion WildCardRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-    private readonly Vector3 DiscardPosition = new Vector3(10.0f, 10.0f, 10.0f);
+    [SerializeField] public Vector3 WildCardPosition = new Vector3(-0f, 1f, -7f);
+    public readonly Quaternion WildCardRotation = Quaternion.Euler(40f, 0.0f, 0.0f);
+    public readonly Vector3 DiscardPosition = new Vector3(10.0f, 10.0f, 10.0f);
 
     [SerializeField] private DeckManager deckManager;
     [SerializeField] private PlayerHand playerHand;

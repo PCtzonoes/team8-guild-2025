@@ -23,6 +23,5 @@ public class SceneHandler : MonoBehaviour
             // google form doc
             Application.OpenURL("https://forms.gle/gxkvKNxVSeUw5Emp6");
         }
-
     }
 }

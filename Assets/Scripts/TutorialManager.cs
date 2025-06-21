@@ -50,4 +50,58 @@ public class TutorialManager : MonoBehaviour
     {
         _playerContinued = true;
     }
+
+    public void SetTrumpCard()
+    {
+        //TODO: Handler redraw if is Wizard or Jester
+        Card wildCard = _deckManager.DrawCardsFromDeck(1)[0];
+
+        if (wildCard.cardSuit != "hearts" && wildCard.cardSuit != "clubs" && wildCard.cardSuit != "diamonds" && wildCard.cardSuit != "spades")
+        {
+            wildCard.cardSuit = "spades";
+            wildCard.cardRank = 14;
+            wildCard.RenderCard();
+        }
+
+        _gameManager.wildCardSuit = wildCard.cardSuit;
+
+        wildCard.transform.SetParent(transform);
+        wildCard.AnimOnMoveAndRotate(_gameManager.WildCardPosition, _gameManager.WildCardRotation, 0.1f);
+
+        GameEvents.SetWildCardSuit(_gameManager.wildCardSuit);
+
+        StartCoroutine(DelayDiscard(wildCard));
+    }
+
+    public void DrawImp()
+    {
+        Card imp = _deckManager.DrawCardsFromDeck(1)[0];
+
+        imp.cardRank = 0;
+        imp.cardSuit = "imp";
+        imp.RenderCard();
+        imp.transform.SetParent(transform);
+        imp.AnimOnMoveAndRotate(_gameManager.WildCardPosition, _gameManager.WildCardRotation, 0.1f);
+        StartCoroutine(DelayDiscard(imp));
+    }
+
+    public void DrawDevil()
+    {
+        Card devil = _deckManager.DrawCardsFromDeck(1)[0];
+
+        devil.cardRank = 99;
+        devil.cardSuit = "devil";
+        devil.RenderCard();
+        devil.transform.SetParent(transform);
+        devil.AnimOnMoveAndRotate(_gameManager.WildCardPosition, _gameManager.WildCardRotation, 0.1f);
+        StartCoroutine(DelayDiscard(devil));
+    }
+
+    private IEnumerator DelayDiscard(Card card)
+    {
+        yield return WaitForPlayerContinue();
+        card.AnimOnMoveAndRotate(_gameManager.DiscardPosition, Quaternion.identity, 0f);
+    }
+
+
 }
