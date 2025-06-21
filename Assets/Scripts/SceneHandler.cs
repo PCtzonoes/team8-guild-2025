@@ -13,15 +13,23 @@ public class SceneHandler : MonoBehaviour
 
     public static void LoadScene(string scene)
     {
-        Scene next = SceneManager.GetSceneByName(scene);
-        if (next.IsValid())
+        if(scene == "dolumonLevel")
         {
-            SceneManager.LoadScene(scene);
-        }
-        else
-        {
-            // google form doc
             Application.OpenURL("https://forms.gle/gxkvKNxVSeUw5Emp6");
+            return;
         }
+        SceneManager.LoadScene(scene);
+        
+        //Scene next = SceneManager.GetSceneByName(scene);
+
+        //if (next.IsValid())
+        //{
+        //    SceneManager.LoadScene(next.name);
+        //}
+        //else
+        //{
+        //    // google form doc
+        //    Application.OpenURL("https://forms.gle/gxkvKNxVSeUw5Emp6");
+        //}
     }
 }
