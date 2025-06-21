@@ -13,14 +13,15 @@ public class SceneHandler : MonoBehaviour
 
     public static void LoadScene(string scene)
     {
-        if(SceneManager.GetSceneByName(scene) != null)
+        Scene next = SceneManager.GetSceneByName(scene);
+        if (next.IsValid())
         {
             SceneManager.LoadScene(scene);
         }
         else
         {
             // google form doc
-            Application.OpenURL("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+            Application.OpenURL("https://forms.gle/gxkvKNxVSeUw5Emp6");
         }
 
     }
