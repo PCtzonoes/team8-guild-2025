@@ -536,8 +536,8 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: Fmod Project/FM_project_devilish-trick/FM_project_devilish-trick.fspro
-  sourceBankPath: Fmod Project/FM_project_devilish-trick/Build
+  sourceProjectPath: ../../../Fmod projects/devilish tricks/FM_project_devilish-trick/FM_project_devilish-trick.fspro
+  sourceBankPath: ../../../Fmod projects/devilish tricks/FM_project_devilish-trick/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
