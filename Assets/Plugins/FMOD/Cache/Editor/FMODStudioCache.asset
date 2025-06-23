@@ -17,5 +17,6 @@ MonoBehaviour:
   EditorParameters: []
   MasterBanks: []
   StringsBanks: []
+  cacheVersion: 131848
   cacheTime: 0
-  cacheVersion: 131624
+  SerializableEventsDict: []
