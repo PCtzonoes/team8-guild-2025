@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/USS/Root.uss?fileID=7433441132597879392&amp;guid=0ce7fb4a5fc45fa49b6ff2af4835a195&amp;type=3#Root" />
+    <Style src="project://database/Assets/Scripts/UI/USS/RuleBook.uss?fileID=7433441132597879392&amp;guid=3ab0506549415f544a291c761482c499&amp;type=3#RuleBook" />
+    <ui:VisualElement name="Root" class="root" style="flex-grow: 1; justify-content: center; top: 70px; height: 482px; max-height: 980px;">
+        <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgb(55, 21, 7); align-items: center; justify-content: center; align-self: center; width: 750px; height: 0; min-height: 0; max-height: 1050px;">
+            <ui:VisualElement name="p1" class="page">
+                <ui:VisualElement name="Visual" style="flex-grow: 1;" />
+                <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Description" />
+            </ui:VisualElement>
+            <ui:VisualElement name="p2" class="page page-inactive" />
+            <ui:VisualElement name="p3" class="page page-inactive" />
+            <ui:VisualElement name="p4" class="page page-inactive" />
+            <ui:Label tabindex="-1" text="The Rules" parse-escape-sequences="true" display-tooltip-when-elided="true" name="RulesTItle" style="top: -954px; font-size: 82px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="back" class="close" style="top: 19px; left: 1190px;" />
+    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="left" class="close turn" style="top: 973px; left: 1206px; width: 115px; height: 65px;" />
+    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="right" class="close turn-inactive" style="top: 973px; left: 595px; width: 115px; height: 65px;" />
+</ui:UXML>
