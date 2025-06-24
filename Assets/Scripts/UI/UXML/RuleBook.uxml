@@ -15,5 +15,5 @@
     </ui:VisualElement>
     <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="back" class="close" style="top: 19px; left: 1190px;" />
     <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="left" class="close turn" style="top: 973px; left: 1206px; width: 115px; height: 65px;" />
-    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="right" class="close turn-inactive" style="top: 973px; left: 595px; width: 115px; height: 65px;" />
+    <ui:Button text="Button" parse-escape-sequences="true" display-tooltip-when-elided="true" name="right" class="turn-inactive" style="top: 973px; left: 595px; width: 115px; height: 65px;" />
 </ui:UXML>
