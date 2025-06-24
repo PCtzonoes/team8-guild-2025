@@ -2,47 +2,49 @@ using DefaultNamespace.Events;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
+    [SerializeField] private DialogueMenu _dialogueMenu;
+    
     private Dialogue _dialogue;
-
-    private GameManager _gameManager;
-
-    private DialogueMenu _dialogueMenu;
-
     private int _currentLine = -1;
-   
-    //private bool _dialogueActive = false;
-
+    
+    private Coroutine _currentScrollCoroutine;
+    private StringBuilder _stringBuilder = new StringBuilder();
+    
     private void Start()
     {
         // declare the dialogue UI
         _dialogueMenu = FindObjectOfType<DialogueMenu>();
-        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //Debug.Log(_dialogue);
-            //Debug.Log(_dialogueMenu.scrolling);
-            //Debug.Log(_dialogueMenu.active);
-            //if (_dialogueActive == false) { Debug.LogWarning(_dialogueActive); return; }
-            if (_dialogueMenu.active == false) return;
+            // Null checks to prevent crashes
+            if (_dialogueMenu is null || !_dialogueMenu.active) return;
+            
             DisplayCurrentLine(_dialogueMenu.scrolling); 
         }
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        // Stop any existing coroutine first to prevent memory leaks
+        if (_currentScrollCoroutine != null)
+        {
+            StopCoroutine(_currentScrollCoroutine);
+            _currentScrollCoroutine = null;
+        }
+        
         // load all data from dialogue
         _dialogue = dialogue;
-        //_dialogueActive = true;
-
+        
         // display the first line with the data loaded
         DisplayCurrentLine(false);
     }
@@ -52,7 +54,13 @@ public class DialogueManager : MonoBehaviour
         // if we're at the end of the dialogue sequence, end the dialogue
         if (scrolling == true)
         {
-            StopAllCoroutines();
+            // Stop current coroutine properly
+            if (_currentScrollCoroutine != null)
+            {
+                StopCoroutine(_currentScrollCoroutine);
+                _currentScrollCoroutine = null;
+            }
+            
             _dialogueMenu.scrolling = false;
             _dialogueMenu.UpdateLine(_dialogue.dialogueLines[_currentLine].line);
         }
@@ -62,25 +70,24 @@ public class DialogueManager : MonoBehaviour
             if (_currentLine >= _dialogue.dialogueLines.Length)
             {
                 EndDialogue();
-                //Debug.Log(_currentLine + "is current");
                 return;
             }
+            
             string line = _dialogue.dialogueLines[_currentLine].line;
             _dialogueMenu.ToggleActivate(true);
-            StartCoroutine(ScrollText(line));
+            _currentScrollCoroutine = StartCoroutine(ScrollText(line));
         }
     }
 
     private IEnumerator ScrollText(string line)
     {
         _dialogueMenu.scrolling = true;
-        _dialogue.dialogueLines[_currentLine].OnLineStart.Invoke();
-
+        
         try
         {
-            // make the UI blank
-            string partialLine = "";
-            _dialogueMenu.UpdateLine(partialLine);
+            _dialogue.dialogueLines[_currentLine].OnLineStart?.Invoke();
+            _stringBuilder.Clear();
+            _dialogueMenu.UpdateLine("");
 
             // apply the letter delay for this line
             float letterDelay = _dialogue.dialogueLines[_currentLine].letterDelay;
@@ -91,41 +98,66 @@ public class DialogueManager : MonoBehaviour
             for (int i = 0; i < line.Length; i++)
             {
                 char newChar = line[i];
-                partialLine += newChar;
-                _dialogueMenu.UpdateLine(partialLine);
+                _stringBuilder.Append(newChar);
+                _dialogueMenu.UpdateLine(_stringBuilder.ToString());
 
-                if (newChar.ToString() == ",")
+                float waitTime = letterDelay;
+                if (newChar == ',')
                 {
-                    yield return new WaitForSeconds(letterDelay * 2);
+                    waitTime = letterDelay * 2;
                 }
-                else if (newChar.ToString() == "." || newChar.ToString() == "?" || newChar.ToString() == ".")
+                else if (newChar == '.' || newChar == '?' || newChar == '!')
                 {
-                    yield return new WaitForSeconds(letterDelay * 3);
+                    waitTime = letterDelay * 3;
                 }
-                else
-                {
-                    yield return new WaitForSeconds(letterDelay);
-                }
+                
+                yield return new WaitForSeconds(waitTime);
             }
         }
         finally
         {
-            _dialogueMenu.scrolling = false;
+            if (_dialogueMenu is not null)
+            {
+                _dialogueMenu.scrolling = false;
+            }
+            _currentScrollCoroutine = null;
         }
     }
 
     // turn off the UI
     private void EndDialogue()
     {
+        // Clean up coroutine reference
+        if (_currentScrollCoroutine != null)
+        {
+            StopCoroutine(_currentScrollCoroutine);
+            _currentScrollCoroutine = null;
+        }
+        
         // reset all values
         _currentLine = -1;
-        _dialogueMenu.ToggleActivate(false);
-        _dialogue.OnDialogueEnd.Invoke();
-        if (_dialogue.isFinal == false)
+        _dialogueMenu?.ToggleActivate(false);
+        _dialogue?.EndDialogue();
+        _dialogue = null;
+    }
+    
+    private void OnDestroy()
+    {
+        // Ensure cleanup on destroy to prevent memory leaks
+        if (_currentScrollCoroutine != null)
         {
-            _gameManager.CheckRoundOverState();
+            StopCoroutine(_currentScrollCoroutine);
+            _currentScrollCoroutine = null;
         }
-        //_gameManager.CheckRoundOverState();
-        //_dialogue = null;
+    }
+    
+    private void OnDisable()
+    {
+        // Stop coroutines when disabled
+        if (_currentScrollCoroutine != null)
+        {
+            StopCoroutine(_currentScrollCoroutine);
+            _currentScrollCoroutine = null;
+        }
     }
 }

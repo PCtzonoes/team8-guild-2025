@@ -12,4 +12,6 @@ public class Dialogue
     //public EventReference normalSFX;
     [SerializeField] public UnityEvent OnDialogueEnd;
     public DialogueLine[] dialogueLines;
+    
+    public void EndDialogue() => OnDialogueEnd?.Invoke();
 }

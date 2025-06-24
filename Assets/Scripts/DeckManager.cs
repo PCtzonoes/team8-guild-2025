@@ -73,9 +73,7 @@ public class DeckManager : MonoBehaviour
             _currentDeck.Append(_totalDeck[i]);
             int newIndex = Random.Range(0, _totalDeck.Length);
 
-            Card oldCard = _currentDeck[newIndex];
-            _currentDeck[newIndex] = _currentDeck[i];
-            _currentDeck[i] = oldCard;
+            (_currentDeck[newIndex], _currentDeck[i]) = (_currentDeck[i], _currentDeck[newIndex]);
         }
 
         SpaceCards();
