@@ -71,4 +71,4 @@ Assets/PlayFabEditorExtensions/Editor/Resources/PlayFabEditorPrefsSO.asset.meta
 
 .DS_Store
 *.zip
-**/fmod_editor.log
+fmod_editor.log
