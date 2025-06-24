@@ -1,18 +1,18 @@
 using DefaultNamespace.Events;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private float _defaultStartDelay = 0.5f;
     [SerializeField] private float _defaultLetterDelay = 0.15f;
+    [SerializeField] private bool _startOnLoad = false;
 
     public Dialogue[] dialoguePhases;
 
-    private int _currentPhase = 1;
-    private int _currentBark = 1;
+    public int _currentPhase = 1;
+    public int currentBark = 1;
 
     private void Start()
     {
@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         for (int i = 0; i < dialoguePhases.Length; i++)
         {
             Dialogue dialogue = dialoguePhases[i];
-            for(int j = 0; j < dialogue.dialogueLines.Length; j++)
+            for (int j = 0; j < dialogue.dialogueLines.Length; j++)
             {
                 if (dialogue.dialogueLines[j].startDelay == 0)
                 {
@@ -33,6 +33,10 @@ public class DialogueTrigger : MonoBehaviour
                 }
             }
         }
+        if (_startOnLoad == true)
+        {
+            StartCoroutine(SlowTrigger());
+        }
     }
 
     // load the first dialogue collection
@@ -43,7 +47,7 @@ public class DialogueTrigger : MonoBehaviour
             _currentPhase++;
         }
         FindObjectOfType<DialogueManager>().StartDialogue(dialoguePhases[_currentPhase-1]);
-        Debug.Log(_currentPhase);
+        //Debug.Log(_currentPhase);
         _currentPhase++;
         if(_currentPhase > dialoguePhases.Length)
         {
@@ -51,16 +55,20 @@ public class DialogueTrigger : MonoBehaviour
         }
     }
 
-    //// load the first dialogue collection
-    //public void TriggerDialogue(int phase)
-    //{
-    //    while (dialoguePhases[phase - 1].isBark)
-    //    {
-    //        _currentPhase++;
-    //    }
-    //    FindObjectOfType<DialogueManager>().StartDialogue(dialoguePhases[phase-1]);
-    //    _currentPhase++;
-    //}
+    // load the first dialogue collection
+    public void TriggerDialogue(int phase)
+    {
+        while (dialoguePhases[phase - 1].isBark)
+        {
+            _currentPhase++;
+        }
+        FindObjectOfType<DialogueManager>().StartDialogue(dialoguePhases[phase - 1]);
+        _currentPhase++;
+        if (_currentPhase > dialoguePhases.Length)
+        {
+            _currentPhase--;
+        }
+    }
 
     public void TriggerBark(bool didPlayerWin)
     {
@@ -71,20 +79,21 @@ public class DialogueTrigger : MonoBehaviour
         {
             if (dialogue.isBark == true)
             {
-                Debug.Log(dialogue.isBark == true);
-                if (dialogue.name.Contains(_currentBark.ToString()))
+                if (dialogue.name.Contains(currentBark.ToString()))
                 {
                     barks.Add(dialogue);
-                    Debug.Log(dialogue);
                 }
             }
         }
 
         // if there isn't a bark for this trick, don't call it
-        if (!barks[0].name.Contains(TrickManager.currentTrick.ToString()))
+        for(int i = 0; i < barks.Count; i++)
         {
-            Debug.Log(TrickManager.currentTrick);
-            return;
+
+            if (barks[i].name.Contains(TrickManager.currentTrick.ToString()))
+            {
+                break;
+            }
         }
 
         // separate winning and losing barks
@@ -105,13 +114,14 @@ public class DialogueTrigger : MonoBehaviour
         // play the right bark
         if (didPlayerWin)
         {
-            Debug.Log(didPlayerWin);
+            //Debug.Log(didPlayerWin);
             if (winningBarks.Count == 1)
             {
                 FindObjectOfType<DialogueManager>().StartDialogue(winningBarks[0]);
             }
             else
             {
+                // random bark of multiple
                 FindObjectOfType<DialogueManager>().StartDialogue(winningBarks[Random.Range(0, winningBarks.Count)]);
             }
         }
@@ -123,11 +133,18 @@ public class DialogueTrigger : MonoBehaviour
             }
             else
             {
+                // random bark of multiple
                 FindObjectOfType<DialogueManager>().StartDialogue(losingBarks[Random.Range(0, losingBarks.Count)]);
             }
         }
 
-        _currentBark++;
+        currentBark++;
+    }
+
+    private IEnumerator SlowTrigger()
+    {
+        yield return new WaitForSeconds(.5f);
+        TriggerDialogue();
     }
 
     /// <summary>
@@ -137,15 +154,18 @@ public class DialogueTrigger : MonoBehaviour
     {
         DialogueEvents.OnTriggeredDialogue += TriggerDialogue;
         GameEvents.OnTrickEnd += TriggerBark;
-        GameEvents.OnGameLost += TriggerDialogue;
-        GameEvents.OnGameWon += TriggerDialogue;
+        DialogueEvents.OnWinDialogue += () => TriggerDialogue(dialoguePhases.Length - 1);
+        DialogueEvents.OnLoseDialogue += () => TriggerDialogue(dialoguePhases.Length);
+        //GameEvents.OnGameWon += TriggerDialogue;
     }
 
     private void OnDisable()
     {
         DialogueEvents.OnTriggeredDialogue -= TriggerDialogue;
         GameEvents.OnTrickEnd -= TriggerBark;
-        GameEvents.OnGameLost -= TriggerDialogue;
-        GameEvents.OnGameWon -= TriggerDialogue;
+        DialogueEvents.OnWinDialogue -= () => TriggerDialogue(dialoguePhases.Length - 1);
+        DialogueEvents.OnLoseDialogue -= () => TriggerDialogue(dialoguePhases.Length);
+        //GameEvents.OnGameLost -= TriggerDialogue;
+        //GameEvents.OnGameWon -= TriggerDialogue;
     }
 }

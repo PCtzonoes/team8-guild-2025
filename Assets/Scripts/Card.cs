@@ -12,7 +12,6 @@ public class Card : MonoBehaviour
     public bool isSelected = false;
     public bool isInteractible = false;
     public bool isInHand = false;
-    private PlayerHand _playerHand;
 
     [Header("Rendering")]
     [SerializeField] private SpriteAtlas _atlas;
@@ -24,15 +23,10 @@ public class Card : MonoBehaviour
     [Header("Animation")]
     [SerializeField] private float _hoverDistance;
     [SerializeField] private float _hoverTime;
-    [SerializeField] private Vector3 _playerCardPlacementPoint;
-    [SerializeField] private float _playerCardPlacementTime;
     [SerializeField] private float _onArrangeHandTime;
 
     private void Awake()
     {
-        // declare the hand
-        _playerHand = FindObjectOfType<PlayerHand>();
-
         _meshRenderer = GetComponent<MeshRenderer>();
         _material = _meshRenderer.material;
     }
@@ -40,7 +34,7 @@ public class Card : MonoBehaviour
     // hovering over the card when it's in hand.
     private void OnMouseEnter()
     {
-        if (isInHand && isInteractible)
+        if (isInteractible)
         {
             _material.mainTexture = _hoverTexture.texture;
             AnimHoverUp();
@@ -51,14 +45,20 @@ public class Card : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && isInteractible)
         {
-            if(isSelected == true)
+            if(isSelected)
             {
-                _playerHand.PlaySelectedCard(this);
+                GameEvents.PlayedCard(this);
+                //isInteractible = false;
+                isSelected = false;
             }
-            _material.mainTexture = _hoverTexture.texture;
-
-            _playerHand.CheckSelectedCard();
-            isSelected = !isSelected;
+            else
+            {
+                GameEvents.SelectCard(this);
+                _material.mainTexture = _hoverTexture.texture;
+                AnimHoverUp();
+                isSelected = true;
+            }
+            //isSelected = !isSelected;
         }
     }
 
@@ -66,13 +66,19 @@ public class Card : MonoBehaviour
     {
         if (isInteractible)
         {
-            if (isInHand && isSelected == false)
+            if (isSelected == false)
             {
                 _material.mainTexture = _defaultTexture.texture;
                 AnimHoverDown();
             }
         }
+    }
 
+    public void Deselect()
+    {
+        _material.mainTexture = _defaultTexture.texture;
+        isSelected = false;
+        AnimHoverDown();
     }
 
     /// <summary>
@@ -128,11 +134,6 @@ public class Card : MonoBehaviour
     public void AnimHoverDown()
     {
         transform.DOLocalMoveY(0, _hoverTime);
-    }
-    
-    public void AnimPlayToTable()
-    {
-        transform.DOMove(_playerCardPlacementPoint, _playerCardPlacementTime);
     }
 
     public void AnimOnMoveAndRotate(Vector3 newPosition,Quaternion newRotation, float delay)

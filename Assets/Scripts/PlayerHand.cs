@@ -1,9 +1,6 @@
-using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace.Events;
 using UnityEngine;
-using System;
 
 public class PlayerHand : MonoBehaviour
 {
@@ -47,28 +44,29 @@ public class PlayerHand : MonoBehaviour
         }
     }
 
-    public void CheckSelectedCard()
+    public bool IsCardInHand(Card card)
+    {
+        return cardsInHand.Contains(card);
+    }
+
+    public void RemoveCard(Card card)
+    {
+        cardsInHand.Remove(card);
+        ArrangeHand();
+    }
+
+    public void CheckSelectedCard(Card selectedCard)
     {
         foreach(Card card in cardsInHand)
         {
-            if (card.isSelected == true)
+            if (card.isSelected && card != selectedCard)
             {
-                card.isSelected = false;
-                card.AnimHoverDown();
+                card.Deselect();
             }
         }
     }
 
-    public void PlaySelectedCard(Card card)
-    {
-        cardsInHand.Remove(card);
-        GameEvents.PlayedCard(card);
-        card.isInteractible = false;
-        // card.AnimPlayToTable();
-        ArrangeHand();
-    }
-
-    private void EnableCardInteraction(int bet)
+    public void EnableCardInteraction(int bet)
     {
         foreach (Card card in cardsInHand)
         {

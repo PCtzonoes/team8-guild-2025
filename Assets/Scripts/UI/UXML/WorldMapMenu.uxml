@@ -1,0 +1,37 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/UI/USS/WorldMapMenu.uss?fileID=7433441132597879392&amp;guid=6b24dde081c8a6b49a24cdb522ac26e8&amp;type=3#WorldMapMenu" />
+    <Style src="project://database/Assets/Scripts/UI/USS/Root.uss?fileID=7433441132597879392&amp;guid=0ce7fb4a5fc45fa49b6ff2af4835a195&amp;type=3#Root" />
+    <ui:VisualElement name="root" class="root root-inactive" style="flex-grow: 1;">
+        <ui:VisualElement name="map" class="map">
+            <ui:VisualElement name="limbo" class="world" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Map of Limbo" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 103px; color: rgb(0, 0, 0); -unity-font-style: bold; -unity-text-align: middle-center;" />
+                <ui:Button text="Grim&#10;Reaper" parse-escape-sequences="true" display-tooltip-when-elided="true" name="grimLevel" class="level" style="top: 444px; left: 602px;" />
+                <ui:Button text="Next &#10;World" parse-escape-sequences="true" display-tooltip-when-elided="true" name="limboExit" focusable="false" class="gate gate-locked" style="top: 734px; left: 1130px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="deceit" class="world world-inactive" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Map of Deceipt" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 103px; color: rgb(0, 0, 0); -unity-font-style: bold; -unity-text-align: middle-center;" />
+                <ui:Button text="Previous&#10;World" parse-escape-sequences="true" display-tooltip-when-elided="true" name="deceitEntrance" focusable="true" class="gate" style="top: 186px; left: 188px;" />
+                <ui:Button text="Feedback&#10;Form" parse-escape-sequences="true" display-tooltip-when-elided="true" name="dolumonLevel" focusable="true" class="level" style="top: 454px; left: 766px;" />
+                <ui:Button text="Next &#10;World" parse-escape-sequences="true" display-tooltip-when-elided="true" name="deceitExit" focusable="false" class="gate gate-locked" style="top: 734px; left: 1130px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="narcissism" class="world world-inactive" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Map of Narcissism" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 103px; color: rgb(0, 0, 0); -unity-font-style: bold; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="avarice" class="world world-inactive" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Map of Avarice" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 103px; color: rgb(0, 0, 0); -unity-font-style: bold; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="prejudice" class="world world-inactive" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Map of Prejudice" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 103px; color: rgb(0, 0, 0); -unity-font-style: bold; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="mercilessness" class="world world-inactive" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Map of Mercilessness" parse-escape-sequences="true" display-tooltip-when-elided="true" style="font-size: 103px; color: rgb(0, 0, 0); -unity-font-style: bold; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="negligence" class="world world-inactive" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Map of Negligence" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="font-size: 103px; color: rgb(0, 0, 0); -unity-font-style: bold; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="rooe" class="world world-inactive" style="flex-grow: 1;">
+                <ui:Label tabindex="-1" text="Map of All Evil" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Label" style="font-size: 103px; color: rgb(0, 0, 0); -unity-font-style: bold; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

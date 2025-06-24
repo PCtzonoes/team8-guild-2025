@@ -11,7 +11,7 @@ public class BettingMenu : MonoBehaviour
 
     private int _bet;
 
-    private void EnableUI()
+    public void EnableUI()
     {
         _content.SetActive(true);
     }

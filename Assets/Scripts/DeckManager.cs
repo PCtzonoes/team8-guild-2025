@@ -17,7 +17,7 @@ public class DeckManager : MonoBehaviour
     {
         Card[] cards = FindObjectsOfType<Card>();
 
-        string[] suits = {"clubs", "diamonds", "spades", "hearts", "jester", "wizard"};
+        string[] suits = {"clubs", "diamonds", "spades", "hearts", "imp", "devil"};
 
         for(int i = 0;  i < cards.Length ; i++)
         {
@@ -57,7 +57,7 @@ public class DeckManager : MonoBehaviour
 
     public void ShuffleCards()
     {
-        Debug.Log("SHUFFLING");
+        //Debug.Log("SHUFFLING");
         _totalDeck = FindObjectsOfType<Card>();
         _currentDeck.Clear();
 

@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private Vector3 WildCardPosition = new Vector3(-0f, 1f, -7f);
-    private readonly Quaternion WildCardRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-    private readonly Vector3 DiscardPosition = new Vector3(10.0f, 10.0f, 10.0f);
+    [SerializeField] public Vector3 WildCardPosition = new Vector3(-0f, 1f, -7f);
+    public readonly Quaternion WildCardRotation = Quaternion.Euler(40f, 0.0f, 0.0f);
+    public readonly Vector3 DiscardPosition = new Vector3(10.0f, 10.0f, 10.0f);
 
     [SerializeField] private DeckManager deckManager;
     [SerializeField] private PlayerHand playerHand;
@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     public string wildCardSuit;
     private int _targetTrickWins;
-    private int _tricksWon = 0;
+    public int tricksWon = 0;
 
     //private void Start()
     //{
@@ -55,33 +55,54 @@ public class GameManager : MonoBehaviour
     {
         if (isPlayerWinner)
         {
-            _tricksWon++;
-            GameEvents.TrickWon(_tricksWon);
+            tricksWon++;
+            GameEvents.TrickWon(tricksWon);
 
-            if (_tricksWon > _targetTrickWins)
+            if (tricksWon > _targetTrickWins)
             {
                 GameEvents.GameLost();
                 Debug.Log("YOU LOSE!");
             }
-
-
         }
 
         // check once player hand is empty
         if (playerHand.cardsInHand.Count <= 0)
         {
             //Debug.LogWarning("check passed");
-            if (_tricksWon != _targetTrickWins)
+            if (tricksWon != _targetTrickWins)
             {
                 GameEvents.GameLost();
+                return;
             }
             else
             {
                 GameEvents.GameWon();
+                return;
             }
         }
+        else
+        {
+            trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
+        }
 
-        trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
+        //trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
+    }
+
+    public void CheckRoundOverState()
+    {
+        if (playerHand.cardsInHand.Count > 0 || TrickManager.currentTrick <= 0)
+        {
+            return;
+        }
+            
+        if (tricksWon != _targetTrickWins)
+        {
+            DialogueEvents.LoseDialogue();
+        }
+        else
+        {
+            DialogueEvents.WinDialogue();
+        }
     }
 
     public void SetTrumpCard()
@@ -110,8 +131,6 @@ public class GameManager : MonoBehaviour
         _targetTrickWins = bet;
         //GameEvents.MadeBet(_targetTrickWins);
 
-        Debug.Log("Player placed bet");
-
         trickManager.InitializeTrick(
             deckManager.DrawCardsFromDeck(3),
             wildCardSuit);
@@ -120,7 +139,7 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         _targetTrickWins = 0;
-        _tricksWon = 0;
+        tricksWon = 0;
         playerHand.cardsInHand.Clear();
         wildCardSuit = "";
     }

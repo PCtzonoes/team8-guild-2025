@@ -10,11 +10,11 @@ public class OpponentHand : MonoBehaviour
 
     [SerializeField] private int numberOfHiddenCards = 1;
     
-    public List<Card> handOfCards;
+    public List<Card> cardsInHand;
     
     public void RenderCards(List<Card> cards)
     {
-        handOfCards = cards;
+        cardsInHand = cards;
         
         List<Card> shownCards = GetInitialShownCards();
 
@@ -23,13 +23,18 @@ public class OpponentHand : MonoBehaviour
             //Debug.Log(card);
             card.transform.rotation = Quaternion.Euler(90, 0, 0);
         }
+
+        ArrangeHand();
+    }
+
+    private void ArrangeHand()
+    {
+        float cardWidth = cardsInHand.First().transform.localScale.x;
+        float initialTransform = (cardsInHand.Count * cardWidth + (cardsInHand.Count - 1) * GAP_BETWEEN_CARDS)/2;
         
-        float cardWidth = handOfCards.First().transform.localScale.x;
-        float initialTransform = (handOfCards.Count * cardWidth + (handOfCards.Count - 1) * GAP_BETWEEN_CARDS)/2;
-        
-        for (int i = 0; i < handOfCards.Count; i++)
+        for (int i = 0; i < cardsInHand.Count; i++)
         {
-            Card card = handOfCards[i];
+            Card card = cardsInHand[i];
             card.transform.SetParent(transform);
             // card.transform.localPosition = new Vector3(initialTransform - (cardWidth + GAP_BETWEEN_CARDS) * i, 0, 0);
             card.AnimOnMove(new Vector3(initialTransform - (cardWidth + GAP_BETWEEN_CARDS) * i, 0, 0), .25f * i);
@@ -46,18 +51,49 @@ public class OpponentHand : MonoBehaviour
 
     public List<Card> GetWildCards(string wildCardSuite)
     {
-        return handOfCards
+        return cardsInHand
             .Where(card => card.cardSuit == wildCardSuite)
             .ToList();
     }
 
     public List<Card> GetInitialShownCards()
     {
-        return handOfCards.Skip(numberOfHiddenCards).ToList();
+        return cardsInHand.Skip(numberOfHiddenCards).ToList();
     }
 
     public List<Card> GetInitialHiddenCards()
     {
-        return handOfCards.Take(numberOfHiddenCards).ToList();
+        return cardsInHand.Take(numberOfHiddenCards).ToList();
     }
+    
+    public void CheckSelectedCard(Card selectedCard)
+    {
+        foreach(Card card in cardsInHand)
+        {
+            if (card.isSelected && card != selectedCard)
+            {
+                card.Deselect();
+            }
+        }
+    }
+
+    public void RemoveCard(Card card)
+    {
+        cardsInHand.Remove(card);
+        ArrangeHand();
+    }
+    
+    public void SetCardInteraction(bool interactable)
+    {
+        foreach (Card card in cardsInHand)
+        {
+            card.isInteractible = interactable;
+        }
+    }
+    
+    public bool IsCardInHand(Card card)
+    {
+        return cardsInHand.Contains(card);
+    }
+
 }
