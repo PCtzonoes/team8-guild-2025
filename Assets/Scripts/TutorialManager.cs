@@ -17,10 +17,10 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorial()
     {
-        StartCoroutine(StartTurotialRoutine());
+        StartCoroutine(StartTutorialRoutine());
     }
 
-    private IEnumerator StartTurotialRoutine()
+    private IEnumerator StartTutorialRoutine()
     {
         _deckManager.ShuffleCards();
         yield return WaitForPlayerContinue();

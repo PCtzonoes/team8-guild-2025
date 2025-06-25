@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DeckManager deckManager;
     [SerializeField] private PlayerHand playerHand;
     [SerializeField] private TrickManager trickManager;
+    [SerializeField] private TrickManager isTutorial;
 
     public string wildCardSuit;
     private int _targetTrickWins;
@@ -55,7 +56,6 @@ public class GameManager : MonoBehaviour
 
             if (tricksWon > _targetTrickWins)
             {
-                Debug.Log("GameManager: Player won too many tricks, triggering lose dialogue");
                 DialogueEvents.TriggeredDialogueByName("lose_round");
                 return;
             }
@@ -64,22 +64,17 @@ public class GameManager : MonoBehaviour
         // check once player hand is empty
         if (playerHand.cardsInHand.Count <= 0)
         {
-            Debug.Log($"GameManager: Player hand is empty! tricksWon: {tricksWon}, targetTrickWins: {_targetTrickWins}");
-            
             if (tricksWon != _targetTrickWins)
             {
-                Debug.Log("GameManager: Player lost (wrong number of tricks), triggering lose dialogue");
                 DialogueEvents.TriggeredDialogueByName("lose_round");
             }
             else
             {
-                Debug.Log("GameManager: Player won (exact number of tricks), triggering win dialogue");
                 DialogueEvents.TriggeredDialogueByName("win_round");
             }
         }
         else
         {
-            Debug.Log($"GameManager: Player still has {playerHand.cardsInHand.Count} cards, starting next trick");
             trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
         }
     }
