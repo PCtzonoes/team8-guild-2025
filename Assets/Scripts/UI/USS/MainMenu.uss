@@ -1,0 +1,42 @@
+.button {
+    transition-duration: 0.5s;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    color: rgb(243, 204, 204);
+    font-size: 88px;
+    -unity-font-style: bold;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    align-items: auto;
+    justify-content: flex-start;
+    align-self: auto;
+    letter-spacing: 10px;
+    -unity-text-align: middle-center;
+}
+
+.button:hover {
+    transition-delay: 0s;
+    color: rgb(233, 76, 76);
+    transition-duration: 0.15s;
+    letter-spacing: 0;
+    -unity-text-align: middle-center;
+}
+
+.button:focus {
+    transition-delay: 0s, 0s, 0s;
+    color: rgba(233, 76, 76, 0);
+    transition-duration: 2s, 1.5s, 2s;
+    letter-spacing: 150px;
+    transition-property: letter-spacing, color, rotate;
+    transition-timing-function: ease-out-circ, ease-in-sine, ease-out-circ;
+    -unity-text-align: middle-center;
+}

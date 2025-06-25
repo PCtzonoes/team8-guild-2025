@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
 {
     public int cardRank;
     public string cardSuit;
+    public CardStatus status;
     public bool isAvailable;
     public bool isSelected = false;
     public bool isInteractible = false;
@@ -151,5 +152,10 @@ public class Card : MonoBehaviour
     {
         transform.DOLocalMove(newPosition, _onArrangeHandTime).SetDelay(delay).SetEase(Ease.InOutCubic);
     }
+}
 
+public enum CardStatus
+{
+    None,
+    Desguised,
 }
