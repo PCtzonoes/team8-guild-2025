@@ -18,12 +18,7 @@ public class GameManager : MonoBehaviour
     private int _targetTrickWins;
     public int tricksWon = 0;
 
-    //private void Start()
-    //{
-    //    StartCoroutine(StartGameRoutine());
-    //}
-
-    public void StartRound()
+    public void Start()
     {
         StartCoroutine(StartGameRoutine());
     }
@@ -61,16 +56,7 @@ public class GameManager : MonoBehaviour
             if (tricksWon > _targetTrickWins)
             {
                 Debug.Log("GameManager: Player won too many tricks, triggering lose dialogue");
-                // Find the DialogueTrigger to get the appropriate dialogue
-                DialogueTrigger dialogueTrigger = FindObjectOfType<DialogueTrigger>();
-                if (dialogueTrigger != null)
-                {
-                    Dialogue loseDialogue = dialogueTrigger.GetLoseDialogue();
-                    if (loseDialogue != null)
-                    {
-                        DialogueEvents.TriggeredDialogue(loseDialogue);
-                    }
-                }
+                DialogueEvents.TriggeredDialogueByName("lose_round");
                 return;
             }
         }
@@ -80,33 +66,15 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log($"GameManager: Player hand is empty! tricksWon: {tricksWon}, targetTrickWins: {_targetTrickWins}");
             
-            // TODO: Remove dependency of DiaglogueTrigger
-            DialogueTrigger dialogueTrigger = FindObjectOfType<DialogueTrigger>();
-            if (dialogueTrigger == null)
-            {
-                Debug.LogError("GameManager: DialogueTrigger not found!");
-                return;
-            }
-            
             if (tricksWon != _targetTrickWins)
             {
                 Debug.Log("GameManager: Player lost (wrong number of tricks), triggering lose dialogue");
-                Dialogue loseDialogue = dialogueTrigger.GetLoseDialogue();
-                if (loseDialogue != null)
-                {
-                    DialogueEvents.TriggeredDialogue(loseDialogue);
-                }
-                return;
+                DialogueEvents.TriggeredDialogueByName("lose_round");
             }
             else
             {
                 Debug.Log("GameManager: Player won (exact number of tricks), triggering win dialogue");
-                Dialogue winDialogue = dialogueTrigger.GetWinDialogue();
-                if (winDialogue != null)
-                {
-                    DialogueEvents.TriggeredDialogue(winDialogue);
-                }
-                return;
+                DialogueEvents.TriggeredDialogueByName("win_round");
             }
         }
         else

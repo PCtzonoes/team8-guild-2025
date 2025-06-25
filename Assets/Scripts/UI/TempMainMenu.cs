@@ -5,10 +5,9 @@ using UnityEngine;
 public class TempMainMenu : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
-
+    
     public void PlayGame()
     {
-        //gameManager.StartRound();
         gameObject.SetActive(false);
     }
 

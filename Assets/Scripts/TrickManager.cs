@@ -17,13 +17,12 @@ public class TrickManager : MonoBehaviour
     //[SerializeField] private GameManager gameManager;
 
     private string wildCardSuit;
+    public int CurrentTrick { get; set; } = 0;
 
     [CanBeNull] private ICardTransformer cardTransformerInPlay = null;
 
     public readonly Vector3 _graveyard = new Vector3(10f, 10f, 10f);
 
-    public static int currentTrick = 0;
-    
     public void InitializeTrick(
         List<Card> oppoenentCards,
         string drawnWildCardSuit)
@@ -34,11 +33,7 @@ public class TrickManager : MonoBehaviour
 
     public void StartTrick(List<Card> oppoenentCards)
     {
-        //if (gameManager.CheckRoundOverState())
-        //{
-        //    return;
-        //}
-        currentTrick++;
+        CurrentTrick++;
         StartCoroutine(StartTrickWithDelay(oppoenentCards));
     }
 
@@ -113,7 +108,15 @@ public class TrickManager : MonoBehaviour
     void TrickEnd()
     {
         opponentHand.RevealCard();
-        GameEvents.EndTrick(DidPlayerWinTrick());
+
+        bool isPlayerWinner = DidPlayerWinTrick();
+        
+        // Trigger trick-specific dialogue first (barks)
+        string trickResult = isPlayerWinner ? "win" : "lose";
+        string trickDialogueName = $"{trickResult}_{CurrentTrick}";
+        DialogueEvents.TriggeredDialogueByName(trickDialogueName);
+        
+        GameEvents.EndTrick(isPlayerWinner);
     }
 
     private bool DidPlayerWinTrick()

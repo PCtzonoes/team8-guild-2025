@@ -38,8 +38,7 @@ public class Defaulter : MonoBehaviour
             //Debug.LogWarning(cards[i].transform.rotation);
         }
 
-        dialogueTrigger.currentBark = 1;
-        TrickManager.currentTrick = 0;
+        trickManager.CurrentTrick = 0;
         gameManager.EndGame();
     }
 }

@@ -1,10 +1,6 @@
-using DefaultNamespace.Events;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -18,17 +14,14 @@ public class DialogueManager : MonoBehaviour
     
     private void Start()
     {
-        // declare the dialogue UI
         _dialogueMenu = FindObjectOfType<DialogueMenu>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        // Only process input if we have an active dialogue
+        if (Input.GetMouseButtonDown(0) && _dialogue != null)
         {
-            // Null checks to prevent crashes
-            if (_dialogueMenu is null || !_dialogueMenu.active) return;
-            
             DisplayCurrentLine(_dialogueMenu.scrolling); 
         }
     }
