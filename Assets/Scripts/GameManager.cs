@@ -60,65 +60,50 @@ public class GameManager : MonoBehaviour
 
             if (tricksWon > _targetTrickWins)
             {
-                Debug.Log("GameManager: Player won too many tricks, triggering lose dialogue");
-                // Find the DialogueTrigger to get the appropriate dialogue
-                DialogueTrigger dialogueTrigger = FindObjectOfType<DialogueTrigger>();
-                if (dialogueTrigger != null)
-                {
-                    Dialogue loseDialogue = dialogueTrigger.GetLoseDialogue();
-                    if (loseDialogue != null)
-                    {
-                        DialogueEvents.TriggeredDialogue(loseDialogue);
-                    }
-                }
-                return;
+                GameEvents.GameLost();
+                Debug.Log("YOU LOSE!");
             }
         }
 
         // check once player hand is empty
         if (playerHand.cardsInHand.Count <= 0)
         {
-            Debug.Log($"GameManager: Player hand is empty! tricksWon: {tricksWon}, targetTrickWins: {_targetTrickWins}");
-            
-            // TODO: Remove dependency of DiaglogueTrigger
-            DialogueTrigger dialogueTrigger = FindObjectOfType<DialogueTrigger>();
-            if (dialogueTrigger == null)
-            {
-                Debug.LogError("GameManager: DialogueTrigger not found!");
-                return;
-            }
-            
+            //Debug.LogWarning("check passed");
             if (tricksWon != _targetTrickWins)
             {
-                Debug.Log("GameManager: Player lost (wrong number of tricks), triggering lose dialogue");
-                Dialogue loseDialogue = dialogueTrigger.GetLoseDialogue();
-                if (loseDialogue != null)
-                {
-                    DialogueEvents.TriggeredDialogue(loseDialogue);
-                }
+                GameEvents.GameLost();
                 return;
             }
             else
             {
-                Debug.Log("GameManager: Player won (exact number of tricks), triggering win dialogue");
-                Dialogue winDialogue = dialogueTrigger.GetWinDialogue();
-                if (winDialogue != null)
-                {
-                    DialogueEvents.TriggeredDialogue(winDialogue);
-                }
+                GameEvents.GameWon();
                 return;
             }
         }
         else
         {
-            Debug.Log($"GameManager: Player still has {playerHand.cardsInHand.Count} cards, starting next trick");
             trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
         }
+
+        //trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
     }
 
-    // REMOVED: CheckRoundOverState() method
-    // Game ending logic is now handled directly in OnTrickEnd() method
-    // This eliminates the redundant and premature round-over checks
+    public void CheckRoundOverState()
+    {
+        if (playerHand.cardsInHand.Count > 0 || TrickManager.currentTrick <= 0)
+        {
+            return;
+        }
+            
+        if (tricksWon != _targetTrickWins)
+        {
+            DialogueEvents.LoseDialogue();
+        }
+        else
+        {
+            DialogueEvents.WinDialogue();
+        }
+    }
 
     public void SetTrumpCard()
     {

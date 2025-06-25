@@ -4,12 +4,15 @@ namespace DefaultNamespace.Events
 {
     public static class DialogueEvents
     {
-        // Updated to accept Dialogue parameter for consistency
-        public static event Action<Dialogue> OnTriggeredDialogue;
+        public static event Action OnTriggeredDialogue;
 
-        public static void TriggeredDialogue(Dialogue dialogue) => OnTriggeredDialogue?.Invoke(dialogue);
-        
-        // Keep the parameterless version for backward compatibility if needed
-        public static void TriggeredDialogue() => OnTriggeredDialogue?.Invoke(null);
+        public static event Action OnWinDialogue;
+
+        public static event Action OnLoseDialogue;
+
+        public static void TriggeredDialogue() => OnTriggeredDialogue?.Invoke();
+        public static void WinDialogue() => OnWinDialogue?.Invoke();
+        public static void LoseDialogue() => OnLoseDialogue?.Invoke();
+
     }
 }
