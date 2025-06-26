@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DeckManager deckManager;
     [SerializeField] private PlayerHand playerHand;
     [SerializeField] private TrickManager trickManager;
-    [SerializeField] private TrickManager isTutorial;
 
     public string wildCardSuit;
     private int _targetTrickWins;
@@ -27,7 +26,6 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartGameRoutine()
     {
         deckManager.ShuffleCards();
-        //Debug.Log("Shuffled the deck.");
 
         yield return new WaitForSeconds(1);
 
