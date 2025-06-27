@@ -6,8 +6,5 @@ using UnityEngine.Events;
 public class Dialogue
 {
     public string name;
-    [SerializeField] public UnityEvent OnDialogueEnd;
     public DialogueLine[] dialogueLines;
-    
-    public void EndDialogue() => OnDialogueEnd?.Invoke();
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    [SerializeField] private DialogueEvent dialogueEvent;
+    
     public Dialogue[] dialoguePhases; // Keep original name to preserve Unity Inspector data
     private Dictionary<string, Dialogue> _dialogueLookup = new Dictionary<string, Dialogue>();
     
@@ -47,11 +49,11 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        DialogueEvents.OnTriggeredDialogueByName += TriggerDialogueByName;
+        dialogueEvent.OnTriggeredDialogueByName += TriggerDialogueByName;
     }
 
     private void OnDisable()
     {
-        DialogueEvents.OnTriggeredDialogueByName -= TriggerDialogueByName;
+        dialogueEvent.OnTriggeredDialogueByName -= TriggerDialogueByName;
     }
 }

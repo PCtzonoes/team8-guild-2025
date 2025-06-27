@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class TempMainMenu : MonoBehaviour
 {
-    [SerializeField] private GameManager gameManager;
+    [FormerlySerializedAs("gameManager")] [SerializeField] private RoundManager roundManager;
     
     public void PlayGame()
     {

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
-    private GameManager _gameManager;
+    private RoundManager roundManager;
     private DeckManager _deckManager;
 
     private bool _playerContinued = false;
 
     private void Start()
     {
-        _gameManager = GetComponent<GameManager>();
+        roundManager = GetComponent<RoundManager>();
         _deckManager = FindObjectOfType<DeckManager>();
     }
 
@@ -25,15 +25,15 @@ public class TutorialManager : MonoBehaviour
         _deckManager.ShuffleCards();
         yield return WaitForPlayerContinue();
 
-        _gameManager.SetTrumpCard();
-        while (_gameManager.wildCardSuit != "hearts" && _gameManager.wildCardSuit != "clubs" && _gameManager.wildCardSuit != "diamonds" && _gameManager.wildCardSuit != "spades")
+        roundManager.SetTrumpCard();
+        while (roundManager.wildCardSuit != "hearts" && roundManager.wildCardSuit != "clubs" && roundManager.wildCardSuit != "diamonds" && roundManager.wildCardSuit != "spades")
         {
             yield return new WaitForSeconds(1.0f);
-            _gameManager.SetTrumpCard();
+            roundManager.SetTrumpCard();
         }
         yield return WaitForPlayerContinue();
 
-        _gameManager.DrawPlayerHand();
+        roundManager.DrawPlayerHand(5);
 
         yield return WaitForPlayerContinue();
 
@@ -63,12 +63,12 @@ public class TutorialManager : MonoBehaviour
             wildCard.RenderCard();
         }
 
-        _gameManager.wildCardSuit = wildCard.cardSuit;
+        roundManager.wildCardSuit = wildCard.cardSuit;
 
         wildCard.transform.SetParent(transform);
-        wildCard.AnimOnMoveAndRotate(_gameManager.WildCardPosition, _gameManager.WildCardRotation, 0.1f);
+        wildCard.AnimOnMoveAndRotate(roundManager.WildCardPosition, roundManager.WildCardRotation, 0.1f);
 
-        GameEvents.SetWildCardSuit(_gameManager.wildCardSuit);
+        GameEvents.SetWildCardSuit(roundManager.wildCardSuit);
 
         StartCoroutine(DelayDiscard(wildCard));
     }
@@ -81,7 +81,7 @@ public class TutorialManager : MonoBehaviour
         imp.cardSuit = "imp";
         imp.RenderCard();
         imp.transform.SetParent(transform);
-        imp.AnimOnMoveAndRotate(_gameManager.WildCardPosition, _gameManager.WildCardRotation, 0.1f);
+        imp.AnimOnMoveAndRotate(roundManager.WildCardPosition, roundManager.WildCardRotation, 0.1f);
         StartCoroutine(DelayDiscard(imp));
     }
 
@@ -93,14 +93,14 @@ public class TutorialManager : MonoBehaviour
         devil.cardSuit = "devil";
         devil.RenderCard();
         devil.transform.SetParent(transform);
-        devil.AnimOnMoveAndRotate(_gameManager.WildCardPosition, _gameManager.WildCardRotation, 0.1f);
+        devil.AnimOnMoveAndRotate(roundManager.WildCardPosition, roundManager.WildCardRotation, 0.1f);
         StartCoroutine(DelayDiscard(devil));
     }
 
     private IEnumerator DelayDiscard(Card card)
     {
         yield return WaitForPlayerContinue();
-        card.AnimOnMoveAndRotate(_gameManager.DiscardPosition, Quaternion.identity, 0f);
+        card.AnimOnMoveAndRotate(roundManager.DiscardPosition, Quaternion.identity, 0f);
     }
 
 

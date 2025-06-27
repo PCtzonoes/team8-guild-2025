@@ -78,7 +78,6 @@ public class DialogueManager : MonoBehaviour
         
         try
         {
-            _dialogue.dialogueLines[_currentLine].OnLineStart?.Invoke();
             _stringBuilder.Clear();
             _dialogueMenu.UpdateLine("");
 
@@ -130,7 +129,6 @@ public class DialogueManager : MonoBehaviour
         // reset all values
         _currentLine = -1;
         _dialogueMenu?.ToggleActivate(false);
-        _dialogue?.EndDialogue();
         _dialogue = null;
     }
     

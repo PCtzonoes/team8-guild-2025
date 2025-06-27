@@ -3,16 +3,16 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Defaulter : MonoBehaviour
 {
     [SerializeField] private DeckManager deck;
     private Card[] cards;
     private Transform[] cardTransforms;
-    [SerializeField] private GameManager gameManager;
+    [FormerlySerializedAs("gameManager")] [SerializeField] private RoundManager roundManager;
     [SerializeField] private TrickManager trickManager;
     [SerializeField] private TempPowerButton powerMenu;
-    [SerializeField] private DialogueTrigger dialogueTrigger;
 
     private void Start()
     {
@@ -39,6 +39,6 @@ public class Defaulter : MonoBehaviour
         }
 
         trickManager.CurrentTrick = 0;
-        gameManager.EndGame();
+        roundManager.EndGame();
     }
 }

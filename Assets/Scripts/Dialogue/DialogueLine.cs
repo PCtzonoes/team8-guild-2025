@@ -9,6 +9,6 @@ public class DialogueLine
     public float letterDelay = .15f;
     [TextArea(3, 10)]
     public string line;
-    public UnityEvent OnLineStart;
+    // public UnityEvent OnLineStart;
     //public EventReference sfx;
 }
