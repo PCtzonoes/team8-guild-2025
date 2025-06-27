@@ -6,7 +6,32 @@
     border-bottom-width: 0;
     border-left-width: 0;
     color: rgb(243, 204, 204);
-    font-size: 88px;
+    font-size: 64px;
+    -unity-font-style: bold;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    align-items: auto;
+    justify-content: flex-start;
+    align-self: auto;
+    letter-spacing: 10px;
+    -unity-text-align: middle-center;
+}
+
+.button-inactive {
+    transition-duration: 0.5s;
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    color: rgb(38, 38, 38);
+    font-size: 64px;
     -unity-font-style: bold;
     margin-top: 0;
     margin-right: 0;
@@ -32,11 +57,11 @@
 }
 
 .button:focus {
-    transition-delay: 0s, 0s, 0s;
-    color: rgba(233, 76, 76, 0);
-    transition-duration: 2s, 1.5s, 2s;
-    letter-spacing: 150px;
-    transition-property: letter-spacing, color, rotate;
-    transition-timing-function: ease-out-circ, ease-in-sine, ease-out-circ;
-    -unity-text-align: middle-center;
+    transition-delay: 0s, 0s, 0s, 0s;
+    transition-duration: 2s, 2s, 2s, 2s;
+    transition-property: letter-spacing, color, rotate, word-spacing;
+    transition-timing-function: ease-out-circ, ease-in-circ, ease-out-circ, ease-out-circ;
+    color: rgba(27, 27, 27, 0);
+    letter-spacing: 160px;
+    word-spacing: 160px;
 }

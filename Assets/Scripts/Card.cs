@@ -37,7 +37,7 @@ public class Card : MonoBehaviour
     {
         if (isInteractible)
         {
-            _material.mainTexture = _hoverTexture.texture;
+            //_material.mainTexture = _hoverTexture.texture;
             AnimHoverUp();
         }
     }
@@ -94,13 +94,12 @@ public class Card : MonoBehaviour
         foreach (Sprite check in sprites)
         {
             string checkName = check.name.Replace("(Clone)", "");
-            string hover = $"{cardRank}_{cardSuit}_1";
-            string def = $"{cardRank}_{cardSuit}_2";
+            string def = $"{cardRank}_{cardSuit}";
 
-            if (checkName == hover)
-            {
-                _hoverTexture = check;
-            }
+            //if (checkName == hover)
+            //{
+            //    _hoverTexture = check;
+            //}
 
             if (checkName == def)
             {
