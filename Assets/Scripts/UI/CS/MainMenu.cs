@@ -20,7 +20,7 @@ public class MainMenu : UIRoot
         // Declare All Buttons
         _tutorial = _uiDoc.rootVisualElement.Q<Button>("Tutorial");
         _grimReaper = _uiDoc.rootVisualElement.Q<Button>("GrimReaper");
-        _dolumon = _uiDoc.rootVisualElement.Q<Button>("Dulumon");
+        _dolumon = _uiDoc.rootVisualElement.Q<Button>("Dolumon");
         _quit = _uiDoc.rootVisualElement.Q<Button>("Quit");
 
         _tutorial.clicked += () => OnTutorialClicked();
@@ -46,13 +46,13 @@ public class MainMenu : UIRoot
     private void OnTutorialClicked()
     {
         DisableAllButtons();
-        throw new NotImplementedException();
+        SceneHandler.LoadScene("grimTutorial");
     }
 
     private void OnGrimReaperClicked()
     {
         DisableAllButtons();
-        throw new NotImplementedException();
+        SceneHandler.LoadScene("grimLevel");
     }
 
     private void OnDolumonClicked()
@@ -64,7 +64,9 @@ public class MainMenu : UIRoot
     private void OnQuitClicked()
     {
         DisableAllButtons();
-        throw new NotImplementedException();
+        Application.Quit();
     }
+
+
 }
   

@@ -54,6 +54,7 @@
     transition-duration: 0.15s;
     letter-spacing: 0;
     -unity-text-align: middle-center;
+    transition-timing-function: ease;
 }
 
 .button:focus {

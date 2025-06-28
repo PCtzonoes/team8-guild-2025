@@ -150,8 +150,8 @@ Transform:
   m_GameObject: {fileID: 4048115}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.86, z: 19.51}
-  m_LocalScale: {x: 54.88199, y: 37.241325, z: 2.2993}
+  m_LocalPosition: {x: 0, y: 0.93, z: 19.51}
+  m_LocalScale: {x: 50.591312, y: 29.955431, z: 2.2993}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1533775447}
@@ -198,7 +198,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe180cd1e45ab744d8f36d159c5f9328, type: 2}
+  - {fileID: 2100000, guid: 6b4cb2fbbb1657641ab5876cf424f619, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2317,13 +2317,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116519665}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.29673025, y: 0.46381137, z: -0.53249604, w: 0.64286715}
+  m_LocalRotation: {x: 0.1352339, y: -0.5836627, z: 0.50929797, w: -0.6177907}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1681288269}
-  m_LocalEulerAnglesHint: {x: -353.544, y: 1506.661, z: 5324.977}
+  m_LocalEulerAnglesHint: {x: -565.304, y: 2051.8179, z: 5159.462}
 --- !u!108 &1116519667
 Light:
   m_ObjectHideFlags: 0
@@ -4500,14 +4500,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142264344}
   m_CullTransparentMesh: 1
---- !u!33 &430473897005601847
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907397622554553850}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &487550363406981943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4609,40 +4601,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06f266811b22d734fa995a00acb31bc1, type: 3}
---- !u!1 &496447590424535903
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2185431472459665243}
-  - component: {fileID: 5098344652856631450}
-  - component: {fileID: 5098344652856631451}
-  m_Layer: 0
-  m_Name: Dolumon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2185431472459665243
+--- !u!4 &2185431472459665243 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+  m_PrefabInstance: {fileID: 5065101782291220049}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496447590424535903}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.11, z: 7.72}
-  m_LocalScale: {x: 2.144336, y: 1.84, z: 1.84}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7647613390888510118}
-  m_Father: {fileID: 1533775447}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5022604401295900519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4704,479 +4667,98 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c858119425893b84a94306755710d06a, type: 3}
---- !u!114 &5098344652856631450
-MonoBehaviour:
+--- !u!1001 &5065101782291220049
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1533775447}
+    m_Modifications:
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3111656816254533721, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574751857675172881, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: m_Name
+      value: Dolumon
+      objectReference: {fileID: 0}
+    - target: {fileID: 9027372137070599532, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 93978351}
+    - target: {fileID: 9027372137070599532, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1674742938}
+    - target: {fileID: 9027372137070599532, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1674742938}
+    - target: {fileID: 9027372137070599532, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].OnDialogueEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1674742938}
+    - target: {fileID: 9027372137070599532, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[0].OnLineStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 93978349}
+    - target: {fileID: 9027372137070599532, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.data[0].OnLineStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 93978349}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+--- !u!114 &5098344652856631450 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9027372137070599532, guid: 1e6fd46777cd7be42be249fe2ba2af82, type: 3}
+  m_PrefabInstance: {fileID: 5065101782291220049}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496447590424535903}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92bae4083485a9d4eadf1d07c45335ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultStartDelay: 0.1
-  _defaultLetterDelay: 0.02
-  _startOnLoad: 1
-  dialoguePhases:
-  - name: Phase 1
-    isBark: 0
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 93978351}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: StartRound
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    dialogueLines:
-    - startDelay: 0.1
-      letterDelay: 0
-      line: Oh, you're back so soon?
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: I suppose I could use the company.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: There's always room at my table for a game of Devil's Tricks.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Win 1
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: First trick goes to you.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: Second trick, here we go.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Win 2
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: Second trick goes to you.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: Third Trick, here we go.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Win 3
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: Third trick, goes to you.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: Halfway there, don't lose your cool
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Win 4
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: Fourth trick is your.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: Only one more to go.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Win 5
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: Final trick, is yours!
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Lose 1
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: First trick is mine.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: Second trick
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Lose 2
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: Second trick goes to me.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: Third trick...
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Lose 3
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: My cards win me the third trick.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: Better luck next time
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Lose 4
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: I claim the penultimate trick.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: What fate awaits you in this final trick?
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Lose 5
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: Final trick is mine, my friend.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Winning the Round
-    isBark: 0
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1674742938}
-          m_TargetAssemblyTypeName: UIRoot, Assembly-CSharp
-          m_MethodName: ToggleActivate
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 1674742938}
-          m_TargetAssemblyTypeName: WorldMapMenu, Assembly-CSharp
-          m_MethodName: ToggleButtonFocusable
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: limboExit
-            m_BoolArgument: 1
-          m_CallState: 2
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: Nice work, you got what you bet. I concede defeat.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 93978349}
-            m_TargetAssemblyTypeName: Defaulter, Assembly-CSharp
-            m_MethodName: FuckGoBack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - startDelay: 0
-      letterDelay: 0
-      line: Be weary, the journey ahead of you won't be as easy.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: The gates to the domain of Dolumon have been opened.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  - name: Losing the Round
-    isBark: 0
-    isFinal: 1
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1674742938}
-          m_TargetAssemblyTypeName: UIRoot, Assembly-CSharp
-          m_MethodName: ToggleActivate
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-    dialogueLines:
-    - startDelay: 0
-      letterDelay: 0
-      line: Oh too bad, looks like you missed your mark.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 93978349}
-            m_TargetAssemblyTypeName: Defaulter, Assembly-CSharp
-            m_MethodName: FuckGoBack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - startDelay: 0
-      letterDelay: 0
-      line: You won't last long in Hell if you cannot even best my luck.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: Wander for a while here in Limbo.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-    - startDelay: 0
-      letterDelay: 0
-      line: I'll be waiting here when you're ready to try again.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  _currentPhase: 1
-  currentBark: 1
---- !u!114 &5098344652856631451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 496447590424535903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba04f38dcd3a8ff4389d190ab222abbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rule: Desguise some cards in the player hand
---- !u!1 &5907397622554553850
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7647613390888510118}
-  - component: {fileID: 430473897005601847}
-  - component: {fileID: 6472471539558134505}
-  - component: {fileID: 6988099814258829424}
-  m_Layer: 0
-  m_Name: Quad
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &6472471539558134505
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907397622554553850}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 0d2510e3b5fc7324b85432be322fd110, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6988099814258829424
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907397622554553850}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &7647613390888510118
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5907397622554553850}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 6, z: 3}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 2185431472459665243}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
