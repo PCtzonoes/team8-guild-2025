@@ -158,6 +158,7 @@ public class TrickManager : MonoBehaviour
     private IEnumerator StartTrickWithDelay(List<Card> oppoenentCards)
     {
         yield return new WaitForSeconds(2);
+        
         foreach (var card in opponentHand.cardsInHand)
         {
             card.transform.position = _graveyard;

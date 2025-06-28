@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
+    [SerializeField] private DialogueEvents dialogueEvents;
     [SerializeField] private DialogueMenu _dialogueMenu;
     
     private Dialogue _dialogue;
@@ -28,11 +29,11 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        // Stop any existing coroutine first to prevent memory leaks
-        if (_currentScrollCoroutine != null)
+        if (dialogue == null)
         {
-            StopCoroutine(_currentScrollCoroutine);
-            _currentScrollCoroutine = null;
+            Debug.Log("[DialogueManager] Potato cannon");
+            dialogueEvents.DialogueEnd();
+            return;
         }
         
         // load all data from dialogue
@@ -44,16 +45,14 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayCurrentLine(bool scrolling)
     {
+        if (_currentScrollCoroutine != null)
+        {
+            StopCoroutine(_currentScrollCoroutine);
+        }
+        
         // if we're at the end of the dialogue sequence, end the dialogue
         if (scrolling == true)
         {
-            // Stop current coroutine properly
-            if (_currentScrollCoroutine != null)
-            {
-                StopCoroutine(_currentScrollCoroutine);
-                _currentScrollCoroutine = null;
-            }
-            
             _dialogueMenu.scrolling = false;
             _dialogueMenu.UpdateLine(_dialogue.dialogueLines[_currentLine].line);
         }
@@ -108,11 +107,7 @@ public class DialogueManager : MonoBehaviour
         }
         finally
         {
-            if (_dialogueMenu is not null)
-            {
-                _dialogueMenu.scrolling = false;
-            }
-            _currentScrollCoroutine = null;
+            _dialogueMenu.scrolling = false;
         }
     }
 
@@ -123,32 +118,28 @@ public class DialogueManager : MonoBehaviour
         if (_currentScrollCoroutine != null)
         {
             StopCoroutine(_currentScrollCoroutine);
-            _currentScrollCoroutine = null;
         }
         
         // reset all values
         _currentLine = -1;
         _dialogueMenu?.ToggleActivate(false);
         _dialogue = null;
+        dialogueEvents.DialogueEnd();
     }
     
     private void OnDestroy()
     {
-        // Ensure cleanup on destroy to prevent memory leaks
         if (_currentScrollCoroutine != null)
         {
             StopCoroutine(_currentScrollCoroutine);
-            _currentScrollCoroutine = null;
         }
     }
     
     private void OnDisable()
     {
-        // Stop coroutines when disabled
         if (_currentScrollCoroutine != null)
         {
             StopCoroutine(_currentScrollCoroutine);
-            _currentScrollCoroutine = null;
         }
     }
 }

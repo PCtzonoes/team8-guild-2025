@@ -48,7 +48,7 @@ public class OpponentHand : MonoBehaviour
             card.AnimOnRotate(Quaternion.Euler(90, 0, 0), 0f);
         }
     }
-
+    
     public List<Card> GetWildCards(string wildCardSuite)
     {
         return cardsInHand

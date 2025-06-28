@@ -18,22 +18,13 @@ namespace Core.StateManagement
         
         [SerializeField] private StateChangeEvent stateChangeEvent;
 
-        [SerializeField] private GameState[] chainOfGameStates = new GameState[]
-        {
-            ScriptableObject.CreateInstance<PreGameNarrativeState>(),
-            ScriptableObject.CreateInstance<ShuffleDeckState>(),
-            ScriptableObject.CreateInstance<DrawWildCardState>(),
-            ScriptableObject.CreateInstance<PlaceBetState>(),
-            ScriptableObject.CreateInstance<PlayTrickState>(),
-            ScriptableObject.CreateInstance<PreGameNarrativeState>(),
-        };
+        [SerializeField] private GameState[] chainOfGameStates;
         
         [SerializeField] private string nextScene;
+
+        [SerializeField] GameState currentState;
         
-        private GameState currentState;
         private int chainIndex = 0;
-        
-        public GameState CurrentState => currentState;
         
         private void Start()
         {
@@ -42,7 +33,6 @@ namespace Core.StateManagement
         
         private void Update()
         {
-            // Update current state
             currentState?.OnUpdate();
         }
         
@@ -55,7 +45,7 @@ namespace Core.StateManagement
             GameState previousState = currentState;
             
             // Exit current state
-            currentState.OnExit();
+            currentState?.OnExit();
             
             // Change to new state
             currentState = newState;
@@ -64,7 +54,10 @@ namespace Core.StateManagement
             currentState.OnEnter();
             
             if (enableDebugLogs)
-                Debug.Log($"[SimpleStateManager] State changed: {previousState?.StateName ?? "None"} → {newState.StateName}");
+                Debug.Log($"[GameStateManager] State changed: {previousState?.StateName ?? "None"} → {newState.StateName}");
+            
+            // Broadcast state change with callback for progression
+            stateChangeEvent.GameStateChanged(newState, () => NextState());
         }
         
         /// <summary>
@@ -78,6 +71,7 @@ namespace Core.StateManagement
             if (nextState is null)
             {
                 EndScene();
+                return;
             }
             
             ChangeToState(nextState);
@@ -91,7 +85,11 @@ namespace Core.StateManagement
 
         private void EndScene()
         {
-            SceneManager.LoadScene(nextScene);
+            if (enableDebugLogs)
+                Debug.Log($"[GameStateManager] End of state chain reached. Loading scene: {nextScene}");
+                
+            if (!string.IsNullOrEmpty(nextScene))
+                SceneManager.LoadScene(nextScene);
         }
     }
 }

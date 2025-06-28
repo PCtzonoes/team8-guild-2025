@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using Core.StateManagement;
 using DefaultNamespace.Events;
+using GameRound;
 using UnityEngine;
 
 public class RoundManager : MonoBehaviour
@@ -14,18 +16,22 @@ public class RoundManager : MonoBehaviour
     [SerializeField] private DeckManager deckManager;
     [SerializeField] private PlayerHand playerHand;
     [SerializeField] private TrickManager trickManager;
-    [SerializeField] private DialogueEvent dialogueEvent;
+    [SerializeField] private DialogueEvents dialogueEvents;
+    
+    [SerializeField] private GameActionEvent gameActionEvent;
     
     public string wildCardSuit;
     private int _targetTrickWins;
     public int tricksWon = 0;
 
-    public void ShuffleCards()
+    public void ShuffleCards(GameStateProperties properties)
     {
         deckManager.ShuffleCards();
+
+        gameActionEvent.ActionEnd();
     }
     
-    public void SetTrumpCard()
+    public void SetTrumpCard(GameStateProperties properties)
     {
         while (wildCardSuit != "hearts" && wildCardSuit != "clubs" && wildCardSuit != "diamonds" &&
                wildCardSuit != "spades")
@@ -39,17 +45,21 @@ public class RoundManager : MonoBehaviour
             GameEvents.SetWildCardSuit(wildCardSuit);
 
             wildCard.AnimOnMoveAndRotate(DiscardPosition, Quaternion.identity, 2.0f);
-
         }
+        
+        properties.WildCardSuit = wildCardSuit;
+        gameActionEvent.ActionEnd();
     }
     
-    public void DrawPlayerHand(int numberOfCards)
+    public void DrawPlayerHand(GameStateProperties properties)
     {
-        List<Card> drawnCards = deckManager.DrawCardsFromDeck(numberOfCards);
+        List<Card> drawnCards = deckManager.DrawCardsFromDeck(properties.InitialPlayerHandSize);
         playerHand.DrawCards(drawnCards);
+        
+        gameActionEvent.ActionEnd();
     }
 
-    public void StartBetting()
+    public void StartBetting(GameStateProperties properties)
     {
         GameEvents.StartBetting();
     }
@@ -57,13 +67,19 @@ public class RoundManager : MonoBehaviour
     private void PlaceBet(int bet)
     {
         _targetTrickWins = bet;
+        gameActionEvent.ActionEnd() ;
     }
 
-    public void InitializeTrick()
+    public void InitializeTrick(GameStateProperties properties)
     {
         trickManager.InitializeTrick(
             deckManager.DrawCardsFromDeck(3),
             wildCardSuit);
+    }
+
+    public void PlayTrick(GameStateProperties properties)
+    {
+        trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
     }
  
     private void OnTrickEnd(bool isPlayerWinner)
@@ -75,7 +91,7 @@ public class RoundManager : MonoBehaviour
 
             if (tricksWon > _targetTrickWins)
             {
-                dialogueEvent.TriggerDialogueByName("lose_round");
+                dialogueEvents.TriggerDialogueByName("lose_round");
                 return;
             }
         }
@@ -85,11 +101,11 @@ public class RoundManager : MonoBehaviour
         {
             if (tricksWon != _targetTrickWins)
             {
-                dialogueEvent.TriggerDialogueByName("lose_round");
+                dialogueEvents.TriggerDialogueByName("lose_round");
             }
             else
             {
-                dialogueEvent.TriggerDialogueByName("win_round");
+                dialogueEvents.TriggerDialogueByName("win_round");
             }
         }
         else
@@ -98,11 +114,7 @@ public class RoundManager : MonoBehaviour
         }
     }
 
-    // REMOVED: CheckRoundOverState() method
-    // Game ending logic is now handled directly in OnTrickEnd() method
-    // This eliminates the redundant and premature round-over checks
-
-    public void EndGame()
+    public void EndGame(GameStateProperties properties)
     {
         _targetTrickWins = 0;
         tricksWon = 0;

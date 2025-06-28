@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DialogueTrigger : MonoBehaviour
 {
-    [SerializeField] private DialogueEvent dialogueEvent;
+    [SerializeField] private DialogueEvents dialogueEvents;
     
     public Dialogue[] dialoguePhases; // Keep original name to preserve Unity Inspector data
     private Dictionary<string, Dialogue> _dialogueLookup = new Dictionary<string, Dialogue>();
@@ -15,8 +15,6 @@ public class DialogueTrigger : MonoBehaviour
     private void Start()
     {
         _dialogueManager = FindObjectOfType<DialogueManager>();
-        
-        // Convert array to dictionary and set default delays
         InitializeDialogues();
     }
 
@@ -34,14 +32,9 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogueByName(string dialogueName)
     {
-        if (_dialogueLookup.TryGetValue(dialogueName, out Dialogue dialogue))
-        {
-            _dialogueManager.StartDialogue(dialogue);
-        }
-        else
-        {
-            Debug.LogWarning($"DialogueTrigger: Could not find dialogue with name '{dialogueName}'. Available dialogues: {string.Join(", ", _dialogueLookup.Keys)}");
-        }
+        Debug.Log($"[DialogueTrigger] Trigger dialogue by {dialogueName}");
+        _dialogueLookup.TryGetValue(dialogueName, out Dialogue dialogue);
+        _dialogueManager.StartDialogue(dialogue);
     }
 
     /// <summary>
@@ -49,11 +42,11 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     private void OnEnable()
     {
-        dialogueEvent.OnTriggeredDialogueByName += TriggerDialogueByName;
+        dialogueEvents.OnTriggeredDialogueByName.AddListener(TriggerDialogueByName);
     }
 
     private void OnDisable()
     {
-        dialogueEvent.OnTriggeredDialogueByName -= TriggerDialogueByName;
+        dialogueEvents.OnTriggeredDialogueByName.RemoveListener(TriggerDialogueByName);
     }
 }

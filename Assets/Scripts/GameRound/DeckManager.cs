@@ -10,12 +10,14 @@ public class DeckManager : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log("SHUFFLING");
+        _totalDeck = FindObjectsOfType<Card>();
         ApplySuitsAndRanks();
     }
 
     private void ApplySuitsAndRanks()
     {
-        Card[] cards = FindObjectsOfType<Card>();
+        Card[] cards = _totalDeck;
 
         string[] suits = {"clubs", "diamonds", "spades", "hearts", "imp", "devil"};
 
@@ -57,8 +59,6 @@ public class DeckManager : MonoBehaviour
 
     public void ShuffleCards()
     {
-        //Debug.Log("SHUFFLING");
-        _totalDeck = FindObjectsOfType<Card>();
         _currentDeck.Clear();
 
         // copy the template deck
@@ -66,7 +66,7 @@ public class DeckManager : MonoBehaviour
         {
             _currentDeck.Add(_totalDeck[i]);
         }
-
+        
         // kuthe's shuffling algorith
         for (int i = 0;  i < _currentDeck.Count; i++)
         {

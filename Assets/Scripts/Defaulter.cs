@@ -2,6 +2,7 @@ using DefaultNamespace.Events;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using Core.StateManagement;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,16 +15,16 @@ public class Defaulter : MonoBehaviour
     [SerializeField] private TrickManager trickManager;
     [SerializeField] private TempPowerButton powerMenu;
 
-    private void Start()
-    {
-        cards = FindObjectsOfType<Card>();
-        cardTransforms = new Transform[cards.Length];
-        for (int i = 0; i < cards.Length; i++)
-        {
-            cards[i].transform.SetParent(deck.transform);
-            cardTransforms[i] = cards[i].transform;
-        }
-    }
+    // private void Start()
+    // {
+    //     cards = FindObjectsOfType<Card>();
+    //     cardTransforms = new Transform[cards.Length];
+    //     for (int i = 0; i < cards.Length; i++)
+    //     {
+    //         cards[i].transform.SetParent(deck.transform);
+    //         cardTransforms[i] = cards[i].transform;
+    //     }
+    // }
 
     public void FuckGoBack()
     {
@@ -39,6 +40,6 @@ public class Defaulter : MonoBehaviour
         }
 
         trickManager.CurrentTrick = 0;
-        roundManager.EndGame();
+        roundManager.EndGame(GameState.Properties);
     }
 }

@@ -50,11 +50,23 @@ namespace Core.StateManagement
         {
             return null; // Default: no automatic progression
         }
+
+        public virtual string GetPreActionDialogueName()
+        {
+            return StateName;
+        }
+
+        public virtual string GetPostActionDialogueName()
+        {
+            return null;
+        }
     }
 
     public class GameStateProperties
     {
-        [SerializeField] public int InitialPlayerHandSize { get; private set; } = 5;
-        public int TricksPlayed = 0;
+        public int InitialPlayerHandSize { get; private set; } = 5;
+        
+        public int TricksPlayed { get; set; } = 0;
+        public string WildCardSuit { get; set; }
     }
 }

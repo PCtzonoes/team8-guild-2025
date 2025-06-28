@@ -1,5 +1,6 @@
 using DefaultNamespace.Events;
 using System.Collections;
+using Core.StateManagement;
 using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
@@ -7,7 +8,7 @@ public class TutorialManager : MonoBehaviour
     private RoundManager roundManager;
     private DeckManager _deckManager;
 
-    private bool _playerContinued = false;
+    private bool _playerContinued;
 
     private void Start()
     {
@@ -25,15 +26,15 @@ public class TutorialManager : MonoBehaviour
         _deckManager.ShuffleCards();
         yield return WaitForPlayerContinue();
 
-        roundManager.SetTrumpCard();
+        roundManager.SetTrumpCard(GameState.Properties);
         while (roundManager.wildCardSuit != "hearts" && roundManager.wildCardSuit != "clubs" && roundManager.wildCardSuit != "diamonds" && roundManager.wildCardSuit != "spades")
         {
             yield return new WaitForSeconds(1.0f);
-            roundManager.SetTrumpCard();
+            roundManager.SetTrumpCard(GameState.Properties);
         }
         yield return WaitForPlayerContinue();
 
-        roundManager.DrawPlayerHand(5);
+        roundManager.DrawPlayerHand(GameState.Properties);
 
         yield return WaitForPlayerContinue();
 

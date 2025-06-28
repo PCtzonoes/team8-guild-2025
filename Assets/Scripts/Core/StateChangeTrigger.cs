@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Core.StateManagement;
-using Core.StateManagement.ActionStates;
 using Core.StateManagement.GameStates;
 using Core.StateManagement.States;
+using GameRound;
 
 namespace Core
 {
@@ -13,82 +15,110 @@ namespace Core
     /// </summary>
     public class StateChangeTrigger : MonoBehaviour
     {
+        [SerializeField] private DialogueEvents dialogueEvents;
+        [SerializeField] private GameActionEvent gameActionEvent;
         [SerializeField] private StateChangeEvent stateChangeEvent;
-        
-        [SerializeField] private GameStateManager stateManager;
         
         [SerializeField] private RoundManager roundManager;
         
+        private bool _playerContinued;
+        
         private void Start()
         {
-            // Auto-find references
-            if (stateManager == null)
-                stateManager = FindObjectOfType<GameStateManager>();
             if (roundManager == null)
                 roundManager = FindObjectOfType<RoundManager>();
         }
         
         private void OnEnable()
         {
-            stateChangeEvent.OnGameStateChange += HandleStateChange;
+            stateChangeEvent.OnGameStateChange.AddListener(HandleStateChange);
+            dialogueEvents.OnDialogueEnd.AddListener(OnDialogueEnd);
+            gameActionEvent.OnActionEnd.AddListener(OnActionEnd);
         }
         
         private void OnDisable()
         {
-            stateChangeEvent.OnGameStateChange -= HandleStateChange;
+            stateChangeEvent.OnGameStateChange.RemoveListener(HandleStateChange);
+            dialogueEvents.OnDialogueEnd.RemoveListener(OnDialogueEnd);
+            gameActionEvent.OnActionEnd.RemoveListener(OnActionEnd);
         }
         
-        private void HandleStateChange(GameState gameState, ActionState actionState, Action callback)
+        private void HandleStateChange(GameState gameState, Action callback)
         {
-            if (actionState is not ActionState.ActionPhase)
-            {
-                return;
-            }
+            Debug.Log("State change trigger");
+            
+            Action<GameStateProperties> stateAction;
             
             switch (gameState)
             {
                 case ShuffleDeckState _:
-                    roundManager.ShuffleCards();
+                    stateAction = roundManager.ShuffleCards;
                     break;
-                    
                 case DealPlayerCardsState _:
-                    roundManager.DrawPlayerHand(GameState.Properties.InitialPlayerHandSize);
+                    stateAction = roundManager.DrawPlayerHand;
                     break;
-                    
                 case DrawWildCardState _:
-                    roundManager.SetTrumpCard();
+                    stateAction = roundManager.SetTrumpCard;
                     break;
-                    
                 case PlaceBetState _:
-                    roundManager.StartBetting();
+                    stateAction = roundManager.StartBetting;
                     break;
-
+                case InitializeTrickState _:
+                    stateAction = roundManager.InitializeTrick;
+                    break;
                 case PlayTrickState _:
-                    roundManager.InitializeTrick();
+                    stateAction = roundManager.PlayTrick;
                     break;
-                
-                // case PlayerActionState _:
-                //     roundManager.HandlePlayerPlayCardStep(callback);
-                //     break;
-                //     
-                // case OpponentUsePowerState _:
-                //     roundManager.HandleOpponentUsePowerStep(callback);
-                //     break;
-                //     
-                // case RevealHiddenCardState _:
-                //     roundManager.HandleRevealHiddenCardStep(callback);
-                //     break;
-                //     
-                // case TrickEndState _:
-                //     // RoundManager will decide next state based on game state
-                //     roundManager.HandleTrickEndStep(callback);
-                //     break;
-                    
                 case GameEndState _:
-                    roundManager.EndGame();
+                    stateAction = roundManager.EndGame;
                     break;
+                default:
+                    return;
             }
+
+            StartCoroutine(PerformStateRoutine(gameState, stateAction, callback));
+        }
+
+        private IEnumerator PerformStateRoutine(
+            GameState state, 
+            Action<GameStateProperties> stateAction,
+            Action callback)
+        {
+            Debug.Log("[StateChangeTrigger] DID GET HERE!");
+            
+            string preActionDialogueName = state.GetPreActionDialogueName();
+            dialogueEvents.TriggerDialogueByName(preActionDialogueName);
+
+            yield return WaitForPlayerContinue();
+            
+            Debug.Log("[StateChangeTrigger] DID GET HERE!");
+            
+            stateAction(GameState.Properties);
+            
+            yield return WaitForPlayerContinue();
+            
+            string postActionDialogueName = state.GetPostActionDialogueName();
+            dialogueEvents.TriggerDialogueByName(postActionDialogueName);
+
+            yield return WaitForPlayerContinue();
+
+            callback();
         }
         
+        private IEnumerator WaitForPlayerContinue()
+        {
+            _playerContinued = false;
+            yield return new WaitUntil(() => _playerContinued);
+        }
+        
+        private void OnDialogueEnd()
+        {
+            _playerContinued = true;
+        }
+
+        private void OnActionEnd()
+        {
+            _playerContinued = true;
+        }
     }
 }
