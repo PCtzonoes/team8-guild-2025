@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Profiling;
 
 namespace Core.StateManagement.GameStates
 {
@@ -7,5 +8,15 @@ namespace Core.StateManagement.GameStates
     {
         protected override GameStateManager StateManager { get; }
         public override string StateName { get; } = "InitializeTrickState";
+
+        public override GameState GetNextState()
+        {
+            if (Properties.RoundEnded)
+            {
+                return null;
+            }
+
+            return this;
+        }
     }
 }

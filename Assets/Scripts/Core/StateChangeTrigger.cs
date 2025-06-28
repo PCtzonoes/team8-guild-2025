@@ -22,6 +22,7 @@ namespace Core
         [SerializeField] private RoundManager roundManager;
         
         private bool _playerContinued;
+        private bool _completedPlayerAction;
         
         private void Start()
         {
@@ -34,7 +35,7 @@ namespace Core
             stateChangeEvent.OnGameStateChange.AddListener(HandleStateChange);
             dialogueEvents.OnDialogueEnd.AddListener(OnDialogueEnd);
             gameActionEvent.OnActionEnd.AddListener(OnActionEnd);
-        }
+         }
         
         private void OnDisable()
         {
@@ -66,9 +67,6 @@ namespace Core
                 case InitializeTrickState _:
                     stateAction = roundManager.InitializeTrick;
                     break;
-                case PlayTrickState _:
-                    stateAction = roundManager.PlayTrick;
-                    break;
                 case GameEndState _:
                     stateAction = roundManager.EndGame;
                     break;
@@ -87,28 +85,40 @@ namespace Core
             Debug.Log("[StateChangeTrigger] DID GET HERE!");
             
             string preActionDialogueName = state.GetPreActionDialogueName();
+        
+            Debug.Log($"[StateChangeTrigger] Triggering pre-action dialogue: {preActionDialogueName}");
+            _playerContinued = false;
             dialogueEvents.TriggerDialogueByName(preActionDialogueName);
-
             yield return WaitForPlayerContinue();
             
-            Debug.Log("[StateChangeTrigger] DID GET HERE!");
+            Debug.Log("[StateChangeTrigger] Executing state action...");
             
+            _completedPlayerAction = false;
             stateAction(GameState.Properties);
-            
-            yield return WaitForPlayerContinue();
+            yield return WaitForPlayerAction();
             
             string postActionDialogueName = state.GetPostActionDialogueName();
+            
+            yield return new WaitForSeconds(0.5f);
+            
+            Debug.Log($"[StateChangeTrigger] Triggering post-action dialogue: {postActionDialogueName}");
+            _playerContinued = false;
             dialogueEvents.TriggerDialogueByName(postActionDialogueName);
-
             yield return WaitForPlayerContinue();
 
+            Debug.Log("[StateChangeTrigger] State routine complete, calling callback");
             callback();
         }
         
         private IEnumerator WaitForPlayerContinue()
         {
-            _playerContinued = false;
+            Debug.Log($"[StateChangeTrigger] Waiting for player continue... {_playerContinued}");
             yield return new WaitUntil(() => _playerContinued);
+        }
+
+        private IEnumerator WaitForPlayerAction()
+        {
+            yield return new WaitUntil(() => _completedPlayerAction);
         }
         
         private void OnDialogueEnd()
@@ -118,7 +128,7 @@ namespace Core
 
         private void OnActionEnd()
         {
-            _playerContinued = true;
+            _completedPlayerAction = true;
         }
     }
 }

@@ -28,6 +28,13 @@ namespace Core.StateManagement
         
         private void Start()
         {
+            // Delay one frame to ensure all components are initialized
+            StartCoroutine(DelayedStart());
+        }
+        
+        private System.Collections.IEnumerator DelayedStart()
+        {
+            yield return null;
             NextState();
         }
         

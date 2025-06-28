@@ -9,11 +9,8 @@ public class DialogueEvents : ScriptableObject
     
     public UnityEvent OnDialogueEnd;
     
-    public void TriggerDialogueByName(string dialogueName)
-    {
-        Debug.Log("WOW");
+    public void TriggerDialogueByName(string dialogueName) =>
         OnTriggeredDialogueByName.Invoke(dialogueName);
-    }
 
     public void DialogueEnd() => OnDialogueEnd.Invoke();
 }

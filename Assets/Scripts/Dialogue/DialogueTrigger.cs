@@ -6,15 +6,14 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueEvents dialogueEvents;
+    [SerializeField] private DialogueManager _dialogueManager;
+
     
     public Dialogue[] dialoguePhases; // Keep original name to preserve Unity Inspector data
-    private Dictionary<string, Dialogue> _dialogueLookup = new Dictionary<string, Dialogue>();
+    private Dictionary<string, Dialogue> _dialogueLookup = new();
     
-    private DialogueManager _dialogueManager;
-
-    private void Start()
+    private void Awake()
     {
-        _dialogueManager = FindObjectOfType<DialogueManager>();
         InitializeDialogues();
     }
 
@@ -22,19 +21,21 @@ public class DialogueTrigger : MonoBehaviour
     {
         _dialogueLookup.Clear();
         
-        if (dialoguePhases == null) return;
-        
         foreach (Dialogue dialogue in dialoguePhases)
         {
             _dialogueLookup[dialogue.name] = dialogue;
         }
+        
+        Debug.Log($"[DialogueTrigger] Initialized {_dialogueLookup.Count} dialogues");
     }
 
     public void TriggerDialogueByName(string dialogueName)
     {
         Debug.Log($"[DialogueTrigger] Trigger dialogue by {dialogueName}");
-        _dialogueLookup.TryGetValue(dialogueName, out Dialogue dialogue);
-        _dialogueManager.StartDialogue(dialogue);
+
+        Dialogue lol = dialogueName != null && _dialogueLookup.TryGetValue(dialogueName, out Dialogue dialogue) ? dialogue : null;
+        
+        _dialogueManager.StartDialogue(lol);
     }
 
     /// <summary>

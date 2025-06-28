@@ -68,5 +68,7 @@ namespace Core.StateManagement
         
         public int TricksPlayed { get; set; } = 0;
         public string WildCardSuit { get; set; }
+
+        public bool RoundEnded { get; set; } = false;
     }
 }
