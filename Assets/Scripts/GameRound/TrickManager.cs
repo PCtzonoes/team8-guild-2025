@@ -94,8 +94,8 @@ public class TrickManager : MonoBehaviour
         // playedCard.transform.localRotation = Quaternion.Euler(90, 0, 0);
         
         playedCard.AnimOnMoveAndRotate(
-            new Vector3(0.0f,0.2f,-6.5f),
-            Quaternion.Euler(90, 0, 0),0f);
+            new Vector3(1.32f, 0.83f, -7.367f),
+            Quaternion.Euler(0, 0, 0),0f);
         playerHand.RemoveCard(card);
         //Debug.Log("Player played card.");
         

@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
 {
     public int cardRank;
     public string cardSuit;
+    public CardStatus status;
     public bool isAvailable;
     public bool isSelected = false;
     public bool isInteractible = false;
@@ -36,7 +37,7 @@ public class Card : MonoBehaviour
     {
         if (isInteractible)
         {
-            _material.mainTexture = _hoverTexture.texture;
+            //_material.mainTexture = _hoverTexture.texture;
             AnimHoverUp();
         }
     }
@@ -54,7 +55,7 @@ public class Card : MonoBehaviour
             else
             {
                 GameEvents.SelectCard(this);
-                _material.mainTexture = _hoverTexture.texture;
+                //_material.mainTexture = _hoverTexture.texture;
                 AnimHoverUp();
                 isSelected = true;
             }
@@ -93,13 +94,12 @@ public class Card : MonoBehaviour
         foreach (Sprite check in sprites)
         {
             string checkName = check.name.Replace("(Clone)", "");
-            string hover = $"{cardRank}_{cardSuit}_1";
-            string def = $"{cardRank}_{cardSuit}_2";
+            string def = $"{cardRank}_{cardSuit}";
 
-            if (checkName == hover)
-            {
-                _hoverTexture = check;
-            }
+            //if (checkName == hover)
+            //{
+            //    _hoverTexture = check;
+            //}
 
             if (checkName == def)
             {
@@ -151,5 +151,10 @@ public class Card : MonoBehaviour
     {
         transform.DOLocalMove(newPosition, _onArrangeHandTime).SetDelay(delay).SetEase(Ease.InOutCubic);
     }
+}
 
+public enum CardStatus
+{
+    None,
+    Desguised,
 }
