@@ -55,7 +55,7 @@ public class Card : MonoBehaviour
             else
             {
                 GameEvents.SelectCard(this);
-                _material.mainTexture = _hoverTexture.texture;
+                //_material.mainTexture = _hoverTexture.texture;
                 AnimHoverUp();
                 isSelected = true;
             }

@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Scripts/UI/USS/Root.uss?fileID=7433441132597879392&amp;guid=0ce7fb4a5fc45fa49b6ff2af4835a195&amp;type=3#Root" />
     <Style src="project://database/Assets/Scripts/UI/USS/MainMenu.uss?fileID=7433441132597879392&amp;guid=902b6a8c7852014419403abec94ac2d4&amp;type=3#MainMenu" />
     <ui:VisualElement name="root" class="root kenrick" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/Art/Sprites/main_menu_PH.png?fileID=21300000&amp;guid=d4381947d4f93d547996cd7586be42b3&amp;type=3#main_menu_PH&quot;); scale: 1 1; align-items: center; align-self: center; width: 1920px; height: 1080px; max-height: 1080px; min-height: 1119px; min-width: 1930px; top: -9px;">
-        <ui:Button text="Tutorial" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Tutorial" class="button" style="top: 752px;" />
+        <ui:Button text="Tutorial" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Tutorial" focusable="false" class="button-inactive" style="top: 752px;" />
         <ui:Button text="Grim Reaper (Easy)" parse-escape-sequences="true" display-tooltip-when-elided="true" name="GrimReaper" class="button" style="top: 752px;" />
         <ui:Button text="Dolumon (Difficult)" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Dolumon" focusable="false" class="button-inactive" style="top: 752px;" />
         <ui:Button text="Quit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Quit" class="button" style="top: 752px;" />

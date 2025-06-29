@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/BuildScenes/MainMenu.unity
+    guid: 43ca86b7eb7c50e4aa5d59de3229bdcf
+  - enabled: 1
     path: Assets/Scenes/BuildScenes/ReaperLevels/grimTutorial.unity
     guid: c5259f61bbb908f48a022328ab28616f
   - enabled: 1

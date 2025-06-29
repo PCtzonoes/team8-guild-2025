@@ -23,9 +23,9 @@ public class MainMenu : UIRoot
         _dolumon = _uiDoc.rootVisualElement.Q<Button>("Dolumon");
         _quit = _uiDoc.rootVisualElement.Q<Button>("Quit");
 
-        _tutorial.clicked += () => OnTutorialClicked();
-        _quit.clicked += () => OnGrimReaperClicked();
-        _quit.clicked += () => OnDolumonClicked();
+        //_tutorial.clicked += () => OnTutorialClicked();
+        _grimReaper.clicked += () => OnGrimReaperClicked();
+        //_dolumon.clicked += () => OnDolumonClicked();
         _quit.clicked += () => OnQuitClicked();
 
         

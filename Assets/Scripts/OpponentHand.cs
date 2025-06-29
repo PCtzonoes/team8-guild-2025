@@ -18,10 +18,16 @@ public class OpponentHand : MonoBehaviour
         
         List<Card> shownCards = GetInitialShownCards();
 
+        foreach (Card card in cardsInHand)
+        {
+            //Debug.Log(card);
+            card.transform.rotation = Quaternion.Euler(180, 0, 0);
+        }
+
         foreach (Card card in shownCards)
         {
             //Debug.Log(card);
-            card.transform.rotation = Quaternion.Euler(90, 0, 0);
+            card.transform.rotation = Quaternion.Euler(360, 0, 180);
         }
 
         ArrangeHand();
@@ -45,7 +51,7 @@ public class OpponentHand : MonoBehaviour
     {
         foreach (Card card in GetInitialHiddenCards())
         {
-            card.AnimOnRotate(Quaternion.Euler(90, 0, 0), 0f);
+            card.AnimOnRotate(Quaternion.Euler(0, 0, 0), 0f);
         }
     }
 
