@@ -10,7 +10,7 @@ namespace Core.StateManagement.States
     public class PostGameNarrativeState : GameState
     {
         protected override GameStateManager StateManager { get; set; }
-        public override string StateName => "post_game_narrative";
+        //public new string StateName = "post_game_narrative";
         
         public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {

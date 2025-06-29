@@ -10,18 +10,16 @@ namespace Core.StateManagement.States
     public class DrawWildCardState : GameState
     {
         protected override GameStateManager StateManager { get; set; }
-        public override string StateName => "draw_wild_card";
+        //public new string StateName = "draw_wild_card";
         
         public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
             _playerContinued = false;
-            dialogueEvents.TriggerDialogueByName(StateName);
-            yield return WaitForDialogueEnd();
-            
+            dialogueEvents.TriggerDialogueByName(StateName);            
             _completedPlayerAction = false;
-            roundManager.DrawPlayerHand(Properties);
+            roundManager.SetTrumpCard(Properties);
             yield return WaitForPlayerAction();
-            
+            yield return WaitForDialogueEnd();
             StateManager.NextState();
         }
     }

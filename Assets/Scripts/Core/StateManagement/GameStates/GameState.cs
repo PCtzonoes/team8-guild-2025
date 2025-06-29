@@ -18,7 +18,7 @@ namespace Core.StateManagement
         
         protected abstract GameStateManager StateManager { get; set; }
 
-        public abstract string StateName { get; }
+        public string StateName;
 
         protected bool _playerContinued = false;
         protected bool _completedPlayerAction = false;

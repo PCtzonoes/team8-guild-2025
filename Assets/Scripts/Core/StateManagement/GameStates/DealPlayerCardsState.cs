@@ -10,7 +10,7 @@ namespace Core.StateManagement.States
     public class DealPlayerCardsState : GameState
     {
         protected override GameStateManager StateManager { get; set; }
-        public override string StateName => "deal_player_cards";
+        //public new string StateName = "deal_player_cards";
 
         public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
@@ -18,12 +18,11 @@ namespace Core.StateManagement.States
         
             _playerContinued = false;
             dialogueEvents.TriggerDialogueByName(StateName);
-            yield return WaitForDialogueEnd();
             
             _completedPlayerAction = false;
             roundManager.DrawPlayerHand(Properties);
             yield return WaitForPlayerAction();
-        
+            yield return WaitForDialogueEnd();
             yield return new WaitForSeconds(0.5f);
             
             Debug.Log("[DealPlayerCardsState] State routine complete, calling callback");

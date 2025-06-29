@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b695eb4733c949b68426a9ce77e837e, type: 3}
   m_Name: PlaceBetState
   m_EditorClassIdentifier: 
+  dialogueEvents: {fileID: 11400000, guid: 236ceb4bff98a4a29955a846ac2abbe0, type: 2}
+  gameActionEvent: {fileID: 11400000, guid: e0f2427f4b7ae40dca9a2043c507408e, type: 2}
+  StateName: place_bet

@@ -10,7 +10,7 @@ namespace Core.StateManagement.States
     public class ShuffleDeckState : GameState
     {
         protected override GameStateManager StateManager { get; set; }
-        public override string StateName => "shuffle_deck";
+        //public new string StateName = "shuffle_deck";
         public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
             Debug.Log("[ShuffleDeckState] DID GET HERE!");

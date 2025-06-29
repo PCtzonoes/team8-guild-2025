@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634a53c4d2b4842f7bc913475857de13, type: 3}
   m_Name: DrawWildCardState
   m_EditorClassIdentifier: 
+  dialogueEvents: {fileID: 11400000, guid: 236ceb4bff98a4a29955a846ac2abbe0, type: 2}
+  gameActionEvent: {fileID: 11400000, guid: e0f2427f4b7ae40dca9a2043c507408e, type: 2}
+  StateName: draw_wild_card

@@ -36,6 +36,7 @@ public class RoundManager : MonoBehaviour
         while (wildCardSuit != "hearts" && wildCardSuit != "clubs" && wildCardSuit != "diamonds" &&
                wildCardSuit != "spades")
         {
+            Debug.LogWarning(wildCardSuit);
             Card wildCard = deckManager.DrawCardsFromDeck(1)[0];
             wildCardSuit = wildCard.cardSuit;
 

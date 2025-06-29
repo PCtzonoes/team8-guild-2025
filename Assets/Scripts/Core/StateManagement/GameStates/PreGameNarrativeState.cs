@@ -10,7 +10,7 @@ namespace Core.StateManagement.States
     public class PreGameNarrativeState : GameState
     {
         protected override GameStateManager StateManager { get; set; }
-        public override string StateName => "pre_game_narrative";
+        //public new string StateName = "pre_game_narrative";
         public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
             _playerContinued = false;

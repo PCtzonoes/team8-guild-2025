@@ -27,7 +27,9 @@ public class TrickManager : MonoBehaviour
         string drawnWildCardSuit)
     {
         wildCardSuit = drawnWildCardSuit;
-        opponentHand.RenderCards(oppoenentCards);
+
+        CurrentTrick++;
+        StartCoroutine(StartTrickWithDelay(oppoenentCards));
     }
 
     public void StartTrick(List<Card> oppoenentCards)
@@ -154,17 +156,18 @@ public class TrickManager : MonoBehaviour
 
     private IEnumerator StartTrickWithDelay(List<Card> oppoenentCards)
     {
-        yield return new WaitForSeconds(2);
+        //yield return new WaitForSeconds(2);
         
         foreach (var card in opponentHand.cardsInHand)
         {
             card.transform.position = _graveyard;
         }
 
-        playedCard.gameObject.SetActive(false);
+        playedCard?.gameObject.SetActive(false);
 
         opponentHand.cardsInHand.Clear();
 
         opponentHand.RenderCards(oppoenentCards);
+        yield return null;
     }
 }

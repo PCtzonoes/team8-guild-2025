@@ -8,7 +8,7 @@ namespace Core.StateManagement.GameStates
     public class InitializeTrickState : GameState
     {
         protected override GameStateManager StateManager { get; set; }
-        public override string StateName { get; } = "initialize_trick";
+        //public new string StateName = "initialize_trick";
 
         public override GameState GetNextState()
         {
@@ -40,7 +40,6 @@ namespace Core.StateManagement.GameStates
             _playerContinued = false;
             dialogueEvents.TriggerDialogueByName($"{(Properties.IsPlayerLastTrickWinner ? "win" : "lose")}_{Properties.TricksPlayed}");
             yield return WaitForDialogueEnd();
-            
             Debug.Log("[GameStateManager] State routine complete, calling callback");
             StateManager.NextState();
         }

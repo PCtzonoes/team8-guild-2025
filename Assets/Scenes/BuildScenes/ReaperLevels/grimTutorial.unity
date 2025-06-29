@@ -1235,6 +1235,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4207818080174697330, guid: de2c6077cd4c92840866daf40cedd34e, type: 3}
   m_PrefabInstance: {fileID: 403851566}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &425184110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 425184113}
+  - component: {fileID: 425184112}
+  - component: {fileID: 425184111}
+  m_Layer: 0
+  m_Name: StateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &425184111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425184110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8f35ec4cbbb54795978f1ddce89eeea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueEvents: {fileID: 11400000, guid: 236ceb4bff98a4a29955a846ac2abbe0, type: 2}
+  gameActionEvent: {fileID: 11400000, guid: e0f2427f4b7ae40dca9a2043c507408e, type: 2}
+  stateChangeEvent: {fileID: 11400000, guid: bd233a13925f34749bbc015ab446ffe0, type: 2}
+  roundManager: {fileID: 650557305}
+--- !u!114 &425184112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425184110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440659e9fada543f09ae7d3c0f80ddde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDebugLogs: 1
+  stateChangeEvent: {fileID: 11400000, guid: bd233a13925f34749bbc015ab446ffe0, type: 2}
+  chainOfGameStates:
+  - {fileID: 11400000, guid: 6a3d7a73fd2394080a7d0bdfbc69ea02, type: 2}
+  - {fileID: 11400000, guid: db62d1c472a114e1f82bc85470cc702a, type: 2}
+  - {fileID: 11400000, guid: 6747876465e3b4a51ae0c1e2084926b7, type: 2}
+  - {fileID: 11400000, guid: ae70b58de9e9b4b66a96ec3b3f5ef7a2, type: 2}
+  - {fileID: 11400000, guid: 98fab433b5ebf4907b6d6e8f234eff89, type: 2}
+  - {fileID: 11400000, guid: 3be1530f5a2714bcf9dd8fde9899ec01, type: 2}
+  - {fileID: 11400000, guid: 0b6886e9e53734ac582722cef27e6c84, type: 2}
+  - {fileID: 11400000, guid: d704c0c00caa046a6940479373418cb0, type: 2}
+  nextScene: 
+  currentState: {fileID: 0}
+--- !u!4 &425184113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425184110}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3719847, y: -2.7766068, z: 7.1644845}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &431573494
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2288,10 +2362,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deck: {fileID: 1861105192}
-  gameManager: {fileID: 650557305}
+  roundManager: {fileID: 650557305}
   trickManager: {fileID: 1631811312}
   powerMenu: {fileID: 0}
-  dialogueTrigger: {fileID: 1576649025}
 --- !u!114 &650557305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2308,6 +2381,8 @@ MonoBehaviour:
   deckManager: {fileID: 1861105192}
   playerHand: {fileID: 2106450686}
   trickManager: {fileID: 1631811312}
+  dialogueEvents: {fileID: 11400000, guid: 236ceb4bff98a4a29955a846ac2abbe0, type: 2}
+  gameActionEvent: {fileID: 11400000, guid: e0f2427f4b7ae40dca9a2043c507408e, type: 2}
   wildCardSuit: 
   tricksWon: 0
 --- !u!114 &650557306
@@ -6053,6 +6128,266 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialogueEvents
+      value: 
+      objectReference: {fileID: 11400000, guid: 236ceb4bff98a4a29955a846ac2abbe0, type: 2}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 2046844742}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.size
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].name
+      value: pre_game_narrative
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].name
+      value: draw_wild_card
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[2].name
+      value: deal_player_cards
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[3].name
+      value: win_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[4].name
+      value: win_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[5].name
+      value: win_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[6].name
+      value: win_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[7].name
+      value: win_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[8].name
+      value: lose_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[9].name
+      value: lose_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].name
+      value: lose_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].name
+      value: lose_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].name
+      value: lose_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[13].name
+      value: win_round
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[14].name
+      value: lose_round
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[6].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[7].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[13].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[14].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[3].line
+      value: The object of the game is to bet on how good your hand is.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[4].line
+      value: Place a bet on how many cards you'll win.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[5].line
+      value: Place a bet on how many cards you'll win.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[6].line
+      value: Place a bet on how many cards you'll win.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[0].line
+      value: This card represents the TRUMP. It's suit beats every other suit.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[1].line
+      value: We'll set this card aside.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[2].dialogueLines.Array.data[0].line
+      value: The object of the game is to bet on how good your hand is.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[2].dialogueLines.Array.data[1].line
+      value: Place a bet on how many cards you'll win.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[3].dialogueLines.Array.data[0].line
+      value: First trick goes to you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[3].dialogueLines.Array.data[1].line
+      value: Second trick, here we go.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[4].dialogueLines.Array.data[0].line
+      value: Second trick goes to you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[4].dialogueLines.Array.data[1].line
+      value: Third Trick, here we go.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.data[0].line
+      value: Third trick, goes to you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.data[1].line
+      value: Halfway there, don't lose your cool
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[6].dialogueLines.Array.data[0].line
+      value: Fourth trick is your.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[6].dialogueLines.Array.data[1].line
+      value: Only one more to go.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[7].dialogueLines.Array.data[0].line
+      value: Final trick, is yours!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[7].dialogueLines.Array.data[1].line
+      value: Second trick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[8].dialogueLines.Array.data[0].line
+      value: First trick is mine.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[8].dialogueLines.Array.data[1].line
+      value: Second trick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[9].dialogueLines.Array.data[0].line
+      value: Second trick goes to me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[9].dialogueLines.Array.data[1].line
+      value: Third trick...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[0].line
+      value: My cards win me the third trick.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[1].line
+      value: Better luck next time
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[0].line
+      value: I claim the penultimate trick.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[1].line
+      value: What fate awaits you in this final trick?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.data[0].line
+      value: Final trick is mine, my friend.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.data[1].line
+      value: How about we go again?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[13].dialogueLines.Array.data[0].line
+      value: Nice work, you got what you bet. I concede defeat.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[13].dialogueLines.Array.data[1].line
+      value: How about we go again?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[14].dialogueLines.Array.data[0].line
+      value: Oh too bad, looks like you missed your mark.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[14].dialogueLines.Array.data[1].line
+      value: You lose this time, but how about we try again?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[3].startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[4].startDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[5].startDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[6].startDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[3].OnLineStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 650557306}
@@ -6070,17 +6405,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2185431472341246624, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
   m_PrefabInstance: {fileID: 1576649023}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1576649025 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
-  m_PrefabInstance: {fileID: 1576649023}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92bae4083485a9d4eadf1d07c45335ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1631811311
 GameObject:
   m_ObjectHideFlags: 0
@@ -6615,7 +6939,7 @@ Transform:
   m_GameObject: {fileID: 1748403599}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0.1, z: -6.36}
+  m_LocalPosition: {x: -0.48, y: 0.78, z: -7.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6721,10 +7045,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1042975081}
-  - {fileID: 1576649024}
   - {fileID: 1861105191}
   - {fileID: 1816422099}
   - {fileID: 1651760851}
+  - {fileID: 1576649024}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1798881151
@@ -8072,6 +8396,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbfaa8408deaec0498f5e7574f9d380d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueEvents: {fileID: 11400000, guid: 236ceb4bff98a4a29955a846ac2abbe0, type: 2}
+  _dialogueMenu: {fileID: 568834629}
 --- !u!4 &2046844743
 Transform:
   m_ObjectHideFlags: 0
@@ -8127,13 +8453,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106450685}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.22326708, y: 0, z: 0, w: 0.9747573}
-  m_LocalPosition: {x: 0, y: -1.39, z: 1.74}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.26, z: 0.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 910420087}
-  m_LocalEulerAnglesHint: {x: 25.802, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2114677999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8562,3 +8888,4 @@ SceneRoots:
   - {fileID: 1631811313}
   - {fileID: 1776068853}
   - {fileID: 1106255383}
+  - {fileID: 425184113}

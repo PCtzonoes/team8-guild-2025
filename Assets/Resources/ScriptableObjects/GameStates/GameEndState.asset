@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1cff4d90b0640e688e39e4cc56e2a4, type: 3}
   m_Name: GameEndState
   m_EditorClassIdentifier: 
+  dialogueEvents: {fileID: 11400000, guid: 236ceb4bff98a4a29955a846ac2abbe0, type: 2}
+  gameActionEvent: {fileID: 11400000, guid: e0f2427f4b7ae40dca9a2043c507408e, type: 2}
+  StateName: game_end

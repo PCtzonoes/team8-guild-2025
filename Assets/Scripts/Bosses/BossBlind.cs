@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BossBlind : MonoBehaviour
 {
-    protected GameManager _gameManager;
+    protected RoundManager _roundManager;
     protected DeckManager _deck;
     protected PlayerHand _playerHand;
     protected OpponentHand _opponentHand;
@@ -11,7 +11,7 @@ public class BossBlind : MonoBehaviour
 
     private void Start()
     {
-        _gameManager = FindObjectOfType<GameManager>();
+        _roundManager = FindObjectOfType<RoundManager>();
         _deck = FindObjectOfType<DeckManager>();
         _playerHand = FindObjectOfType<PlayerHand>();
         _opponentHand = FindObjectOfType<OpponentHand>();
