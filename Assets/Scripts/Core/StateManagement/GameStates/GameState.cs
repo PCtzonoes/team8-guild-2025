@@ -1,5 +1,7 @@
-using System.Collections.Generic;
+using System.Collections;
+using GameRound;
 using UnityEngine;
+
 
 namespace Core.StateManagement
 {
@@ -9,56 +11,75 @@ namespace Core.StateManagement
     /// </summary>
     public abstract class GameState : ScriptableObject
     {
+        [SerializeField] protected DialogueEvents dialogueEvents;
+        [SerializeField] protected GameActionEvent gameActionEvent;
+        
         public static GameStateProperties Properties { get; } = new GameStateProperties();
         
-        protected abstract GameStateManager StateManager { get; }
-        
-        /// <summary>
-        /// Unique name for this state
-        /// </summary>
+        protected abstract GameStateManager StateManager { get; set; }
+
         public abstract string StateName { get; }
+
+        protected bool _playerContinued = false;
+        protected bool _completedPlayerAction = false;
         
-        /// <summary>
-        /// Called when entering this state
-        /// </summary>c
-        public virtual void OnEnter()
+        public virtual void OnEnter(GameStateManager stateManager)
         {
             Debug.Log($"[GameState] Entering: {StateName}");
+            StateManager = stateManager;
         }
 
-        /// <summary>
-        /// Called every frame while in this state
-        /// </summary>
         public virtual void OnUpdate()
         {
             // Override in derived classes if needed
         }
 
-        /// <summary>
-        /// Called when exiting this state
-        /// </summary>
         public virtual void OnExit()
         {
             Debug.Log($"[GameState] Exiting: {StateName}");
         }
 
-        /// <summary>
-        /// Get the next logical state. Override in derived classes for custom logic.
-        /// </summary>
-        /// <returns>The next state to transition to, or null to stay in current state</returns>
         public virtual GameState GetNextState()
         {
-            return null; // Default: no automatic progression
-        }
-
-        public virtual string GetPreActionDialogueName()
-        {
-            return StateName;
-        }
-
-        public virtual string GetPostActionDialogueName()
-        {
             return null;
+        }
+
+        public abstract IEnumerator PerformStateRoutine(RoundManager roundManager);
+
+
+        protected IEnumerator WaitForDialogueEnd()
+        {
+            yield return new WaitUntil(() => _playerContinued);
+        }
+
+        protected IEnumerator WaitForPlayerAction()
+        {
+            yield return new WaitUntil(() => _completedPlayerAction);
+        }
+        
+        private void OnDialogueEnd()
+        {
+            _playerContinued = true;
+        }
+
+        private void OnActionEnd()
+        {
+            _completedPlayerAction = true;
+        }
+        
+        private void OnEnable()
+        {
+            dialogueEvents = Resources.Load<DialogueEvents>("ScriptableObjects/DialogueEvents");
+            gameActionEvent = Resources.Load<GameActionEvent>("ScriptableObjects/GameActionEvent 1");;
+            
+            dialogueEvents.OnDialogueEnd.AddListener(OnDialogueEnd);
+            gameActionEvent.OnActionEnd.AddListener(OnActionEnd);
+        }
+        
+        private void OnDisable()
+        {
+            dialogueEvents.OnDialogueEnd.RemoveListener(OnDialogueEnd);
+            gameActionEvent.OnActionEnd.RemoveListener(OnActionEnd);
         }
     }
 
@@ -67,8 +88,15 @@ namespace Core.StateManagement
         public int InitialPlayerHandSize { get; private set; } = 5;
         
         public int TricksPlayed { get; set; } = 0;
-        public string WildCardSuit { get; set; }
 
-        public bool RoundEnded { get; set; } = false;
+        public int RoundsPlayed { get; set; } = 0;
+        
+        public string WildCardSuit { get; set; }
+        
+        public bool IsPlayerLastTrickWinner { get; set; }
+        
+        public bool IsPlayerRoundWinner { get; set; }
+        
+        public bool IsRoundEnded { get; set; } = false;
     }
 }

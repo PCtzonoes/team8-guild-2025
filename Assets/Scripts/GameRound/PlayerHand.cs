@@ -68,9 +68,17 @@ public class PlayerHand : MonoBehaviour
 
     public void EnableCardInteraction(int bet)
     {
+        // foreach (Card card in cardsInHand)
+        // {
+        //     card.isInteractible = true;
+        // }
+    }
+
+    public void SetCardInteraction(bool interactable)
+    {
         foreach (Card card in cardsInHand)
         {
-            card.isInteractible = true;
+            card.isInteractible = interactable;
         }
     }
 

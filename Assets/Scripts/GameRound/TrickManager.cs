@@ -107,10 +107,7 @@ public class TrickManager : MonoBehaviour
     void TrickEnd()
     {
         opponentHand.RevealCard();
-
         bool isPlayerWinner = DidPlayerWinTrick();
-        
-        // Just trigger the game event - dialogue will be handled by RoundManager callback
         GameEvents.EndTrick(isPlayerWinner);
     }
 

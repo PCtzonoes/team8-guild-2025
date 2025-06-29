@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Core.StateManagement.States
@@ -8,12 +9,25 @@ namespace Core.StateManagement.States
     [CreateAssetMenu(fileName = "DealPlayerCardsState", menuName = "Scripts/GameStates/ScriptableObjects/DealPlayerCardsState", order = 1)]
     public class DealPlayerCardsState : GameState
     {
-        protected override GameStateManager StateManager { get; }
+        protected override GameStateManager StateManager { get; set; }
         public override string StateName => "deal_player_cards";
-        
-        public override GameState GetNextState()
+
+        public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
-            return new DrawWildCardState();
+            Debug.Log("[DealPlayerCardsState] Executing state action...");
+        
+            _playerContinued = false;
+            dialogueEvents.TriggerDialogueByName(StateName);
+            yield return WaitForDialogueEnd();
+            
+            _completedPlayerAction = false;
+            roundManager.DrawPlayerHand(Properties);
+            yield return WaitForPlayerAction();
+        
+            yield return new WaitForSeconds(0.5f);
+            
+            Debug.Log("[DealPlayerCardsState] State routine complete, calling callback");
+            StateManager.NextState();
         }
     }
 }

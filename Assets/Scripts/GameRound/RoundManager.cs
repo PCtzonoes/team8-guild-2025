@@ -75,6 +75,8 @@ public class RoundManager : MonoBehaviour
         trickManager.InitializeTrick(
             deckManager.DrawCardsFromDeck(3),
             wildCardSuit);
+        
+        playerHand.SetCardInteraction(true);
     }
 
     public void PlayTrick(GameStateProperties properties)
@@ -84,6 +86,10 @@ public class RoundManager : MonoBehaviour
  
     private void OnTrickEnd(bool isPlayerWinner)
     {
+        playerHand.SetCardInteraction(false);
+        
+        GameState.Properties.IsPlayerLastTrickWinner = isPlayerWinner;
+        
         if (isPlayerWinner)
         {
             tricksWon++;
@@ -92,6 +98,9 @@ public class RoundManager : MonoBehaviour
             if (tricksWon > _targetTrickWins)
             {
                 dialogueEvents.TriggerDialogueByName("lose_round");
+                GameState.Properties.IsPlayerLastTrickWinner = false;
+                GameState.Properties.IsRoundEnded = true;
+                gameActionEvent.ActionEnd();
                 return;
             }
         }
@@ -101,17 +110,17 @@ public class RoundManager : MonoBehaviour
         {
             if (tricksWon != _targetTrickWins)
             {
-                dialogueEvents.TriggerDialogueByName("lose_round");
+                GameState.Properties.IsPlayerLastTrickWinner = true;
+                GameState.Properties.IsRoundEnded = true;
             }
             else
             {
-                dialogueEvents.TriggerDialogueByName("win_round");
+                GameState.Properties.IsPlayerLastTrickWinner = true;
+                GameState.Properties.IsRoundEnded = true;
             }
         }
-        else
-        {
-            trickManager.StartTrick(deckManager.DrawCardsFromDeck(3));
-        }
+        
+        gameActionEvent.ActionEnd();
     }
 
     public void EndGame(GameStateProperties properties)

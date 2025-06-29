@@ -8,11 +8,11 @@ namespace Core.StateManagement
     public class StateChangeEvent : ScriptableObject
     {
         // Event for broadcasting state changes
-        public UnityEvent<GameState, Action> OnGameStateChange;
+        public UnityEvent<GameState> OnGameStateChange;
 
-        public void GameStateChanged(GameState gameState, Action callback) {
+        public void GameStateChanged(GameState gameState) {
             Debug.Log("[StateChangeEvent] Game state change event");
-            OnGameStateChange.Invoke(gameState, callback);
+            OnGameStateChange.Invoke(gameState);
         }
     }
 }

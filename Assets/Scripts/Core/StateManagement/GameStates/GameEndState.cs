@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Core.StateManagement.States
@@ -8,12 +9,13 @@ namespace Core.StateManagement.States
     [CreateAssetMenu(fileName = "GameEndState", menuName = "Scripts/GameStates/ScriptableObjects/GameEndState", order = 1)]
     public class GameEndState : GameState
     {
-        protected override GameStateManager StateManager { get; }
+        protected override GameStateManager StateManager { get; set; }
         public override string StateName => "game_end";
-        
-        public override GameState GetNextState()
+
+        public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
-            return null; // Stay in this state
+            yield return new WaitForSeconds(0.2f);
+            StateManager.NextState();
         }
     }
 }

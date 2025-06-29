@@ -58,13 +58,13 @@ namespace Core.StateManagement
             currentState = newState;
             
             // Enter new state
-            currentState.OnEnter();
+            currentState.OnEnter(this);
             
             if (enableDebugLogs)
                 Debug.Log($"[GameStateManager] State changed: {previousState?.StateName ?? "None"} → {newState.StateName}");
             
             // Broadcast state change with callback for progression
-            stateChangeEvent.GameStateChanged(newState, () => NextState());
+            stateChangeEvent.GameStateChanged(newState);
         }
         
         /// <summary>
