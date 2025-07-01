@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Bank" id="{4b5808ea-0ee1-4713-8f45-1f53c76b457a}">
+		<property name="name">
+			<value>Grim Reaper</value>
+		</property>
+		<relationship name="folder">
+			<destination>{2f89a5e4-56b1-4c31-89a4-8e8fed7b799a}</destination>
+		</relationship>
+	</object>
+</objects>

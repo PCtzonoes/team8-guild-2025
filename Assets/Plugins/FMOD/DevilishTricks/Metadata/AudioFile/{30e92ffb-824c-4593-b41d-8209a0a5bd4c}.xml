@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{30e92ffb-824c-4593-b41d-8209a0a5bd4c}">
+		<property name="assetPath">
+			<value>SFX/Ambience_DCG_Limbo.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>31.875</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4d657fc3-7bcb-4d92-b8c2-95e08696e30a}</destination>
+		</relationship>
+	</object>
+</objects>
