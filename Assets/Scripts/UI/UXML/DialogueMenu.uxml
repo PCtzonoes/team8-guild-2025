@@ -2,7 +2,7 @@
     <Style src="project://database/Assets/Scripts/UI/USS/DialogueMenu.uss?fileID=7433441132597879392&amp;guid=48ea4e95f3601a244ae890844a71d9b8&amp;type=3#DialogueMenu" />
     <Style src="project://database/Assets/Scripts/UI/USS/Root.uss?fileID=7433441132597879392&amp;guid=0ce7fb4a5fc45fa49b6ff2af4835a195&amp;type=3#Root" />
     <ui:VisualElement name="root" class="root" style="flex-grow: 1;">
-        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="npc" class="line line-inactive" style="align-items: flex-end; top: 40px; left: 1264px; transform-origin: left bottom;" />
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="npc" class="line" style="align-items: flex-end; top: 40px; left: 1264px; transform-origin: left bottom;" />
         <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="protagonist" class="line line-inactive" style="align-items: flex-end; top: 40px; left: 124px; transform-origin: right bottom;" />
     </ui:VisualElement>
 </ui:UXML>

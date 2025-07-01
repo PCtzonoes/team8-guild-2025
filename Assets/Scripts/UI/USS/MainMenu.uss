@@ -21,6 +21,8 @@
     align-self: auto;
     letter-spacing: 10px;
     -unity-text-align: middle-center;
+    -unity-font-definition: initial;
+    -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/MORPHEUS.TTF?fileID=12800000&guid=44a1775098f127e4badbeba7e8082dce&type=3#MORPHEUS");
 }
 
 .button-inactive {
@@ -46,6 +48,8 @@
     align-self: auto;
     letter-spacing: 10px;
     -unity-text-align: middle-center;
+    -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/MORPHEUS.TTF?fileID=12800000&guid=44a1775098f127e4badbeba7e8082dce&type=3#MORPHEUS");
+    -unity-font-definition: initial;
 }
 
 .button:hover {

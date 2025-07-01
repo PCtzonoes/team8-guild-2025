@@ -20,10 +20,14 @@
     padding-left: 45px;
     white-space: normal;
     transition-duration: 0.1s;
+    -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/BluuNext-Bold.otf?fileID=12800000&guid=01d29990138283b429e4b4341bdb68e9&type=3#BluuNext-Bold");
+    -unity-font-definition: initial;
 }
 
 .line-inactive {
     opacity: 1;
     transition-duration: 0.05s;
     scale: 0 0;
+    -unity-font: url("project://database/Assets/TextMesh%20Pro/Fonts/BluuNext-Bold.otf?fileID=12800000&guid=01d29990138283b429e4b4341bdb68e9&type=3#BluuNext-Bold");
+    -unity-font-definition: initial;
 }
