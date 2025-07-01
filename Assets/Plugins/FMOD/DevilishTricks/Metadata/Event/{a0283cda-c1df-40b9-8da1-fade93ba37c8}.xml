@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{a0283cda-c1df-40b9-8da1-fade93ba37c8}">
 		<property name="name">
-			<value>AmbienceLimbo</value>
+			<value>Limbo Ambience</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>

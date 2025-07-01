@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{8cc9e36d-4431-4f6a-9ca2-aaa5144d6bda}">
 		<property name="name">
-			<value>OverhandShuffle</value>
+			<value>Overhand Shuffle</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
