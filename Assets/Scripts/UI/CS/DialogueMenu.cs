@@ -5,9 +5,8 @@ using UnityEngine.UIElements;
 
 public class DialogueMenu : UIRoot
 {
-    private VisualElement _background;
-    private Label _line;
-
+    private Label _npcLine;
+    private Label _protagonistLine;
     public bool scrolling;
 
     [SerializeField] private float _commaDelay;
@@ -19,12 +18,33 @@ public class DialogueMenu : UIRoot
     {
         base.Start();
         // declare visual elements
-        _background = _uiDoc.rootVisualElement.Q("background");
-        _line = _uiDoc.rootVisualElement.Q<Label>("line");
+        _npcLine = _uiDoc.rootVisualElement.Q<Label>("npc");
+        _protagonistLine = _uiDoc.rootVisualElement.Q<Label>("protagonist");
     }
 
-    public void UpdateLine(string line)
+    // prints the next letter to the line in question
+    public void UpdateLine(string line, bool isProtagonist)
     {
-        _line.text = line;
+        Label thisLabel;
+        Label notThisLabel;
+        switch (isProtagonist)
+        {
+            case true:
+                thisLabel = _protagonistLine;
+                notThisLabel = _npcLine;
+                break;
+            case false:
+                thisLabel = _npcLine;
+                notThisLabel = _protagonistLine;
+                break;
+        
+        }
+
+        if (thisLabel.ClassListContains("line-inactive"))
+        {
+            notThisLabel.AddToClassList("line-inactive");
+            thisLabel.RemoveFromClassList("line-inactive");
+        }
+        thisLabel.text = line;
     }
 }

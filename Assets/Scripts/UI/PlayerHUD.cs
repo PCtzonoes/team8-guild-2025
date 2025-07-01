@@ -1,7 +1,7 @@
 using DefaultNamespace.Events;
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
+using TreeEditor;
 using UnityEngine;
 
 public class PlayerHUD : MonoBehaviour
@@ -39,5 +39,10 @@ public class PlayerHUD : MonoBehaviour
     private void UpdateTrump(string suit)
     {
         _trump.text = $"{suit}";
+    }
+
+    public void SummonPlaySpace()
+    {
+        transform.DOLocalMoveY(.87f, 1);
     }
 }

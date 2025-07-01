@@ -16,7 +16,7 @@ namespace Core.StateManagement.States
             Debug.Log("[ShuffleDeckState] DID GET HERE!");
         
             _playerContinued = false;
-            dialogueEvents.TriggerDialogueByName(StateName);
+            dialogueEvents.TriggerDialogueByName(StateName + "_" + Properties.RoundsPlayed);
             yield return WaitForDialogueEnd();
         
             Debug.Log("[ShuffleDeckState] Executing state action...");

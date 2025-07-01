@@ -1284,16 +1284,36 @@ MonoBehaviour:
   enableDebugLogs: 1
   stateChangeEvent: {fileID: 11400000, guid: bd233a13925f34749bbc015ab446ffe0, type: 2}
   chainOfGameStates:
-  - {fileID: 11400000, guid: 6a3d7a73fd2394080a7d0bdfbc69ea02, type: 2}
+  - {fileID: 11400000, guid: c9479c566faf6a9439565abf6b7d5756, type: 2}
   - {fileID: 11400000, guid: db62d1c472a114e1f82bc85470cc702a, type: 2}
-  - {fileID: 11400000, guid: 6747876465e3b4a51ae0c1e2084926b7, type: 2}
+  - {fileID: 11400000, guid: ae70b58de9e9b4b66a96ec3b3f5ef7a2, type: 2}
+  - {fileID: 11400000, guid: 3be1530f5a2714bcf9dd8fde9899ec01, type: 2}
+  - {fileID: 11400000, guid: 0b6886e9e53734ac582722cef27e6c84, type: 2}
+  - {fileID: 11400000, guid: c9479c566faf6a9439565abf6b7d5756, type: 2}
+  - {fileID: 11400000, guid: db62d1c472a114e1f82bc85470cc702a, type: 2}
   - {fileID: 11400000, guid: ae70b58de9e9b4b66a96ec3b3f5ef7a2, type: 2}
   - {fileID: 11400000, guid: 98fab433b5ebf4907b6d6e8f234eff89, type: 2}
   - {fileID: 11400000, guid: 3be1530f5a2714bcf9dd8fde9899ec01, type: 2}
   - {fileID: 11400000, guid: 0b6886e9e53734ac582722cef27e6c84, type: 2}
+  - {fileID: 11400000, guid: db62d1c472a114e1f82bc85470cc702a, type: 2}
+  - {fileID: 11400000, guid: c0e7b7c0b48be264faa584d418ecfa0c, type: 2}
+  - {fileID: 11400000, guid: 0b1114caeab8e3f43b53c96ed31784cb, type: 2}
+  - {fileID: 11400000, guid: c9479c566faf6a9439565abf6b7d5756, type: 2}
+  - {fileID: 11400000, guid: ae70b58de9e9b4b66a96ec3b3f5ef7a2, type: 2}
+  - {fileID: 11400000, guid: 98fab433b5ebf4907b6d6e8f234eff89, type: 2}
+  - {fileID: 11400000, guid: 3be1530f5a2714bcf9dd8fde9899ec01, type: 2}
+  - {fileID: 11400000, guid: 0b6886e9e53734ac582722cef27e6c84, type: 2}
+  - {fileID: 11400000, guid: c9479c566faf6a9439565abf6b7d5756, type: 2}
+  - {fileID: 11400000, guid: db62d1c472a114e1f82bc85470cc702a, type: 2}
+  - {fileID: 11400000, guid: 6747876465e3b4a51ae0c1e2084926b7, type: 2}
+  - {fileID: 11400000, guid: ae70b58de9e9b4b66a96ec3b3f5ef7a2, type: 2}
+  - {fileID: 11400000, guid: 3be1530f5a2714bcf9dd8fde9899ec01, type: 2}
+  - {fileID: 11400000, guid: 0b6886e9e53734ac582722cef27e6c84, type: 2}
   - {fileID: 11400000, guid: d704c0c00caa046a6940479373418cb0, type: 2}
+  - {fileID: 11400000, guid: 6a3d7a73fd2394080a7d0bdfbc69ea02, type: 2}
   nextScene: 
   currentState: {fileID: 0}
+  tricksPerRound: 01000000030000000400000005000000
 --- !u!4 &425184113
 Transform:
   m_ObjectHideFlags: 0
@@ -6137,7 +6157,7 @@ PrefabInstance:
       objectReference: {fileID: 2046844742}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.size
-      value: 15
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].name
@@ -6145,87 +6165,155 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[1].name
-      value: draw_wild_card
+      value: initialize_round_1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[2].name
-      value: deal_player_cards
+      value: shuffle_deck_1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[3].name
-      value: win_1
+      value: deal_player_cards_1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[4].name
-      value: win_2
+      value: opponent_hand_dealt_1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[5].name
-      value: win_3
+      value: win_trick_1_round_1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[6].name
-      value: win_4
+      value: lose_trick_1_round_1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[7].name
-      value: win_5
+      value: shuffle_deck_2
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[8].name
-      value: lose_1
+      value: deal_player_cards_2
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[9].name
-      value: lose_2
+      value: place_bet_2
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[10].name
-      value: lose_3
+      value: win_round_2
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[11].name
-      value: lose_4
+      value: lose_round_2
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[12].name
-      value: lose_5
+      value: shuffle_deck_3
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[13].name
-      value: win_round
+      value: show_devil
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[14].name
-      value: lose_round
+      value: show_imp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[15].name
+      value: win_round_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[16].name
+      value: lose_round_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].name
+      value: shuffle_deck_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[18].name
+      value: draw_wild_card_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[19].name
+      value: win_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[20].name
+      value: win_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[21].name
+      value: win_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[22].name
+      value: win_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[23].name
+      value: lose_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[24].name
+      value: lose_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[25].name
+      value: lose_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[26].name
+      value: lose_5
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.size
-      value: 3
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
-      propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.size
+      propertyPath: dialoguePhases.Array.data[2].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[3].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[4].dialogueLines.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[6].dialogueLines.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[7].dialogueLines.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
-      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.size
+      propertyPath: dialoguePhases.Array.data[8].dialogueLines.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[9].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.size
@@ -6240,140 +6328,480 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[15].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[16].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[18].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[19].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[20].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[21].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[22].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[23].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[24].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[25].dialogueLines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[26].dialogueLines.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[0].line
+      value: Mark Lachance. I bid you a solemn welcome.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[1].line
+      value: Wha -- Where am I? Who -- what are you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[2].line
+      value: I am the Shepherd, here to guide you Beyond.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[3].line
-      value: The object of the game is to bet on how good your hand is.
+      value: No. No, no no, this can't... you're lying! This is a dream! Or... or
+        a prank! Or... or...
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[4].line
-      value: Place a bet on how many cards you'll win.
+      value: I wish it were so.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[5].line
-      value: Place a bet on how many cards you'll win.
+      value: ... That Al Capone wannabe son of a ... He killed me!?
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[6].line
-      value: Place a bet on how many cards you'll win.
+      value: (nods solemnly)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[7].line
+      value: 'So it''s all real? Heaven and Hell and all that bull? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[8].line
+      value: It is not precisely what you were taught as a boy. But yes, by a measure.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[9].line
+      value: And you're, what? Here to take me to Hell?
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[0].line
-      value: This card represents the TRUMP. It's suit beats every other suit.
+      value: Take a seat. I'll teach you.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[1].line
-      value: We'll set this card aside.
+      value: You're serious?
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[2].line
-      value: Next, I'll deal you some cards.
+      value: 'Deadly. '
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[2].dialogueLines.Array.data[0].line
-      value: The object of the game is to bet on how good your hand is.
+      value: The locals call this "Devil's Tricks".
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[2].dialogueLines.Array.data[1].line
-      value: Place a bet on how many cards you'll win.
+      value: We'll set this card aside.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[2].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[3].dialogueLines.Array.data[0].line
-      value: First trick goes to you.
+      value: 'Knowing you as I do, I''m sure you''ll catch on quick. '
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[3].dialogueLines.Array.data[1].line
-      value: Second trick, here we go.
+      value: Place a bet on how many cards you'll win.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[3].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[4].dialogueLines.Array.data[0].line
-      value: Second trick goes to you.
+      value: 'This is called a "Trick". A round consists of as many Tricks as cards
+        you are dealt. '
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[4].dialogueLines.Array.data[1].line
-      value: Third Trick, here we go.
+      value: We'll start with a one-Trick round. Now, select your card, then play
+        it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[4].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.data[0].line
-      value: Third trick, goes to you.
+      value: Your card was stronger than all three of mine, the Trick is yours.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.data[1].line
-      value: Halfway there, don't lose your cool
+      value: Second trick, here we go.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[6].dialogueLines.Array.data[0].line
-      value: Fourth trick is your.
+      value: 'Bad luck, my friend. Your card failed to beat all three of mine. '
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[6].dialogueLines.Array.data[1].line
-      value: Only one more to go.
+      value: Second trick
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[6].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[7].dialogueLines.Array.data[0].line
-      value: Final trick, is yours!
+      value: Let's try a true round.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[7].dialogueLines.Array.data[1].line
-      value: Second trick
+      value: We'll set this card aside.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[7].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[8].dialogueLines.Array.data[0].line
-      value: First trick is mine.
+      value: The aim is to wager exactly how many Tricks your hand can beat, no more,
+        and no less, using each of your cards only once.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[8].dialogueLines.Array.data[1].line
-      value: Second trick
+      value: This is a friendly wager, no stakes. The demons you play will be far
+        less forgiving.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[8].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[9].dialogueLines.Array.data[0].line
-      value: Second trick goes to me.
+      value: 'Now, given your hand, how many Tricks do you wager you can win? '
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[9].dialogueLines.Array.data[1].line
-      value: Third trick...
+      value: We'll set this card aside.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[9].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[10].line
+      value: So quick to assume that's where you belong?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[11].line
+      value: I know the kind of man I am... was.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[12].line
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[13].line
+      value: 'Interesting. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[14].line
+      value: 'You''re not entirely wrong, Mr. Lachance. I am bid to take you Below.
+        But you have no idea how closely the scales weighed you. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[15].line
+      value: Can't have been that close.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[16].line
+      value: No? You believe your sins were enough to damn you for eternity?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[17].line
+      value: 'It''s rare for one''s scales to be so nearly at a balance. There may
+        be hope for you yet, if you play your cards right. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[18].line
+      value: 'What does that mean? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[19].line
+      value: 'I believe that The Lord of All-Hell may hear your case, if you can
+        reach him. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[20].line
+      value: 'What, like the Devil? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[21].line
+      value: Some know him thusly. Some Pagans know him as Glasya-Labolas. He has
+        many names. And he is your only chance
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[22].line
+      value: Well. Guess I've got less than nothing to lose.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[23].line
+      value: So, what? I just wander over and ask him to cut me a break?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[24].line
+      value: 'Not quite. He resides in the deepest ring of Hell. Reaching him will
+        not be an easy feat but... I understand you''re a daft hand at cards. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[25].line
+      value: 'Uh, yeah, that''s what got me into this mess. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[26].line
+      value: 'Do you think so? '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[27].line
+      value: Hmm.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[28].line
+      value: ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[29].line
+      value: 'Well, my dear friend, there''s a popular game amongst the denizens
+        of Hell. Since you''re so fond of a wager, it may be your best way through. '
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[0].line
-      value: My cards win me the third trick.
+      value: 'You learn quickly. Not so different from the games you knew above,
+        hm? '
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[1].line
-      value: Better luck next time
+      value: "Yeah, it's simple enough.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[2].line
+      value: Then let's make it more complex, shall we?
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[0].line
-      value: I claim the penultimate trick.
+      value: 'You learn quickly. Not so different from the games you knew above,
+        hm? '
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[1].line
-      value: What fate awaits you in this final trick?
+      value: "Yeah, it's simple enough.\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[2].line
+      value: Then let's make it more complex, shall we?
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.data[0].line
-      value: Final trick is mine, my friend.
+      value: As you can see, most of the cards we play with are familiar to you,
+        but there are two cards unique to Hell's Decks.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.data[1].line
-      value: How about we go again?
+      value: A Devil Card beats every other card in the deck.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[13].dialogueLines.Array.data[0].line
-      value: Nice work, you got what you bet. I concede defeat.
+      value: These cards are special.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[13].dialogueLines.Array.data[1].line
-      value: How about we go again?
+      value: A Devil Card beats every other card in the deck.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[13].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[14].dialogueLines.Array.data[0].line
-      value: Oh too bad, looks like you missed your mark.
+      value: The Imp Card loses to every other.
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[14].dialogueLines.Array.data[1].line
-      value: You lose this time, but how about we try again?
+      value: Now, let us play another round.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[14].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[15].dialogueLines.Array.data[0].line
+      value: 'You''re doing well. I truly believe you have a chance to save your
+        soul. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[15].dialogueLines.Array.data[1].line
+      value: 'You''re doing well. I truly believe you have a chance to save your
+        soul. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[15].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[16].dialogueLines.Array.data[0].line
+      value: 'You''re doing well. I truly believe you have a chance to save your
+        soul. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[16].dialogueLines.Array.data[1].line
+      value: 'You''re doing well. I truly believe you have a chance to save your
+        soul. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[16].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[0].line
+      value: And you're so sure I deserve it?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[1].line
+      value: You're so sure you don't?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[2].line
+      value: 'Devil''s Trick has one more rule for you to learn. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[18].dialogueLines.Array.data[0].line
+      value: 'Each round begins with a Devil''s Draw. It determines the round''s
+        winning suit. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[18].dialogueLines.Array.data[1].line
+      value: The lowest card of the chosen suit will beat even the highest of any
+        other.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[18].dialogueLines.Array.data[2].line
+      value: Next, I'll deal you some cards.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[19].dialogueLines.Array.data[0].line
+      value: Second trick goes to you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[19].dialogueLines.Array.data[1].line
+      value: Third Trick, here we go.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[20].dialogueLines.Array.data[0].line
+      value: Third trick, goes to you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[20].dialogueLines.Array.data[1].line
+      value: Halfway there, don't lose your cool
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[21].dialogueLines.Array.data[0].line
+      value: Fourth trick is your.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[21].dialogueLines.Array.data[1].line
+      value: Only one more to go.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[22].dialogueLines.Array.data[0].line
+      value: Final trick, is yours!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[22].dialogueLines.Array.data[1].line
+      value: Third trick...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[23].dialogueLines.Array.data[0].line
+      value: Second trick goes to me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[23].dialogueLines.Array.data[1].line
+      value: Third trick...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[24].dialogueLines.Array.data[0].line
+      value: My cards win me the third trick.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[24].dialogueLines.Array.data[1].line
+      value: Better luck next time
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[25].dialogueLines.Array.data[0].line
+      value: I claim the penultimate trick.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[25].dialogueLines.Array.data[1].line
+      value: What fate awaits you in this final trick?
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[26].dialogueLines.Array.data[0].line
+      value: Final trick is mine, my friend.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[0].startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[1].startDelay
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[3].startDelay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[4].startDelay
@@ -6381,10 +6809,426 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[5].startDelay
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
       propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[6].startDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[7].startDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[8].startDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[0].startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[13].startDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[23].startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[24].startDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[2].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[3].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[4].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[5].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[6].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[7].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[8].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[9].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[2].startDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[2].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[2].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[3].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[4].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[4].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[5].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[6].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[7].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[8].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[8].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[9].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[10].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[11].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[12].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[13].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[14].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[15].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[16].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[17].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[18].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[19].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[20].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[21].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[22].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[23].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[24].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[25].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[26].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[27].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[28].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[29].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[2].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[2].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[12].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[13].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[13].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[14].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[14].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[15].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[15].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[16].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[16].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[2].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[18].dialogueLines.Array.data[0].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[18].dialogueLines.Array.data[1].letterDelay
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[0].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[1].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[2].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[3].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[4].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[5].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[6].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[7].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[8].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[9].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[1].dialogueLines.Array.data[1].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[10].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[11].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[12].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[14].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[15].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[16].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[18].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[19].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[20].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[21].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[22].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[23].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[24].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[25].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[26].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[27].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[28].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[0].dialogueLines.Array.data[29].isProtagonist
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[10].dialogueLines.Array.data[1].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[11].dialogueLines.Array.data[1].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[0].isProtagonist
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
+      propertyPath: dialoguePhases.Array.data[17].dialogueLines.Array.data[1].isProtagonist
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5098344653010832737, guid: 604486df3002ec74d83f32e29b39cd89, type: 3}
@@ -6665,7 +7509,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219609531449436975, guid: 06f266811b22d734fa995a00acb31bc1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.87
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 9219609531449436975, guid: 06f266811b22d734fa995a00acb31bc1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

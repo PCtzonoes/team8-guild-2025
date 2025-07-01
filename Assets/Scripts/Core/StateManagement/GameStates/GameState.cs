@@ -85,7 +85,7 @@ namespace Core.StateManagement
 
     public class GameStateProperties
     {
-        public int InitialPlayerHandSize { get; private set; } = 5;
+        public int InitialPlayerHandSize { get; set; }
         
         public int TricksPlayed { get; set; } = 0;
 

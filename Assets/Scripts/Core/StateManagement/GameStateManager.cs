@@ -23,7 +23,9 @@ namespace Core.StateManagement
         [SerializeField] private string nextScene;
 
         [SerializeField] GameState currentState;
-        
+
+        public int[] tricksPerRound;
+
         private int chainIndex = 0;
         
         private void Start()

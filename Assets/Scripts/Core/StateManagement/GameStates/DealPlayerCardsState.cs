@@ -17,7 +17,7 @@ namespace Core.StateManagement.States
             Debug.Log("[DealPlayerCardsState] Executing state action...");
         
             _playerContinued = false;
-            dialogueEvents.TriggerDialogueByName(StateName);
+            dialogueEvents.TriggerDialogueByName(StateName + "_" + Properties.RoundsPlayed);
             
             _completedPlayerAction = false;
             roundManager.DrawPlayerHand(Properties);

@@ -1,5 +1,7 @@
+using DefaultNamespace.Events;
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Core.StateManagement.States
 {
@@ -15,11 +17,27 @@ namespace Core.StateManagement.States
         public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
             _playerContinued = false;
-            dialogueEvents.TriggerDialogueByName(StateName);            
+            dialogueEvents.TriggerDialogueByName(StateName + "_" + Properties.RoundsPlayed);            
             _completedPlayerAction = false;
-            roundManager.SetTrumpCard(Properties);
-            yield return WaitForPlayerAction();
+            //roundManager.SetTrumpCard(Properties);
+            
+            Card wildCard = roundManager.deckManager.DrawCardsFromDeck(1)[0];
+            if (wildCard.cardSuit != "hearts" && wildCard.cardSuit != "clubs" && wildCard.cardSuit != "diamonds" && wildCard.cardSuit != "spades")
+            {
+                wildCard.cardSuit = "spades";
+                wildCard.cardRank = 14;
+                wildCard.RenderCard();
+            }
+
+            roundManager.wildCardSuit = wildCard.cardSuit;
+
+            wildCard.transform.SetParent(roundManager.transform);
+            wildCard.AnimOnMoveAndRotate(roundManager.WildCardPosition, roundManager.WildCardRotation, 0.1f);
+
+            GameEvents.SetWildCardSuit(roundManager.wildCardSuit);
             yield return WaitForDialogueEnd();
+            yield return new WaitForSeconds(1f);
+            wildCard.AnimOnMoveAndRotate(roundManager.DiscardPosition, Quaternion.identity, 0f);
             StateManager.NextState();
         }
     }

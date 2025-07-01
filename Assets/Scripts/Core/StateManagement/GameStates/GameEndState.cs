@@ -14,7 +14,19 @@ namespace Core.StateManagement.States
 
         public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
-            yield return new WaitForSeconds(0.2f);
+            Defaulter defaulter = FindAnyObjectByType<Defaulter>();
+            defaulter.FuckGoBack();
+            _playerContinued = false;
+            Debug.LogWarning("win_round_" + Properties.RoundsPlayed);
+            if (Properties.IsPlayerRoundWinner == true)
+            {
+                dialogueEvents.TriggerDialogueByName("win_round_" + Properties.RoundsPlayed);
+            }
+            else
+            {
+                dialogueEvents.TriggerDialogueByName("lose_round_" + Properties.RoundsPlayed);
+            }
+            yield return WaitForDialogueEnd();
             StateManager.NextState();
         }
     }

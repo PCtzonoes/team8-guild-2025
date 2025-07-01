@@ -1,5 +1,80 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &947729570071852977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3274956462342272536}
+  - component: {fileID: 2724079841222238873}
+  - component: {fileID: 8200640389965072875}
+  m_Layer: 5
+  m_Name: Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3274956462342272536
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947729570071852977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3718096427520563349}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2724079841222238873
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947729570071852977}
+  m_CullTransparentMesh: 1
+--- !u!114 &8200640389965072875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947729570071852977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 8c327072ad360334b82aab07ad5ce9b2, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5574751857675172881
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +86,7 @@ GameObject:
   - component: {fileID: 3111656816254533721}
   - component: {fileID: 9027372137070599532}
   - component: {fileID: 8120665705451300008}
+  - component: {fileID: 5105441749351213955}
   m_Layer: 0
   m_Name: Dolumon
   m_TagString: Untagged
@@ -31,7 +107,7 @@ Transform:
   m_LocalScale: {x: 2.144336, y: 1.84, z: 1.84}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5147569022043521249}
+  - {fileID: 3718096427520563349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9027372137070599532
@@ -46,356 +122,147 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92bae4083485a9d4eadf1d07c45335ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultStartDelay: 0.1
-  _defaultLetterDelay: 0.02
-  _startOnLoad: 1
+  dialogueEvents: {fileID: 0}
+  _dialogueManager: {fileID: 0}
   dialoguePhases:
   - name: Phase 1
-    isBark: 0
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: StartRound
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
     dialogueLines:
     - startDelay: 0.1
       letterDelay: 0
       line: Oh, you're back so soon?
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: I suppose I could use the company.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: There's always room at my table for a game of Devil's Tricks.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Win 1
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: First trick goes to you.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Second trick, here we go.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Win 2
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: Second trick goes to you.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Third Trick, here we go.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Win 3
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: Third trick, goes to you.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Halfway there, don't lose your cool
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Win 4
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: Fourth trick is your.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Only one more to go.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Win 5
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: Final trick, is yours!
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Lose 1
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: First trick is mine.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Second trick
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Lose 2
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: Second trick goes to me.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Third trick...
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Lose 3
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: My cards win me the third trick.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Better luck next time
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Lose 4
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: I claim the penultimate trick.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: What fate awaits you in this final trick?
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Lose 5
-    isBark: 1
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls: []
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: Final trick is mine, my friend.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Winning the Round
-    isBark: 0
-    isFinal: 0
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UIRoot, Assembly-CSharp
-          m_MethodName: ToggleActivate
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: WorldMapMenu, Assembly-CSharp
-          m_MethodName: ToggleButtonFocusable
-          m_Mode: 5
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: limboExit
-            m_BoolArgument: 1
-          m_CallState: 2
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: Nice work, you got what you bet. I concede defeat.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: Defaulter, Assembly-CSharp
-            m_MethodName: FuckGoBack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Be weary, the journey ahead of you won't be as easy.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: The gates to the domain of Dolumon have been opened.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
   - name: Losing the Round
-    isBark: 0
-    isFinal: 1
-    chance: 100
-    OnDialogueEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UIRoot, Assembly-CSharp
-          m_MethodName: ToggleActivate
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
     dialogueLines:
     - startDelay: 0
       letterDelay: 0
       line: Oh too bad, looks like you missed your mark.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 0}
-            m_TargetAssemblyTypeName: Defaulter, Assembly-CSharp
-            m_MethodName: FuckGoBack
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: You won't last long in Hell if you cannot even best my luck.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: Wander for a while here in Limbo.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
+      isProtagonist: 0
     - startDelay: 0
       letterDelay: 0
       line: I'll be waiting here when you're ready to try again.
-      OnLineStart:
-        m_PersistentCalls:
-          m_Calls: []
-  _currentPhase: 1
-  currentBark: 1
+      isProtagonist: 0
 --- !u!114 &8120665705451300008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +276,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rule: Desguise some cards in the player hand
---- !u!1 &6431591109059501360
+--- !u!95 &5105441749351213955
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5574751857675172881}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 92122a6d90e7072469b39accfdc0b40f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &6801662938764558195
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -417,101 +305,97 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5147569022043521249}
-  - component: {fileID: 8246609664878047343}
-  - component: {fileID: 413197509335368236}
-  - component: {fileID: 8264593050857825574}
-  m_Layer: 0
-  m_Name: Quad
+  - component: {fileID: 3718096427520563349}
+  - component: {fileID: 2303863849326061789}
+  - component: {fileID: 1493454785318597764}
+  - component: {fileID: 4006701552257292475}
+  m_Layer: 5
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5147569022043521249
-Transform:
+--- !u!224 &3718096427520563349
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431591109059501360}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 6801662938764558195}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 6, z: 3}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_LocalScale: {x: 0.46634483, y: 0.54347825, z: 0.54347825}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3274956462342272536}
   m_Father: {fileID: 3111656816254533721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8246609664878047343
-MeshFilter:
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 6.35, y: 10}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!223 &2303863849326061789
+Canvas:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431591109059501360}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &413197509335368236
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431591109059501360}
+  m_GameObject: {fileID: 6801662938764558195}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 7cc1dd160051df842adc4bfc684c026a, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8264593050857825574
-MeshCollider:
+  m_TargetDisplay: 0
+--- !u!114 &1493454785318597764
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6431591109059501360}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_GameObject: {fileID: 6801662938764558195}
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!114 &4006701552257292475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801662938764558195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295

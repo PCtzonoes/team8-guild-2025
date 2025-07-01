@@ -13,7 +13,7 @@ public class RoundManager : MonoBehaviour
     public readonly Quaternion WildCardRotation = Quaternion.Euler(40f, 0.0f, 0.0f);
     public readonly Vector3 DiscardPosition = new Vector3(10.0f, 10.0f, 10.0f);
 
-    [SerializeField] private DeckManager deckManager;
+    [SerializeField] public DeckManager deckManager;
     [SerializeField] private PlayerHand playerHand;
     [SerializeField] private TrickManager trickManager;
     [SerializeField] private DialogueEvents dialogueEvents;
@@ -98,8 +98,6 @@ public class RoundManager : MonoBehaviour
 
             if (tricksWon > _targetTrickWins)
             {
-                dialogueEvents.TriggerDialogueByName("lose_round");
-                GameState.Properties.IsPlayerLastTrickWinner = false;
                 GameState.Properties.IsRoundEnded = true;
                 gameActionEvent.ActionEnd();
                 return;
@@ -111,12 +109,10 @@ public class RoundManager : MonoBehaviour
         {
             if (tricksWon != _targetTrickWins)
             {
-                GameState.Properties.IsPlayerLastTrickWinner = true;
                 GameState.Properties.IsRoundEnded = true;
             }
             else
             {
-                GameState.Properties.IsPlayerLastTrickWinner = true;
                 GameState.Properties.IsRoundEnded = true;
             }
         }

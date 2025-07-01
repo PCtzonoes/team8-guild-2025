@@ -110,6 +110,7 @@ public class TrickManager : MonoBehaviour
     {
         opponentHand.RevealCard();
         bool isPlayerWinner = DidPlayerWinTrick();
+        //Debug.LogWarning(isPlayerWinner);
         GameEvents.EndTrick(isPlayerWinner);
     }
 
@@ -136,7 +137,8 @@ public class TrickManager : MonoBehaviour
         {
             return false;
         }
-        
+
+        //Debug.LogWarning(!opponentHand.cardsInHand.Any(card => card.cardRank >= playedCard.cardRank));
         return !opponentHand.cardsInHand.Any(card => card.cardRank >= playedCard.cardRank);
     }
     
@@ -164,6 +166,7 @@ public class TrickManager : MonoBehaviour
         }
 
         playedCard?.gameObject.SetActive(false);
+        //playedCard.transform.position -= _graveyard;
 
         opponentHand.cardsInHand.Clear();
 

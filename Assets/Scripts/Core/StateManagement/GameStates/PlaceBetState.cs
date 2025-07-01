@@ -16,7 +16,7 @@ namespace Core.StateManagement.States
             Debug.Log("[GameStateManager] DID GET HERE!");
         
             _playerContinued = false;
-            dialogueEvents.TriggerDialogueByName(StateName);
+            dialogueEvents.TriggerDialogueByName(StateName + "_" + Properties.RoundsPlayed);
             yield return WaitForDialogueEnd();
         
             Debug.Log("[GameStateManager] Executing state action...");

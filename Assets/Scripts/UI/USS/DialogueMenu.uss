@@ -8,6 +8,22 @@
 }
 
 .line {
-    -unity-text-align: middle-center;
-    font-size: 45px;
+    -unity-text-align: upper-left;
+    font-size: 35px;
+    position: absolute;
+    width: 488px;
+    background-color: rgb(255, 255, 255);
+    height: 283px;
+    padding-top: 45px;
+    padding-right: 45px;
+    padding-bottom: 45px;
+    padding-left: 45px;
+    white-space: normal;
+    transition-duration: 0.1s;
+}
+
+.line-inactive {
+    opacity: 1;
+    transition-duration: 0.05s;
+    scale: 0 0;
 }

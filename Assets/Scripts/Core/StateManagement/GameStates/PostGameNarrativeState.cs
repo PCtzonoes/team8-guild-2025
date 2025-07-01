@@ -11,7 +11,7 @@ namespace Core.StateManagement.States
     {
         protected override GameStateManager StateManager { get; set; }
         //public new string StateName = "post_game_narrative";
-        
+
         public override IEnumerator PerformStateRoutine(RoundManager roundManager)
         {
             _playerContinued = false;

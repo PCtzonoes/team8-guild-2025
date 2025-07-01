@@ -33,12 +33,16 @@ namespace Core.StateManagement.GameStates
             
             _completedPlayerAction = false;
             roundManager.InitializeTrick(Properties);
+
+            _playerContinued = false;
+            dialogueEvents.TriggerDialogueByName($"opponent_hand_dealt_" + Properties.RoundsPlayed);
+            yield return WaitForDialogueEnd();
+
             yield return WaitForPlayerAction();
-        
             yield return new WaitForSeconds(0.5f);
             
             _playerContinued = false;
-            dialogueEvents.TriggerDialogueByName($"{(Properties.IsPlayerLastTrickWinner ? "win" : "lose")}_{Properties.TricksPlayed}");
+            dialogueEvents.TriggerDialogueByName($"{(Properties.IsPlayerLastTrickWinner ? "win" : "lose")}_trick_{Properties.TricksPlayed}_round_{Properties.RoundsPlayed}");
             yield return WaitForDialogueEnd();
             Debug.Log("[GameStateManager] State routine complete, calling callback");
             StateManager.NextState();

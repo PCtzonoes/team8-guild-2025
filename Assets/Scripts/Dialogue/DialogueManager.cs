@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
         if (scrolling == true)
         {
             _dialogueMenu.scrolling = false;
-            _dialogueMenu.UpdateLine(_dialogue.dialogueLines[_currentLine].line);
+            _dialogueMenu.UpdateLine(_dialogue.dialogueLines[_currentLine].line, _dialogue.dialogueLines[_currentLine].isProtagonist);
         }
         else
         {
@@ -78,7 +78,7 @@ public class DialogueManager : MonoBehaviour
         try
         {
             _stringBuilder.Clear();
-            _dialogueMenu.UpdateLine("");
+            _dialogueMenu.UpdateLine("", _dialogue.dialogueLines[_currentLine].isProtagonist);
 
             // apply the letter delay for this line
             float letterDelay = _dialogue.dialogueLines[_currentLine].letterDelay;
@@ -90,7 +90,7 @@ public class DialogueManager : MonoBehaviour
             {
                 char newChar = line[i];
                 _stringBuilder.Append(newChar);
-                _dialogueMenu.UpdateLine(_stringBuilder.ToString());
+                _dialogueMenu.UpdateLine(_stringBuilder.ToString(), _dialogue.dialogueLines[_currentLine].isProtagonist);
 
                 float waitTime = letterDelay;
                 if (newChar == ',')
