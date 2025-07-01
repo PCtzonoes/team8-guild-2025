@@ -50,7 +50,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 5442443367806147706}
   cacheVersion: 131848
-  cacheTime: 638862962940327897
+  cacheTime: 638869102914437863
   SerializableEventsDict:
   - key: event:/Test
     index: 0
@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: FMOD/DevilishTricks/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638862962940327897
+  lastModified: 638869102914437863
   FileSizes:
   - Name: Desktop
     Value: 766
@@ -89,7 +89,7 @@ MonoBehaviour:
   Path: FMOD/DevilishTricks/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638862962940317925
+  lastModified: 638869102914437863
   FileSizes:
   - Name: Desktop
     Value: 1612
